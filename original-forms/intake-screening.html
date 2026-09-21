@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Intake Screening Tool</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f5f0;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #5a381e;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      font-weight: 700;
+    }
+
+    h2 {
+      background-color: #5a381e;
+      color: #fff;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 40px;
+      font-size: 1.2em;
+    }
+
+    h3 {
+      color: #5a381e;
+      margin-top: 30px;
+      font-weight: 600;
+    }
+
+    .form-section {
+      border: 1px solid #5a381e;
+      border-radius: 8px;
+      padding: 25px;
+      margin-bottom: 30px;
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgba(90, 56, 30, 0.15);
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .form-row label {
+      flex: 0 0 220px;
+      margin-right: 15px;
+      font-weight: 600;
+      color: #5a381e;
+    }
+
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+      flex: 1;
+      padding: 10px 12px;
+      border: 1.8px solid #d6cbb1;
+      border-radius: 6px;
+      font-size: 1em;
+      background-color: #fcfcfb;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-row input:focus,
+    .form-row select:focus,
+    .form-row textarea:focus {
+      border-color: #5a381e;
+      box-shadow: 0 0 6px rgba(90, 56, 30, 0.6);
+      outline: none;
+      background-color: #fff;
+    }
+
+    .form-row textarea {
+      resize: vertical;
+      min-height: 60px;
+      line-height: 1.4;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .two-column .form-row {
+      margin-bottom: 20px;
+    }
+
+    .button-row {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    button {
+      background-color: #5a381e;
+      color: #fff;
+      padding: 12px 30px;
+      margin: 5px 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 2px 8px rgba(90, 56, 30, 0.4);
+    }
+
+    button:hover {
+      background-color: #7a5333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.95em;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    th, td {
+      border: 1px solid #d6cbb1;
+      padding: 12px 10px;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #eee3d4;
+      text-align: center;
+      color: #5a381e;
+      font-weight: 700;
+    }
+
+    td input[type="checkbox"] {
+      display: block;
+      margin: 0 auto;
+      transform: scale(1.3);
+      cursor: pointer;
+    }
+
+    td input[type="text"],
+    td input[type="date"] {
+      width: calc(100% - 18px);
+      padding: 6px 8px;
+      border: 1.5px solid #d6cbb1;
+      border-radius: 5px;
+      font-size: 0.95em;
+      background-color: #fcfcfb;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+
+    td input[type="text"]:focus,
+    td input[type="date"]:focus {
+      border-color: #5a381e;
+      box-shadow: 0 0 6px rgba(90, 56, 30, 0.6);
+      outline: none;
+      background-color: #fff;
+    }
+
+    td textarea.full-width {
+      width: calc(100% - 18px);
+      padding: 6px 8px;
+      border: 1.5px solid #d6cbb1;
+      border-radius: 5px;
+      font-size: 0.95em;
+      background-color: #fcfcfb;
+      box-sizing: border-box;
+      resize: vertical;
+      min-height: 50px;
+      line-height: 1.3;
+      display: block;
+      margin: 0 auto;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    td textarea.full-width:focus {
+      border-color: #5a381e;
+      box-shadow: 0 0 6px rgba(90, 56, 30, 0.6);
+      outline: none;
+      background-color: #fff;
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .form-row label {
+        margin-bottom: 6px;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Intake Screening Tool</h1>
+
+  <h2>Section 1 - GENERAL</h2>
+  <div class="form-section two-column">
+    <div class="form-row">
+      <label for="referralDate">Date of Referral:</label>
+      <input type="date" id="referralDate" />
+    </div>
+    <div class="form-row">
+      <label for="reasonReferral">Referral Source/Reason:</label>
+      <input type="text" id="reasonReferral" />
+    </div>
+    <div class="form-row">
+      <label for="familyName">Family/Youth Name:</label>
+      <input type="text" id="familyName" />
+    </div>
+    <div class="form-row">
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" />
+    </div>
+    <div class="form-row">
+      <label for="gender">Gender:</label>
+      <input type="text" id="gender" />
+    </div>
+    <div class="form-row">
+      <label for="ethnicity">Ethnic Background:</label>
+      <input type="text" id="ethnicity" />
+    </div>
+    <div class="form-row">
+      <label for="address">Current Address:</label>
+      <input type="text" id="address" />
+    </div>
+    <div class="form-row">
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" />
+    </div>
+    <div class="form-row" style="grid-column: span 2;">
+      <label for="comments">Additional Comments:</label>
+      <textarea id="comments" rows="3" class="full-width"></textarea>
+    </div>
+  </div>
+
+  <h3>Family Members/Significant Contacts:</h3>
+  <div class="form-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Relationship</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody id="contactsTable">
+        <tr>
+          <td><input type="text" class="full-width" /></td>
+          <td><input type="text" class="full-width" /></td>
+          <td><input type="text" class="full-width" /></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="button-row">
+      <button type="button" onclick="addContact()">Add Entry</button>
+    </div>
+  </div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Intake Screening Tool</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f5f0;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #5a381e;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      font-weight: 700;
+    }
+
+    h2 {
+      background-color: #5a381e;
+      color: #fff;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 40px;
+      font-size: 1.2em;
+    }
+
+    h3 {
+      color: #5a381e;
+      margin-top: 30px;
+      font-weight: 600;
+    }
+
+    .form-section {
+      border: 1px solid #5a381e;
+      border-radius: 8px;
+      padding: 25px;
+      margin-bottom: 30px;
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgba(90, 56, 30, 0.15);
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .form-row label {
+      flex: 0 0 220px;
+      margin-right: 15px;
+      font-weight: 600;
+      color: #5a381e;
+    }
+
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+      flex: 1;
+      padding: 10px 12px;
+      border: 1.8px solid #d6cbb1;
+      border-radius: 6px;
+      font-size: 1em;
+      background-color: #fcfcfb;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-row input:focus,
+    .form-row select:focus,
+    .form-row textarea:focus {
+      border-color: #5a381e;
+      box-shadow: 0 0 6px rgba(90, 56, 30, 0.6);
+      outline: none;
+      background-color: #fff;
+    }
+
+    .form-row textarea {
+      resize: vertical;
+      min-height: 60px;
+      line-height: 1.4;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .two-column .form-row {
+      margin-bottom: 20px;
+    }
+
+    .button-row {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    button {
+      background-color: #5a381e;
+      color: #fff;
+      padding: 12px 30px;
+      margin: 5px 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 2px 8px rgba(90, 56, 30, 0.4);
+    }
+
+    button:hover {
+      background-color: #7a5333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.95em;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    th, td {
+      border: 1px solid #d6cbb1;
+      padding: 12px 10px;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #eee3d4;
+      text-align: center;
+      color: #5a381e;
+      font-weight: 700;
+    }
+
+    td input[type="checkbox"] {
+      display: block;
+      margin: 0 auto;
+      transform: scale(1.3);
+      cursor: pointer;
+    }
+
+    td input[type="text"],
+    td input[type="date"] {
+      width: calc(100% - 18px);
+      padding: 6px 8px;
+      border: 1.5px solid #d6cbb1;
+      border-radius: 5px;
+      font-size: 0.95em;
+      background-color: #fcfcfb;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+
+    td input[type="text"]:focus,
+    td input[type="date"]:focus {
+      border-color: #5a381e;
+      box-shadow: 0 0 6px rgba(90, 56, 30, 0.6);
+      outline: none;
+      background-color: #fff;
+    }
+
+    td textarea.full-width {
+      width: calc(100% - 18px);
+      padding: 6px 8px;
+      border: 1.5px solid #d6cbb1;
+      border-radius: 5px;
+      font-size: 0.95em;
+      background-color: #fcfcfb;
+      box-sizing: border-box;
+      resize: vertical;
+      min-height: 50px;
+      line-height: 1.3;
+      display: block;
+      margin: 0 auto;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    td textarea.full-width:focus {
+      border-color: #5a381e;
+      box-shadow: 0 0 6px rgba(90, 56, 30, 0.6);
+      outline: none;
+      background-color: #fff;
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .form-row label {
+        margin-bottom: 6px;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Intake Screening Tool</h1>
+
+  <h2>Section 1 - GENERAL</h2>
+  <div class="form-section two-column">
+    <div class="form-row">
+      <label for="familyName">Family/Youth Name:</label>
+      <input type="text" id="familyName" />
+    </div>
+    <div class="form-row">
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" />
+    </div>
+    <div class="form-row">
+      <label for="gender">Gender:</label>
+      <input type="text" id="gender" />
+    </div>
+    <div class="form-row">
+      <label for="ethnicity">Ethnic Background:</label>
+      <input type="text" id="ethnicity" />
+    </div>
+    <div class="form-row">
+      <label for="address">Current Address:</label>
+      <input type="text" id="address" />
+    </div>
+    <div class="form-row">
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" />
+    </div>
+    <div class="form-row">
+      <label for="referralDate">Date of Referral:</label>
+      <input type="date" id="referralDate" />
+    </div>
+    <div class="form-row">
+      <label for="reasonReferral">Referral Source/Reason:</label>
+      <input type="text" id="reasonReferral" />
+    </div>
+    <div class="form-row" style="grid-column: span 2;">
+      <label for="comments">Additional Comments:</label>
+      <textarea id="comments" rows="3" class="full-width"></textarea>
+    </div>
+  </div>
+
+ <h3>Family Members/Significant Contacts:</h3>
+  <div class="form-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Relationship</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody id="contactsTable">
+        <tr>
+          <td><input type="text" class="full-width" /></td>
+          <td><input type="text" class="full-width" /></td>
+          <td><input type="text" class="full-width" /></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="button-row">
+      <button type="button" onclick="addContact()">Add Entry</button>
+    </div>
+  </div>
+
+  <h2>Section 2 – Criteria Assessment</h2>
+  <div class="form-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Risk and Needs</th>
+          <th>Y</th>
+          <th>N</th>
+          <th>Unknown/N/A</th>
+          <th>Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Medical or developmental diagnosis defined by a physician</td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="text" class="full-width" /></td>
+        </tr>
+        <tr>
+          <td>Medical concerns that require specialized monitoring (e.g., seizures)</td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="text" class="full-width" /></td>
+        </tr>
+        <tr>
+          <td>Mental disorder/diagnosis defined by a physician</td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="text" class="full-width" /></td>
+        </tr>
+        <tr>
+          <td>History of suicidal ideation or behaviors</td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="text" class="full-width" /></td>
+        </tr>
+        <tr>
+          <td>History of self-harming behaviors (e.g., cutting, head banging)</td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="text" class="full-width" /></td>
+        </tr>
+        <tr>
+          <td>Substantial alcohol use posing risk</td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="text" class="full-width" /></td>
+        </tr>
+        <tr>
+          <td>Substance misuse posing risk</td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="text" class="full-width" /></td>
+        </tr>
+        <tr>
+          <td>Criminal justice involvement (e.g., drug trafficking, violence)</td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="text" class="full-width" /></td>
+        </tr>
+        <tr>
+          <td>Inflicted serious harm to others in past 6 months</td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="text" class="full-width" /></td>
+        </tr>
+        <tr>
+          <td>Current violent behavior (e.g., punching, biting)</td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="text" class="full-width" /></td>
+        </tr>
+        <tr>
+          <td>History of weapons use (e.g., guns, knives)</td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="text" class="full-width" /></td>
+        </tr>
+        <tr>
+          <td>History of fire setting</td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="text" class="full-width" /></td>
+        </tr>
+        <tr>
+          <td>Safety concerns during transport</td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="text" class="full-width" /></td>
+        </tr>
+        <tr>
+          <td>Involvement with other services (e.g., AISH, SFI, Mental Health)</td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="checkbox" /></td>
+          <td><input type="text" class="full-width" /></td>
+        </tr>
+        <tr>
+          <td>Length of Children Services involvement</td>
+          <td colspan="4"><input type="text" class="full-width" /></td>
+        </tr>
+        <tr>
+          <td>Other safety/risk concerns</td>
+          <td colspan="4"><textarea rows="2" class="full-width"></textarea></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Section 3 – Support System, Relationships, Connections</h2>
+  <div class="form-section">
+    <div class="form-row">
+      <label>Close family or meaningful connections:</label>
+      <textarea rows="3" class="full-width"></textarea>
+    </div>
+    <div class="form-row">
+      <label>Natural support such as friends, community:</label>
+      <textarea rows="3" class="full-width"></textarea>
+    </div>
+  </div>
+
+  <h2>Section 4 – Needs Assessment Comments</h2>
+  <div class="form-section">
+    <div class="form-row">
+      <label>General Comments:</label>
+      <textarea rows="3" class="full-width"></textarea>
+    </div>
+    <div class="form-row">
+      <label>4A - What is working well/ strengths:</label>
+      <textarea rows="5" class="full-width"></textarea>
+    </div>
+    <div class="form-row">
+      <label>4B - Areas of concern/ development:</label>
+      <textarea rows="5" class="full-width"></textarea>
+    </div>
+    <div class="form-row">
+      <label>4C - Risk mitigation plan:</label>
+      <textarea rows="5" class="full-width"></textarea>
+    </div>
+  </div>
+
+  <h2>Section 5 – Admissibility Determination (Internal Use Only)</h2>
+  <div class="form-section">
+    <div class="form-row" style="align-items: center;">
+      <label>The referral has been deemed admissible:</label>
+      <label style="margin-left: 20px;"><input type="checkbox" /> YES</label>
+      <label style="margin-left: 15px;"><input type="checkbox" /> NO</label>
+    </div>
+    <div class="form-row">
+      <label>Explanation for non-admissibility:</label>
+      <textarea rows="2" class="full-width"></textarea>
+    </div>
+  </div>
+
+ <h2>Section 6 – Preparation, Review & Authorization (Internal Use Only)</h2>
+  <table style="width:100%; border-collapse: collapse; font-family: Arial, sans-serif; margin-top: 20px;">
+    <thead>
+      <tr style="background-color: #f2e8dc;">
+        <th style="padding: 12px; text-align: left; color: #5a381e; font-weight: 600;">Prepared by (Name):</th>
+        <th style="padding: 12px; text-align: left; color: #5a381e; font-weight: 600;">Reviewed by (Name):</th>
+        <th style="padding: 12px; text-align: left; color: #5a381e; font-weight: 600;">Approved by (Name):</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 10px;">
+          <input type="text" />
+        </td>
+        <td style="padding: 10px;">
+          <input type="text" />
+        </td>
+        <td style="padding: 10px;">
+          <input type="text" />
+        </td>
+      </tr>
+      <tr style="background-color: #fff;">
+        <th style="padding: 12px; text-align: left; color: #5a381e; font-weight: 600;">Signature:</th>
+        <th style="padding: 12px; text-align: left; color: #5a381e; font-weight: 600;">Signature:</th>
+        <th style="padding: 12px; text-align: left; color: #5a381e; font-weight: 600;">Signature:</th>
+      </tr>
+      <tr>
+        <td style="padding: 10px;">
+          <input type="text" />
+        </td>
+        <td style="padding: 10px;">
+          <input type="text" />
+        </td>
+        <td style="padding: 10px;">
+          <input type="text" />
+        </td>
+      </tr>
+      <tr style="background-color: #f2e8dc;">
+        <th style="padding: 12px; text-align: left; color: #5a381e; font-weight: 600;">Date:</th>
+        <th style="padding: 12px; text-align: left; color: #5a381e; font-weight: 600;">Date:</th>
+        <th style="padding: 12px; text-align: left; color: #5a381e; font-weight: 600;">Date:</th>
+      </tr>
+      <tr>
+        <td style="padding: 10px;">
+          <input type="date" />
+        </td>
+        <td style="padding: 10px;">
+          <input type="date" />
+        </td>
+        <td style="padding: 10px;">
+          <input type="date" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Section 7 – Notifications</h2>
+  <div class="form-section">
+    <div class="form-row">
+      <label>Referring Agency (Primary):</label>
+      <input type="text" />
+    </div>
+    <div class="form-row">
+      <label>Referring Agency Contact Name:</label>
+      <input type="text" />
+    </div>
+    <div class="form-row">
+      <label>Date Advised:</label>
+      <input type="date" />
+    </div>
+    <div class="form-row">
+      <label>Notes/Comments:</label>
+      <textarea rows="3" class="full-width"></textarea>
+    </div>
+  </div>
+
+  <div class="button-row">
+    <button id="saveBtn">Save</button>
+    <button id="saveLockBtn">Save and Lock</button>
+    <button id="exportPdfBtn">Export as PDF</button>
+  </div>
+
+  <script>
+    function addContact() {
+      const table = document.getElementById("contactsTable");
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td><input type="text" class="full-width" /></td>
+        <td><input type="text" class="full-width" /></td>
+        <td><input type="text" class="full-width" /></td>`;
+      table.appendChild(row);
+    }
+
+    function saveData() {
+      alert("Data saved successfully!");
+    }
+
+    function saveAndLock() {
+      const elements = document.querySelectorAll("input, textarea, select");
+      elements.forEach(el => {
+        el.disabled = true;
+      });
+      alert("Form saved and locked. Editing is now disabled.");
+    }
+
+    function exportAsPDF() {
+      window.print();
+    }
+
+    document.getElementById("saveBtn").addEventListener("click", saveData);
+    document.getElementById("saveLockBtn").addEventListener("click", saveAndLock);
+    document.getElementById("exportPdfBtn").addEventListener("click", exportAsPDF);
+  </script>
+
+</body>
+</html>

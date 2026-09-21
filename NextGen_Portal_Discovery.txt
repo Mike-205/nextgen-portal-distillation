@@ -1,0 +1,3434 @@
+
+NextGen Support Services
+Staff Portal — Discovery Document
+Non-Technical Discovery
+Prepared: June 29, 2026
+
+
+Purpose of this document
+This document guides the discovery conversation with NextGen Support Services before any design or development begins. The goal is to understand exactly how things operate manually today: the people, the forms, the workflows, the pain points - so the portal we build reflects reality, not assumptions.
+We have already reviewed all 19 forms provided. The questions below go deeper - into the manual processes behind those forms, the decisions staff make, and the workflows that connect everything together.
+
+01 The People — Who Uses This Portal
+
+Understanding exactly who will use the portal determines what it needs to do, what they need to see, and how it needs to work.
+
+Q1
+Who are all the different types of staff in your organization?
+Why we're asking: We've seen roles implied across the forms — support workers, drivers, supervisors, coordinators. We need the full list so we can define access levels.
+→
+Every staff role title (e.g. Support Worker, Case Manager, Program Coordinator, Driver, On-Call Supervisor, Admin, Executive Director).
+
+NextGen Support Services Organizational Hierarchy
+Executive Director / Chief Executive Officer (CEO) 
+Director of Programs & Operations 
+Clinical Services Manager 
+Human Resources & Administration Manager 
+Finance & Corporate Services Manager 
+Quality Improvement & Compliance Manager 
+Community Partnerships & Development Manager 
+Program Managers 
+Group Living Program Manager 
+Family Living & Reunification Program Manager 
+Supported Independent Living (SIL) Program Manager 
+Respite Services Program Manager 
+Team Leaders / Supervisors 
+Clinical Professionals 
+Registered Psychologist 
+Registered Social Worker 
+Mental Health Therapist 
+Behaviour Consultant 
+Occupational Therapist 
+Speech-Language Pathologist 
+Nurse
+Family Support Workers 
+Child & Youth Care Workers (CYCWs) 
+Support Workers 
+Indigenous Cultural Coordinator / Cultural Liaison 
+Administrative & Compliance Staff 
+Finance & Payroll Officer 
+Human Resources Coordinator 
+Intake & Admissions Coordinator 
+Quality Assurance & Compliance Officer 
+Training & Staff Development Coordinator 
+Maintenance & Facilities Coordinator 
+Driver 
+Relief / Casual Staff 
+Practicum Students 
+Volunteers
+→
+How many staff total? How many per program/site?
+There is no predetermined staff limit per program or site. Staffing levels are based on client needs, licensing requirements, contractual obligations, and appropriate staff-to-client ratios to ensure safe and effective service delivery.
+→
+Are there contractors, part-time, or casual staff? Do they get the same access as full-time?
+Yes. NextGen Support Services may employ full-time, part-time, casual, relief, contract staff, practicum students, and approved consultants or contractors, depending on operational needs. All personnel who provide services on behalf of the organization are expected to meet the same standards of professionalism, confidentiality, ethical conduct, and compliance with agency policies and procedures.
+→
+Are there any external users — foster caregivers, kinship caregivers, partner agencies — who need portal access? 
+Answer / Notes:
+Yes. NextGen Support Services may grant portal access to approved external users, including foster caregivers, kinship caregivers, contracted service providers, and partner agencies, where access is necessary to support client care and service delivery.
+All approved external users are subject to the same onboarding, confidentiality, privacy, security, and compliance requirements as NextGen employees. Portal access will be role-based and limited to the information and functions necessary to perform their responsibilities. External users will be treated as regular staff with respect to training, professional conduct, documentation standards, and accountability while ensuring that access remains appropriate to their assigned role and responsibilities.
+
+Q2
+What does each role actually do day-to-day — specifically around paperwork and documentation?
+Why we're asking: The forms show what gets documented, but not who fills out which form, when, or how often.
+→
+Walk us through a typical shift for a front-line support worker. What forms do they fill out, and in what order?
+Typical Shift Workflow for a Front-Line Support Worker
+A front-line support worker is defined as any staff member who works directly one-on-one with clients and without any supervisory role. This includes all positions reporting below the Team Lead level, such as Child and Youth Care Workers, Support Workers, and other direct service roles. Front-line staff are responsible for providing daily client support, documenting services provided, monitoring client well-being, and reporting any concerns or incidents through approved documentation processes.
+Start of Shift
+At the beginning of each shift, the front-line support worker:
+Reviews Shift Information
+Reviews the shift checklist to confirm assigned responsibilities, scheduled activities, appointments, and any required follow-up tasks.
+Reviews relevant client information, including current goals, support needs, and risk considerations.
+Front-line staff have view-only access to:
+Individual Needs Assessment
+Healing Plan
+Intake Screening Tool
+These documents provide background information and guidance but cannot be edited, updated, or created by front-line staff.
+Completes Shift Checklist
+Confirms attendance, assigned client responsibilities, required tasks, and any required preparation before engaging with clients.
+
+During the Shift
+Throughout the shift, front-line support workers provide direct care and complete documentation based on client interactions, activities, and events.
+Client Interaction Documentation
+Depending on the nature of the interaction, staff complete the following forms:
+Daily Log
+Used to record routine daily activities, client participation, general observations, appointments, and significant events throughout the shift.
+Individual Contact Note
+Completed when documenting a specific one-on-one interaction with a client, including conversations, interventions, support provided, and client responses.
+Case Note
+Used for more detailed documentation related to client progress, concerns, behavioural changes, significant discussions, and service delivery.
+Noteworthy Report
+Used to document important observations, achievements, concerns, or events that require awareness but may not meet the threshold of an incident report.
+
+Health, Safety, and Incident Documentation
+Front-line workers are responsible for documenting health, safety, and risk-related information when applicable.
+Incident Report
+Completed when a critical or reportable incident occurs, including injuries, significant behavioural events, safety concerns, missing person events, or other situations requiring formal review.
+Emergency Preparedness Documentation
+Completed or updated when staff participate in emergency response activities, preparedness checks, or emergency-related procedures.
+Behaviour Tracker
+Used to monitor and document behavioural patterns, triggers, interventions used, and client responses to support behaviour planning.
+
+Medication and Household Responsibilities
+Where applicable, front-line staff complete:
+Medication Administration Record (MAR)
+Completed each time medication is administered, following medication administration policies and procedures.
+Grocery List
+Used to document household food and supply needs identified during the shift.
+Monthly Sharp Count Checklist
+Completed as scheduled to monitor and document the accountability and safety checks of restricted items.
+
+Client Activities and Engagement
+Monthly Activity Report
+Used to document client participation in planned activities, community engagement, skill development activities, and recreational opportunities.
+
+End of Shift
+Before ending their shift, the front-line support worker:
+Reviews completed documentation for accuracy and completeness.
+Ensures all required forms have been submitted.
+Communicates important updates, concerns, or follow-up needs to the incoming staff member and/or Team Lead.
+Completes any outstanding shift checklist requirements.
+Ensures documentation requiring Team Lead review has been flagged appropriately.
+
+Access Permissions Summary
+Document
+Front-Line Staff Access
+Daily Log
+Create, Edit, Update
+Case Note
+Create, Edit, Update
+Individual Contact Note
+Create, Edit, Update
+Noteworthy Report
+Create, Edit, Update
+Incident Report
+Create, Edit, Update
+Emergency Preparedness
+Create, Edit, Update
+Monthly Activity Report
+Create, Edit, Update
+Behaviour Tracker
+Create, Edit, Update
+Shift Checklist
+Create, Edit, Update
+Grocery List
+Create, Edit, Update
+Medication Administration Record (MAR)
+Create, Edit, Update
+Monthly Sharp Count Checklist
+Create, Edit, Update
+Individual Needs Assessment
+View Only
+Healing Plan
+View Only
+Intake Screening Tool
+View Only
+Front-line staff documentation responsibilities focus on recording direct service delivery and client interactions while maintaining appropriate boundaries around assessment, planning, and admission documents that require Team Lead or administrative-level authorization.
+→
+What does a supervisor or coordinator do with those completed forms — review them, sign off, file them?
+Supervisor/Coordinator Workflow for Reviewing Front-Line Documentation
+Supervisors and Coordinators are responsible for ensuring that documentation completed by front-line support workers is accurate, complete, timely, and aligned with agency policies, client care plans, and regulatory requirements.
+1. Documentation Review
+After front-line staff submit completed forms, the Supervisor/Coordinator reviews documentation for:
+Accuracy and completeness of information.
+Appropriate use of documentation types.
+Alignment between recorded services and the client’s support needs.
+Identification of changes in client behaviour, risks, progress, or emerging concerns.
+Compliance with documentation standards and confidentiality requirements.
+Documents reviewed may include:
+Daily Logs
+Case Notes
+Individual Contact Notes
+Noteworthy Reports
+Incident Reports
+Emergency Preparedness Documentation
+Behaviour Trackers
+Shift Checklists
+Medication Administration Records (MAR)
+Monthly Activity Reports
+Grocery Lists
+Monthly Sharp Count Checklists
+
+2. Verification and Follow-Up
+The Supervisor/Coordinator determines whether additional action is required.
+This may include:
+Requesting clarification or additional information from the staff member who completed the documentation.
+Following up with staff regarding missing, incomplete, or inconsistent entries.
+Identifying trends requiring additional supports, training, or updates to client strategies.
+Escalating concerns to the Director of Programs or appropriate leadership team.
+
+3. Approval and Sign-Off
+Depending on the type of documentation, the Supervisor/Coordinator may:
+Review and electronically sign off on completed documentation.
+Approve documentation to confirm it has been reviewed and meets agency standards.
+Add supervisory notes or comments where necessary.
+Verify that critical documents, such as Incident Reports and Medication Administration Records, have been completed according to policy.
+Certain documents may require additional review or approval from senior leadership depending on severity or organizational requirements.
+
+4. Client Record Management and Filing
+Once reviewed and approved, the Supervisor/Coordinator ensures documentation is:
+Properly filed within the client record system.
+Organized under the correct client profile and documentation category.
+Retained according to agency retention policies and applicable privacy legislation.
+Available for audits, quality assurance reviews, funding requirements, and care coordination when required.
+
+5. Supervisory Access to Client Planning Documents
+Supervisors/Coordinators have expanded access compared to front-line staff and may review, update, and manage:
+Individual Needs Assessments
+Healing Plans
+Intake Screening Tools
+Client goals and support strategies
+Risk assessments and service planning documents
+They ensure that front-line documentation reflects and supports the client’s approved care plan.
+
+Access and Responsibility Summary
+Document Category
+Supervisor/Coordinator Responsibility
+Daily Logs
+Review, approve/sign-off, monitor trends
+Case Notes
+Review, provide feedback, approve
+Individual Contact Notes
+Review and verify quality
+Noteworthy Reports
+Review and determine follow-up actions
+Incident Reports
+Review, investigate as required, escalate, approve
+Emergency Preparedness
+Review compliance and completion
+Behaviour Trackers
+Monitor patterns and update strategies when required
+Shift Checklists
+Verify completion and address gaps
+MAR
+Review accuracy and compliance
+Monthly Activity Reports
+Review participation and outcomes
+Grocery Lists
+Review as needed for household/client needs
+Monthly Sharp Count Checklist
+Verify completion and safety compliance
+Individual Needs Assessment
+View, update, manage
+Healing Plan
+View, update, manage
+Intake Screening Tool
+View, update, manage
+The Supervisor/Coordinator role ensures that front-line documentation is not only stored but actively used as a quality assurance tool to monitor client safety, progress, service effectiveness, and compliance with organizational standards.
+→
+Who fills out the clinical forms (Healing Plan, Needs Assessment)? Is that always a specific role or anyone?
+Responsibility for Clinical and Client Planning Documents
+Clinical and client planning documents, including the Healing Plan, Individual Needs Assessment, and Intake Screening Tool, are completed by designated supervisory or clinical roles with the appropriate training, experience, and authority to assess client needs and develop service plans.
+Front-line support workers do not create, edit, or update these documents. They have view-only access to ensure they understand client needs, goals, risk factors, and support strategies while providing direct care.
+Roles Responsible for Completing Clinical Documents
+1. Intake Screening Tool (To be completed during intake or 3 days after intake)
+Primary responsibility: Intake Coordinator, Program Manager, or designated Supervisor
+The designated intake role completes the Intake Screening Tool during the referral and admission process. This includes:
+Gathering information from the referral source, client, family, guardian, or other involved parties.
+Documenting client history, presenting concerns, strengths, risks, and service needs.
+Determining program suitability and required supports.
+Ensuring all required admission information is captured before services begin.
+
+2. Individual Needs Assessment (To be completed 7 days after intake)
+Primary responsibility: Program Manager, or Team Lead under supervisory direction
+The Individual Needs Assessment is completed after intake and provides a detailed understanding of the client’s:
+Developmental, emotional, social, and behavioural needs.
+Strengths and areas requiring support.
+Communication preferences.
+Safety considerations and risk factors.
+Daily living and independence goals.
+Family, cultural, and community support needs.
+The assigned role is responsible for ensuring the assessment remains current and is updated when significant changes occur.
+
+3. Healing Plan (To be completed 7 days after intake and every 3 months thereafter)
+Primary responsibility: Program Manager, or designated Supervisor
+The Healing Plan is developed based on the client’s assessment information and outlines:
+Client goals and desired outcomes.
+Trauma-informed support strategies.
+Therapeutic and relational approaches.
+Behavioural support approaches.
+Coping strategies and emotional regulation supports.
+Roles and responsibilities of the care team.
+Progress indicators and review timelines.
+Front-line staff contribute information through daily observations, case notes, behaviour tracking, and individual contact notes; however, they do not independently modify the Healing Plan.
+
+Role of Front-Line Staff in Clinical Documentation
+Front-line staff support the clinical planning process by:
+Reviewing client plans before providing services.
+Implementing strategies outlined in the Healing Plan.
+Documenting observations and client progress.
+Reporting changes in client needs, behaviours, or risks.
+Providing feedback during plan reviews.
+Their documentation helps supervisors and clinical staff determine whether updates to assessments or plans are required.
+
+Review and Approval Process
+Document
+Completed By
+Reviewed/Approved By
+Intake Screening Tool
+Intake Coordinator / Program Manager/ Supervisor
+Program Director or Designated Supervisor
+Individual Needs Assessment
+Program Manager / Supervisor
+Program Director or Clinical Supervisor
+Healing Plan
+Program Coordinator / Supervisor
+Program Director or Designated Clinical Supervisor
+Clinical documents should be reviewed periodically and updated whenever there are significant changes in the client’s circumstances, goals, risks, or support needs.
+→
+Who is responsible for the Incident Report when something happens — the worker on shift, the supervisor, or both?
+Responsibility for Incident Reports
+Incident Reports are a shared responsibility between the front-line support worker involved in the incident and the Supervisor/Team Lead responsible for oversight. Each role has a specific responsibility to ensure incidents are documented accurately, reviewed appropriately, and addressed according to agency policies.
+1. Front-Line Support Worker Responsibilities
+Primary responsibility: Immediate documentation and factual reporting
+The front-line support worker who witnesses, responds to, or is directly involved in an incident is responsible for:
+Ensuring immediate safety of the client, themselves, and others.
+Taking appropriate emergency action when required.
+Notifying the Team Lead/Supervisor as soon as possible.
+Completing the Incident Report as soon as possible after the incident occurs.
+Documenting factual information, including:
+Date, time, and location of the incident.
+Individuals involved.
+Description of what occurred.
+Immediate actions taken.
+Client response and outcome.
+Any witnesses present.
+Notifications made (family, emergency services, leadership, etc.).
+Front-line staff should document what they observed and what actions they took without making assumptions, assigning blame, or providing clinical conclusions.
+
+2. Team Lead/Supervisor Responsibilities
+Primary responsibility: Review, follow-up, and quality assurance
+The Team Lead/Supervisor is responsible for:
+Reviewing the completed Incident Report for accuracy, completeness, and compliance.
+Requesting clarification or additional details from the staff member if required.
+Adding supervisory notes and documenting follow-up actions.
+Assessing whether additional supports, interventions, or safety measures are needed.
+Ensuring required notifications and reporting processes are completed.
+Escalating serious incidents to the Program Manager/Director of Programs when required.
+Monitoring trends and identifying opportunities for training, prevention, or changes to client support strategies.
+The Supervisor does not replace the front-line worker’s responsibility to complete the initial report but ensures the report meets organizational standards.
+
+3. Program Manager/Director Responsibilities
+For significant or critical incidents, the Program Manager or Director of Programs may be responsible for:
+Reviewing escalated incident reports.
+Confirming regulatory or funding body reporting requirements are met.
+Approving corrective actions or follow-up plans.
+Reviewing trends across programs and implementing quality improvement initiatives.
+
+Incident Report Workflow
+Stage
+Responsible Role
+Action
+Incident occurs
+Front-line Support Worker
+Responds, ensures safety, notifies supervisor
+Initial documentation
+Front-line Support Worker
+Completes Incident Report
+Review and verification
+Team Lead/Supervisor
+Reviews, requests clarification, adds follow-up notes
+Escalation (if required)
+Supervisor/Program Manager
+Reviews severity and completes required notifications
+Record management
+Supervisor/Coordinator
+Files and maintains incident documentation
+
+Access Permissions
+Role
+Incident Report Access
+Front-Line Support Worker
+Create, edit, submit
+Team Lead/Supervisor
+Review, edit supervisory sections, approve/sign-off
+Program Manager/Director
+Review, approve, monitor trends, access reports
+This approach ensures the person closest to the event provides the most accurate first-hand account while maintaining supervisory oversight, accountability, and quality assurance.
+Answer / Notes:
+
+
+
+Q3
+What should each role be able to see — and what should they NOT see?
+Why we're asking: The forms contain sensitive information at very different levels. A driver should not see a client's mental health diagnosis. A support worker may not need to see billing information.
+→
+Should support workers see full client files, or only the clients assigned to their shift?
+Front-Line Support Worker Access to Client Files
+Front-line support workers should only have access to client files for clients they are assigned to support during their scheduled shift or within their designated program assignment. Access should follow the principle of least privilege, meaning staff receive only the information necessary to perform their job responsibilities.
+Client File Access Based on Assignment
+Front-line support workers may access:
+Clients assigned to their current shift.
+Clients within their assigned home, program, or service area.
+Clients they are authorized to support as part of their regular duties.
+They should not have access to:
+Unassigned clients.
+Clients from other programs or locations unless specifically authorized.
+Archived client records unrelated to their current responsibilities.
+
+Information Front-Line Staff Can Access
+For assigned clients, front-line staff may have access to:
+View-Only Access:
+Intake Screening Tool
+Individual Needs Assessment
+Healing Plan
+Client risk information and safety plans (where required for service delivery)
+Create/Edit/Update Access:
+Daily Logs
+Case Notes
+Individual Contact Notes
+Noteworthy Reports
+Incident Reports
+Behaviour Trackers
+Shift Checklists
+Medication Administration Records (MAR)
+Emergency Preparedness Documentation
+Monthly Activity Reports
+Grocery Lists
+Monthly Sharp Count Checklists
+
+Supervisor/Coordinator Access
+Supervisors and Coordinators have broader access to:
+All clients within their assigned program or service area.
+Client assessments and planning documents.
+Documentation submitted by front-line staff.
+Incident reports and quality assurance records.
+Historical records required for supervision and case management.
+Their role includes reviewing documentation, monitoring client progress, and ensuring continuity of care.
+
+Exceptions and Temporary Access
+Additional access may be granted when required, including:
+Staff covering another program or shift.
+Emergency situations.
+Case consultation or quality assurance reviews.
+Leadership-approved operational requirements.
+All temporary access should be documented and removed once no longer required.
+
+Recommended System Permission Structure
+Role
+Client File Access
+Front-Line Support Worker
+Assigned clients only
+Team Lead
+Clients within assigned program/site
+Program Coordinator/Supervisor
+All clients within assigned program(s)
+Program Manager
+All clients across assigned services
+Director of Programs
+Organization-wide oversight access
+Administrative Staff
+Limited access based on operational need
+Restricting access to assigned clients protects confidentiality, supports compliance with privacy requirements, and ensures staff only view information necessary for providing safe, client-centred care.
+→
+Can all staff see medication records and incident reports, or is that restricted to senior staff?
+Access to Medication Records and Incident Reports
+Medication records and incident reports contain sensitive health, safety, and risk-related information. Access should be restricted based on role responsibility and client assignment, ensuring staff have the information required to provide safe care while maintaining confidentiality.
+
+Medication Administration Records (MAR)
+Front-Line Support Workers
+Front-line staff who are authorized and responsible for medication administration may:
+Access MARs for clients assigned to their shift or program.
+Complete medication administration entries when medication is provided.
+Document medication refusals, missed doses, errors, or concerns.
+Review relevant medication instructions required for safe service delivery.
+Front-line staff who are not trained or authorized to administer medication should have view-only access or no access, depending on their role.
+Team Leads/Supervisors
+Team Leads and Supervisors may:
+Access MARs for all clients within their assigned program/site.
+Review completion and accuracy of medication documentation.
+Identify medication errors, missed documentation, or compliance concerns.
+Provide follow-up coaching or corrective actions.
+Program Managers/Directors
+Program Managers and Directors may:
+Access medication records for oversight, audits, quality assurance, and compliance monitoring.
+Review medication-related incidents and trends.
+
+Incident Reports
+Front-Line Support Workers
+Front-line workers may:
+Create Incident Reports for incidents they witness, respond to, or are directly involved in.
+View incident reports only for clients they are currently assigned to support when the information is necessary for service delivery.
+Front-line workers should not have access to historical incident reports, incidents involving other staff, or incidents unrelated to their assigned clients.
+Team Leads/Supervisors
+Team Leads and Supervisors may:
+Review all incident reports within their assigned program/site.
+Add supervisory notes and follow-up actions.
+Confirm required notifications and escalation processes are completed.
+Monitor patterns and risks affecting client care.
+Program Managers/Directors
+Program Managers and Directors may:
+Access all incident reports within their areas of responsibility.
+Review serious or critical incidents.
+Complete required organizational, regulatory, or funding-related follow-up.
+Use incident data for quality improvement and risk management.
+
+Recommended Permission Structure
+Role
+Medication Records (MAR)
+Incident Reports
+Front-Line Support Worker
+Assigned clients only (create/update if authorized)
+Create reports; view assigned client incidents only
+Team Lead
+Program/site access; review and approve
+Review, follow-up, approve
+Supervisor/Coordinator
+Program access; oversight
+Review, investigate, escalate
+Program Manager
+Service-wide oversight
+Full access within responsibility area
+Director of Programs
+Organization-wide oversight
+Organization-wide access
+Administrative Staff
+Limited access only when required
+Limited access based on operational need
+
+Access to medication records and incident reports should follow the principle of “need to know” rather than “need to access.” Staff should have enough information to safely support clients while protecting client privacy and maintaining proper documentation controls.
+→
+Who can see financial/billing information (e.g. mileage reimbursements)?
+Access to Financial and Billing Information
+Financial and billing information, including mileage reimbursements, client-related expenses, service billing, and payment records, should be restricted based on job responsibilities. Access should follow the principle of least privilege, ensuring staff can view and manage only the financial information necessary to complete their duties.
+
+Front-Line Support Workers
+Front-line support workers may have limited access to financial functions directly related to their responsibilities.
+They may:
+Submit mileage reimbursement requests.
+Submit approved client-related expense claims.
+Enter required supporting information, such as:
+Date of travel.
+Purpose of travel.
+Client/program supported.
+Distance travelled.
+Receipts or supporting documentation where required.
+View the status of their own submitted requests.
+They should not have access to:
+Other employees’ mileage claims.
+Client billing information.
+Agency revenue information.
+Payroll information.
+Funding agreements.
+Budget reports.
+Other financial records.
+
+Team Leads/Supervisors
+Team Leads and Supervisors may:
+Review and verify mileage or expense submissions from staff they supervise.
+Confirm that expenses are related to approved client services.
+Approve or recommend approval of reimbursement requests.
+Monitor spending related to their program/site.
+They should not have access to broader organizational financial information unless specifically assigned.
+
+Program Managers/Coordinators
+Program Managers or Coordinators may:
+Review program-level expenses.
+Monitor service delivery costs.
+Approve program-related expenditures.
+Review billing-related information required for program operations.
+Support budget planning and resource management.
+
+Finance/Administration Team
+Finance and Administrative staff are responsible for:
+Processing reimbursements.
+Managing payroll-related financial information.
+Maintaining billing records.
+Managing invoices and payments.
+Preparing financial reports.
+Maintaining audit documentation.
+Finance staff should have access to financial records but limited access to clinical information unless required for billing verification.
+
+Director of Programs or Operations 
+Director of Programs or Operations may:
+Review program-level expenses.
+Monitor service delivery costs.
+Approve program-related expenditures.
+Review billing-related information required for program operations.
+Support budget planning and resource management.
+
+Executive Leadership (CEO)
+Executive Leadership team may access:
+Organization-wide financial reports.
+Program budgets.
+Revenue and expense summaries.
+Funding and contract information.
+Financial performance information.
+
+Recommended Permission Structure
+Role
+Financial/Billing Access
+Front-Line Support Worker
+Submit own mileage/expense claims; view own submissions
+Team Lead
+Review and approve assigned staff submissions
+Supervisor/Coordinator
+Program-level expense oversight
+Program Manager
+Program budgets and operational spending
+Finance/Administrative Staff
+Financial processing and records management
+Director
+
+Executive Leadership
+Organization-wide financial oversight
+Financial records should remain separate from client care records, with access granted only when required for job duties, compliance, reimbursement processing, or organizational oversight.
+
+
+→
+Are there forms that require supervisor approval before they become visible to others?
+No forms require supervisor approval before they become visible to other authorized users. Documentation submitted by staff becomes available within the system based on the user’s assigned access permissions and role-based visibility settings.
+Supervisors are responsible for reviewing, monitoring, and following up on documentation, but their review does not act as a requirement for making forms visible.
+Answer / Notes:
+
+
+
+Q4
+How do staff currently log in or identify themselves on forms?
+Why we're asking: All current forms require manual name entry. In the portal, login determines identity and auto-fills staff fields.
+→
+Do staff currently have email addresses issued by your organization, or do they use personal emails?
+Staff are provided with organization-issued email addresses for work-related communication and operational purposes.
+→
+Is there any existing system (email platform, HR system, scheduling software) that staff already have accounts in?
+Yes, staff already have accounts in existing organizational systems, including platforms used for communication, workforce management, and operational coordination.
+→
+How comfortable is your staff with technology generally? Are most using phones or computers for work?
+Staff generally have a comfortable level of experience using technology and primarily use computers as their main work device, with mobile phones also used to support daily operations.
+Answer / Notes:
+
+
+
+02 The Clients — How They Move Through Your System
+
+The forms suggest a client journey from intake to discharge. But we’ll need to understand that journey in detail - every step, every decision point, every handoff.
+
+Q5
+Walk us through the complete lifecycle of a client — from first contact to discharge.
+Why we're asking: We've mapped a rough sequence from your forms (Intake Screening → Client Info → Needs Assessment → Healing Plan → daily documentation → discharge), but we need you to confirm and fill the gaps.
+→
+What is the very first thing that happens when a new referral comes in? Who receives it and what do they do?
+New Referral Intake Process
+When a new referral is received, the Executive Director is the first point of contact responsible for receiving and initiating the referral process.
+The Executive Director:
+Receives the Referral
+Receives the referral information from the referral source, which may include government agencies, community partners, families/guardians, or other service providers.
+Ensures the referral is captured and recorded within the appropriate system.
+Reviews Initial Information
+Reviews the referral details to understand the client’s basic needs, presenting concerns, service requirements, and urgency.
+Determines whether the referral aligns with NextGen Support Services’ programs, capacity, and service scope.
+Assigns for Follow-Up
+Directs the referral to the appropriate Program Manager, Intake Coordinator, or designated staff member for further assessment and intake processing.
+Ensures responsible staff have the required information to proceed.
+Initiates the Intake Process
+Confirms that required intake steps are completed, including information gathering, screening, eligibility review, and documentation requirements.
+The Executive Director maintains oversight of the referral process while ensuring referrals are appropriately assigned and moved forward through the intake workflow.
+
+→
+What are the steps between referral and a client being officially accepted into a program?
+Referral to Program Acceptance Process
+The process between receiving a referral and officially accepting a client into a NextGen Support Services program involves multiple roles to ensure the client’s needs align with available services, organizational capacity, staffing resources, and program requirements.
+1. Referral Received
+Responsible Role: Executive Director
+Receives the initial referral from the referral source, which may include government agencies, community partners, families/guardians, or other service providers.
+Ensures the referral information is recorded in the appropriate system.
+Reviews the initial details, including client needs, requested services, urgency, and referral source.
+Assigns the referral to the Director of Operations for operational review and coordination.
+
+2. Referral Review and Initial Screening
+Responsible Roles: Director of Operations / Program Manager / Intake Coordinator
+The Director of Operations oversees the initial review process by:
+Reviewing the referral information and confirming the appropriate program pathway.
+Assessing operational considerations, including:
+Program availability and capacity.
+Staffing requirements.
+Location/site availability.
+Ability to safely meet the client’s support needs.
+Resource requirements.
+The Program Manager or Intake Coordinator:
+Reviews the client’s presenting needs and service requirements.
+Confirms whether the referral aligns with NextGen’s programs and service scope.
+Identifies any immediate risks, safety concerns, or additional information required.
+If additional information is required, the Intake Coordinator or designated staff contacts the referral source, client, family/guardian, or relevant professionals.
+
+3. Intake Information Gathering
+Responsible Roles: Intake Coordinator / Program Manager / Supervisor
+The assigned intake staff member gathers detailed information from relevant parties, including:
+Client.
+Parent/guardian or caregiver.
+Referral agency.
+Previous service providers.
+Other involved professionals.
+The intake process includes:
+Completing the Intake Screening Tool within 3 days of intake.
+Documenting client history, strengths, presenting concerns, risks, preferences, and required supports.
+Ensuring all required admission information is collected before acceptance.
+The Director of Operations provides oversight to ensure intake processes are completed consistently and within organizational timelines.
+
+4. Eligibility, Capacity, and Service Fit Assessment
+Responsible Roles: Director of Operations / Program Manager / Supervisor
+The Director of Operations oversees the operational suitability review, including:
+Confirming program capacity.
+Reviewing staffing requirements and available resources.
+Ensuring the organization can safely provide the requested level of support.
+Identifying operational risks or service limitations.
+The Program Manager/Supervisor reviews:
+Client needs and support requirements.
+Program suitability.
+Risk considerations.
+Required accommodations.
+Service expectations.
+Together, the team determines whether NextGen can provide appropriate and effective support.
+
+5. Acceptance Decision
+Responsible Roles: Director of Operations with Executive Director Oversight
+The Director of Operations coordinates the final acceptance review by:
+Reviewing intake findings, operational considerations, and program recommendations.
+Confirming readiness to provide services.
+Making a recommendation regarding acceptance, service conditions, or alternative options.
+The Executive Director provides final oversight and approval for program acceptance decisions.
+If accepted:
+A client profile is created in the system.
+Required intake documentation is finalized.
+The client is assigned to the appropriate program.
+Service initiation planning begins.
+If not accepted:
+The decision and rationale are documented.
+The referral source is notified.
+Alternative resources or recommendations may be provided where appropriate.
+
+6. Initial Assessment and Service Planning
+Responsible Roles: Program Manager / Supervisor
+After acceptance:
+Completes the Individual Needs Assessment within 7 days of intake.
+Develops the Healing Plan within 7 days of intake and reviews it every 3 months thereafter.
+Establishes:
+Client goals.
+Support strategies.
+Risk considerations.
+Communication preferences.
+Service expectations.
+The Director of Operations ensures required assessments and planning documents are completed according to agency standards and timelines.
+
+7. Service Activation and Staff Assignment
+Responsible Roles: Director of Operations / Program Manager / Team Lead
+Before services begin:
+The Director of Operations:
+Confirms operational readiness.
+Ensures staffing resources are available.
+Approves service implementation plans.
+The Program Manager/Team Lead:
+Assigns appropriate front-line staff based on client needs.
+Provides staff access to required client information.
+Reviews support expectations, safety considerations, and documentation requirements.
+Confirms service start date and ongoing monitoring expectations.
+
+Referral Workflow Summary
+Step
+Responsible Role
+Action
+Referral received
+Executive Director
+Receives, records, and assigns referral for review
+Operational review
+Director of Operations
+Reviews capacity, resources, and service feasibility
+Intake screening
+Intake Coordinator / Program Manager
+Completes Intake Screening Tool and gathers information
+Service fit assessment
+Director of Operations + Program Manager/Supervisor
+Reviews client needs, risks, and operational readiness
+Acceptance decision
+Director of Operations + Executive Director oversight
+Approves or declines admission
+Assessment & planning
+Program Manager/Supervisor
+Completes Needs Assessment and Healing Plan
+Service activation
+Director of Operations + Team Lead
+Confirms staffing, access, and service commencement
+This process ensures every referral is reviewed through both a client-centred lens and an operational readiness lens, ensuring NextGen accepts clients whose needs can be safely and effectively supported.
+→
+Once accepted, how long until the Healing Plan and Needs Assessment are completed? Who does them?
+Timeline and Responsibility for Completing Healing Plan and Individual Needs Assessment
+Once a client is officially accepted into a NextGen Support Services program, the required assessment and planning documents are completed within established timelines to ensure the client’s needs, goals, risks, and support strategies are clearly identified.
+
+1. Individual Needs Assessment
+Completion Timeline: Within 7 days after intake/acceptance
+Primary Responsibility: Program Manager or designated Supervisor
+The Individual Needs Assessment is completed by the Program Manager or designated Supervisor with input from relevant team members and information gathered during the intake process.
+The assessment includes:
+Client strengths, needs, and areas requiring support.
+Developmental, emotional, social, and behavioural considerations.
+Communication preferences.
+Safety concerns and risk factors.
+Daily living skills and independence goals.
+Family, cultural, and community support needs.
+Front-line staff may contribute information through:
+Daily observations.
+Case notes.
+Individual contact notes.
+Behaviour tracking documentation.
+However, front-line staff do not independently complete, edit, or approve the Individual Needs Assessment.
+
+2. Healing Plan
+Completion Timeline: Within 7 days after intake/acceptance
+Review Frequency: Every 3 months or sooner if there are significant changes in the client’s needs, risks, goals, or circumstances.
+Primary Responsibility: Program Manager or designated Supervisor
+The Healing Plan is developed based on the Individual Needs Assessment and intake information.
+The Program Manager/Supervisor is responsible for:
+Identifying client goals and desired outcomes.
+Developing trauma-informed support strategies.
+Establishing approaches for emotional regulation, behaviour support, and relationship building.
+Defining staff responsibilities and expectations.
+Identifying progress indicators and review timelines.
+Front-line staff support the Healing Plan by implementing approved strategies and providing feedback based on daily interactions and observations.
+
+Review and Approval Process
+Document
+Completion Timeline
+Completed By
+Reviewed/Approved By
+Individual Needs Assessment
+Within 7 days after intake
+Program Manager / Supervisor
+Director of Operations or Designated Supervisor
+Healing Plan
+Within 7 days after intake
+Program Manager / Supervisor
+Director of Operations or Designated Supervisor
+The Director of Operations provides oversight to ensure assessments and plans are completed on time, meet organizational standards, and support safe and effective service delivery.
+The completed documents become available to authorized staff based on their role and client assignment. Front-line support workers have view-only access to these documents to guide their service delivery.
+→
+What triggers a client moving from one program to another (e.g. Group Home to SIL)?
+Client Transition Between Programs
+A client transition from one NextGen Support Services program to another (for example, moving from Group Care Services to Supported Independent Living (SIL)) occurs when there is a change in the client’s needs, goals, level of independence, or service requirements. Transitions are based on ongoing assessment, client progress, safety considerations, and the ability of the receiving program to meet the client’s needs.
+
+Triggers for Program Transition
+A client may be considered for transition when one or more of the following occur:
+1. Increased Independence and Skill Development
+A client demonstrates progress in areas such as:
+Daily living skills.
+Personal care and self-management.
+Decision-making and problem-solving.
+Community participation.
+Medication management.
+Household responsibilities.
+Ability to manage a less structured environment.
+Example:
+A client in Group Care Services develops the skills and confidence needed to live with greater independence and may be considered for transition to SIL.
+
+2. Changes in Client Needs or Support Requirements
+A transition may be considered when:
+The current program no longer meets the client’s needs.
+The client requires a different level of supervision or support.
+The client’s behavioural, emotional, or developmental needs change.
+Additional specialized supports become necessary.
+
+3. Client Goals and Preferences
+Transitions may be initiated based on:
+The client’s personal goals.
+The client’s desire for increased independence.
+Updated service objectives identified during reviews of the Healing Plan.
+Client choice and participation should be central to the transition planning process.
+
+4. Scheduled Plan Reviews
+Program transitions may be identified during:
+Quarterly Healing Plan reviews.
+Individual Needs Assessment updates.
+Case conferences.
+Progress reviews involving the client and support team.
+
+5. Safety and Risk Considerations
+A transition may be required when:
+The current placement is no longer the safest or most appropriate environment.
+The client requires increased supervision or a different support model.
+The current program cannot adequately address identified risks.
+
+Transition Assessment Process
+Responsible Roles: Director of Operations / Program Manager / Supervisor
+When a transition is being considered:
+Needs Review
+Program Manager/Supervisor reviews the client’s progress, needs, risks, and goals.
+Reviews documentation, including:
+Healing Plan.
+Individual Needs Assessment.
+Case Notes.
+Behaviour Tracking Records.
+Progress reports.
+Transition Recommendation
+Program Manager/Supervisor prepares a transition recommendation outlining:
+Reason for transition.
+Recommended program.
+Client readiness.
+Required supports.
+Transition timeline.
+Operational Review
+Director of Operations reviews:
+Program availability.
+Staffing requirements.
+Resource needs.
+Ability of the receiving program to meet client needs.
+Transition Approval
+Executive Director provides oversight for significant program changes.
+Final approval is documented before the transition occurs.
+
+Transition Planning and Implementation
+Once approved:
+A transition plan is developed.
+Client, family/guardian, and involved stakeholders are informed.
+Receiving staff review relevant client information.
+Support strategies are communicated.
+Required documentation and system permissions are updated.
+The transition date is confirmed.
+Follow-up reviews are scheduled to monitor adjustment and outcomes.
+
+Program Transition Responsibilities
+Role
+Responsibility
+Front-Line Support Worker
+Provide observations, support transition activities, document client progress
+Team Lead
+Coordinate daily transition-related tasks and communicate updates
+Program Manager/Supervisor
+Assess readiness, develop transition recommendation, update plans
+Director of Operations
+Review operational feasibility and approve implementation
+Executive Director
+Provide oversight for significant program changes
+Program transitions are not based solely on time spent in a service. They are driven by the client’s evolving needs, progress toward goals, safety, and readiness for the next level of support.
+→
+What does discharge look like? Is there a discharge form or checklist? Who signs off?
+Client Discharge Process
+A client discharge occurs when NextGen Support Services determines that services are no longer required, the client’s needs can be met through another service provider, the client transitions to a different level of care, or services are discontinued for another approved reason. The discharge process ensures continuity of care, proper documentation, and a safe transition for the client.
+
+1. Discharge Initiation
+Responsible Roles: Program Manager / Supervisor
+A discharge may be initiated due to:
+Achievement of identified goals and increased independence.
+Transition to another NextGen program or external service provider.
+Client or guardian request to discontinue services.
+Change in client needs requiring a different provider or level of support.
+Program closure, placement change, or other approved circumstances.
+The Program Manager/Supervisor reviews the client’s current status, service history, progress, risks, and outstanding needs before recommending discharge.
+
+2. Discharge Assessment and Planning
+Responsible Roles: Program Manager / Supervisor with Director of Operations Oversight
+Before discharge:
+Client progress is reviewed against the Healing Plan and Individual Needs Assessment.
+Outstanding needs and ongoing supports are identified.
+Transition risks are assessed.
+A discharge plan is developed where required.
+The discharge planning process may include input from:
+Client.
+Parent/guardian or caregiver.
+Referral agency.
+Assigned support team.
+Other involved professionals.
+
+3. Discharge Documentation
+A Discharge Form and Discharge Checklist are completed to ensure all required steps are addressed.
+Discharge Form Includes:
+Client information.
+Program/service being discharged from.
+Reason for discharge.
+Date of discharge.
+Summary of services provided.
+Progress achieved and goals completed.
+Outstanding needs or recommendations.
+Transition arrangements or referrals made.
+Final communication with client/family/partners.
+Discharge Checklist Includes:
+☐ Discharge decision approved.
+☐ Client/family/guardian notified.
+☐ Referral source notified (where applicable).
+☐ Final progress summary completed.
+☐ Outstanding documentation completed.
+☐ Medication records reviewed and closed (if applicable).
+☐ Client belongings returned.
+☐ Financial or billing items finalized.
+☐ System access updated/removed.
+☐ Client file archived according to retention requirements.
+
+4. Review and Sign-Off Process
+Role
+Responsibility
+Front-Line Support Worker
+Provides final observations, completes outstanding documentation, supports transition activities
+Team Lead
+Confirms operational tasks are completed and documentation is submitted
+Program Manager/Supervisor
+Completes discharge documentation, reviews client status, recommends discharge
+Director of Operations
+Reviews discharge package, confirms process compliance, provides approval
+Executive Director
+Provides final oversight for significant discharges or high-risk cases
+
+5. Record Closure
+After approval:
+The client record is updated to reflect discharge status.
+Required documentation is finalized and stored.
+Access permissions are updated according to organizational policies.
+Records are retained according to applicable privacy and record retention requirements.
+
+Discharge Approval Summary
+Document
+Completed By
+Approved By
+Discharge Form
+Program Manager/Supervisor
+Director of Operations
+Discharge Checklist
+Program Manager/Supervisor with Team Lead input
+Director of Operations
+Final Progress Summary
+Program Manager/Supervisor
+Director of Operations
+High-Risk/Special Circumstance Discharge
+Director of Operations
+Executive Director
+The discharge process ensures that client transitions are planned, documented, and completed in a way that protects client well-being while maintaining organizational accountability and continuity of care.
+
+Answer / Notes:
+
+
+
+Q6
+How many active clients do you currently have across all programs?
+Why we're asking: This affects database design, performance, and how the portal handles load.
+→
+How many clients per program (Group Home, SIL, Family Reunification, Youth, Mental Health)?
+None
+→
+How many clients per physical house/site?
+None
+→
+Is there a waitlist? How is it currently managed?
+None
+→
+How far back do you need to store client records — is there a legal retention requirement?
+Client Record Retention Requirements
+NextGen Support Services will maintain client records according to applicable privacy legislation, contractual obligations, funding requirements, and organizational record retention policies.
+Client records should be retained for a defined period after discharge or the last date of service. The exact retention period should be confirmed based on the specific requirements of the programs, contracts, and regulatory bodies that apply to NextGen’s services. Alberta privacy legislation requires organizations to protect personal information throughout its lifecycle and retain information only as long as it is reasonably required for legal, operational, or business purposes.
+A recommended organizational standard is:
+Active client records: Maintained and accessible while the client is receiving services.
+Discharged client records: Retained for a minimum of 7 years after the last date of service or discharge, unless a longer period is required by legislation, funding agreements, or contractual obligations.
+Records involving minors: Retained according to applicable child-serving program requirements, which may require extended retention periods.
+Legal hold records: Retained beyond the normal retention period if there is an ongoing investigation, legal matter, audit, complaint, or review.
+
+Records Included in Retention
+Client records retained should include:
+Intake Screening Tool.
+Individual Needs Assessment.
+Healing Plan.
+Case Notes.
+Daily Logs.
+Individual Contact Notes.
+Behaviour Trackers.
+Incident Reports.
+Medication Administration Records (MAR).
+Service plans and progress reviews.
+Discharge documentation.
+Communication records related to service delivery.
+
+Record Closure and Disposal
+Once the retention period has expired:
+Records are reviewed for eligibility for secure destruction.
+Electronic records are permanently deleted or securely archived according to policy.
+Paper records are securely destroyed.
+Destruction activities are documented to maintain an audit trail.
+Client information must be protected against unauthorized access, disclosure, copying, modification, or destruction throughout storage and disposal.
+
+Responsibility for Record Retention
+Role
+Responsibility
+Front-Line Support Worker
+Complete accurate documentation and submit required records
+Team Lead/Supervisor
+Ensure documentation is complete and properly maintained
+Program Manager
+Monitor client file quality and closure requirements
+Director of Operations
+Oversee retention practices and compliance
+Executive Director
+Ensure organizational compliance with legal and contractual requirements
+Administrative/Records Staff
+Manage storage, archiving, and secure destruction processes
+Client records should remain accessible only to authorized users based on their role and responsibility, with access reviewed throughout the record lifecycle.
+Answer / Notes:
+
+
+
+Q7
+How do you currently link documents to a specific client?
+Why we're asking: Currently every form is a standalone document. In the portal, everything links to a central client record.
+→
+Where do completed paper or digital forms currently go — a shared drive, email, physical binder?
+Storage Location for Completed Forms
+Completed forms are stored digitally within a secure electronic client record management system as part of the active client file.
+All completed documentation, including client notes, assessments, incident reports, medication records, and service-related forms, is stored directly within the appropriate client record. This ensures authorized staff can access current information needed for service delivery, supervision, and quality assurance.
+The electronic client record system provides:
+Secure storage of client information.
+Role-based access based on staff responsibilities and client assignment.
+Audit trails showing document creation, updates, and access.
+Centralized documentation management.
+Support for privacy, compliance, and record retention requirements.
+When a client is discharged or no longer receiving services, the completed file is moved to a secure archive in accordance with NextGen’s record retention policy. Archived records remain protected and accessible only to authorized personnel for legal, compliance, audit, or historical reference purposes.
+Email, personal devices, or general shared drives are not used as the official storage location for client documentation.
+
+→
+If a supervisor wants to review all documentation for one client, what do they do today?
+Supervisor Review of Client Documentation
+When a Supervisor wants to review all documentation for one client, they access the client’s record within the secure electronic client record management system.
+The Supervisor:
+Searches for the Client Record
+Locates the client profile using the client’s assigned record within the system.
+Confirms they have the appropriate permissions based on their role and program assignment.
+Reviews Client Documentation
+Reviews all relevant documentation associated with the client, including:
+Daily Logs.
+Case Notes.
+Individual Contact Notes.
+Noteworthy Reports.
+Incident Reports.
+Behaviour Trackers.
+Medication Administration Records (MAR).
+Activity Reports.
+Shift Checklists.
+Assessments and support planning documents.
+Completes Quality Assurance Review
+Reviews documentation for:
+Completeness and accuracy.
+Alignment with the Healing Plan and Individual Needs Assessment.
+Changes in client needs, risks, or behaviours.
+Required follow-up actions.
+Provides Follow-Up or Feedback
+Adds supervisory notes where required.
+Requests clarification or corrections from staff if documentation is incomplete.
+Identifies concerns requiring additional support, training, or escalation.
+Maintains Oversight
+Uses documentation reviews to monitor service quality, client progress, and compliance with organizational standards.
+The review process is completed directly within the client record system, allowing supervisors to view a complete history of client documentation without needing to collect information from separate emails, shared drives, or physical files.
+→
+Is there a unique client ID system currently in use, or just names?
+Currently, client records are identified using the client’s name rather than a unique client ID number.
+Client information is accessed and organized primarily through the client’s name within the record system. To improve record management, reduce duplicate records, and strengthen data accuracy
+→
+Do clients ever appear across multiple programs simultaneously? How is that tracked?
+Client Participation Across Multiple Programs
+Clients do not currently appear across multiple NextGen Support Services programs simultaneously.
+Each client is assigned to one primary program at a time, and their services, documentation, and support activities are managed within that program’s client record.
+If a client transitions from one program to another (for example, from Group Care Services to Supported Independent Living), the transition is documented as a program change rather than a concurrent placement across multiple programs.
+Program transitions are tracked through:
+Updated client program assignment.
+Transition documentation.
+Updated service plans and support strategies.
+Revised staff access permissions.
+Discharge/transfer documentation from the previous program where applicable.
+This ensures there is a clear record of the client’s current service placement and prevents duplicate or conflicting records across programs.
+
+Answer / Notes:
+
+
+
+03 The Forms — Manual Process Behind Each One
+
+We reviewed all 19 forms in detail. These questions go behind the form itself — into how and when it's used, who fills it out, and what happens after it's submitted.
+
+Issues we already identified — confirm or clarify these:
+
+!
+The MAR Sheet and Medication Administration Record appear to be exact duplicates. Which one is actually used — or are they used for different purposes?
+!
+The Activity Calendar and Monthly Activity form (index.html) are byte-for-byte identical. Same question — which one is current?
+!
+The Incident Report appears to be incomplete — it only contains Section 1 and 2 (client and facility info). Where is the rest of the form? What happened, what actions were taken, who was notified?
+!
+The Intake Screening file contains two different versions of the form inside one document. Which version is the current one?
+
+Q8
+Take us through the Incident Report process step by step.
+Why we're asking: This is the highest-risk form. CFS must be notified within 24 hours, serious incidents immediately — but the current form has no way to track that notification.
+→
+When an incident happens, who is the first person notified inside your organization?
+When an incident occurs, the Team Lead is the first person notified within NextGen Support Services.
+The front-line support worker who witnesses, responds to, or becomes aware of the incident is responsible for:
+Ensuring immediate safety of the client and others.
+Providing any required emergency response.
+Immediately notifying the Team Lead.
+Completing the required Incident Report with factual details.
+The Team Lead is responsible for:
+Reviewing the immediate circumstances.
+Ensuring required actions are taken.
+Escalating the incident to the appropriate level of management, including the Program Manager, Director of Operations, or Executive Director depending on the severity of the incident.
+→
+What qualifies as a 'serious incident' that requires immediate CFS contact? Is there a defined list?
+Serious incidents requiring immediate contact with Child and Family Services (CFS) are determined based on Alberta child intervention standards and mandatory reporting requirements. A report must be made when there are reasonable grounds to believe a child is in need of intervention under Alberta’s Child, Youth and Family Enhancement Act (CYFEA).
+Examples of situations requiring immediate CFS contact may include:
+Physical abuse or suspected physical abuse of a child.
+Sexual abuse or exploitation, or suspected sexual abuse/exploitation.
+Emotional injury or significant psychological harm caused by abuse, neglect, or unsafe circumstances.
+Neglect, including failure to provide basic necessities, adequate supervision, medical care, or protection from harm.
+Abandonment or serious lack of supervision.
+A child being exposed to circumstances where their safety or well-being is at significant risk.
+Serious injury or harm resulting from abuse, neglect, or unsafe conditions.
+Allegations involving a caregiver, staff member, foster placement, or another person responsible for the child’s care.
+Any situation where the child may require protection or intervention under Alberta child protection legislation.
+The Team Lead/Supervisor determines the required escalation pathway; however, any staff member who has reasonable grounds to believe a child is being harmed or is at risk of harm has a duty to report.
+
+→
+How do you currently document that CFS was notified — phone log, email, separate form?
+When CFS is contacted, the notification is documented within the client Case Note.
+The Case Note should include:
+Date and time CFS was contacted.
+Name and role of the person who contacted CFS.
+Name/identifier of the CFS worker contacted (where available).
+Reason for the notification.
+Summary of information provided.
+Instructions or follow-up actions provided by CFS.
+Any additional notifications completed.
+The Case Note becomes part of the client record and is linked to the related Incident Report.
+
+→
+Does the form need two signatures (the worker who witnessed it and the supervisor)?
+Incident Reports require two levels of acknowledgement:
+Incident Witness/Reporting Staff Member
+Completes and signs the initial Incident Report.
+Confirms that the information provided is accurate and based on direct observations.
+Team Lead/Supervisor
+Reviews and signs the Incident Report.
+Confirms required procedures were followed.
+Documents follow-up actions, escalation, and additional recommendations.
+For significant incidents, additional review may be completed by the Director of Operations or Executive Director.
+→
+Is there a follow-up process — does the incident get reviewed at a later date?
+Yes, incidents are reviewed after the initial response to ensure appropriate follow-up and prevention.
+The review process includes:
+Supervisor review of the Incident Report.
+Confirmation that required notifications were completed.
+Review of contributing factors and response actions.
+Identification of additional supports or changes required.
+Updates to the client’s Healing Plan, risk information, or support strategies when necessary.
+Staff coaching, training, or procedural updates where required.
+Serious incidents may be reviewed through a formal incident review process involving the Director of Operations and Executive Director.
+Answer / Notes:
+Incident Escalation Workflow Summary
+Stage
+Responsible Role
+Action
+Incident occurs
+Front-Line Support Worker
+Responds, ensures safety, notifies Team Lead
+Initial escalation
+Team Lead
+Reviews incident and escalates internally
+Management review
+Program Manager/Director of Operations
+Determines additional actions and notifications
+External reporting
+Authorized staff
+Contacts CFS or other required agencies
+Documentation
+Reporting Worker + Supervisor
+Complete and sign Incident Report
+Follow-up review
+Supervisor/Management
+Review outcomes and implement improvements
+This process ensures incidents are responded to promptly, documented accurately, escalated appropriately, and reviewed to improve client safety and quality of care.
+
+
+Q9
+How does the Noteworthy Update escalate to an Incident Report?
+Why we're asking: Your Noteworthy Update form includes a 'Safety-Related Concern (Non-Critical)' category — but there's no guidance on when something stops being noteworthy and becomes a critical incident.
+→
+Can you give us an example of something that would be a Noteworthy Update vs. a Critical Incident?
+The difference between a Noteworthy Update and a Critical Incident is based on the level of risk, impact, and required response. Front-line staff are responsible for documenting what occurred, while supervisors provide oversight and determine whether additional escalation or incident reporting is required.
+
+Examples
+Noteworthy Update
+A Noteworthy Update is used for important events, observations, progress, or concerns that require awareness but do not involve immediate safety risks, significant harm, or mandatory reporting requirements.
+Examples include:
+A client successfully used a coping strategy during a stressful situation.
+A client achieved a personal goal or milestone.
+A client demonstrated improvement in behaviour or independence skills.
+A client expressed a concern or feeling that requires monitoring but does not indicate immediate risk.
+A client had a minor disagreement with another person that was resolved through staff support.
+A significant change in routine, preference, mood, or behaviour that should be communicated to the care team.
+
+Critical Incident
+A Critical Incident is an event that involves significant risk, harm, safety concerns, or requires immediate escalation, documentation, and review.
+Examples include:
+Serious injury requiring medical attention.
+Suspected abuse, neglect, or exploitation.
+Missing person/elopement event.
+Suicide attempt, serious self-harm, or significant safety concern.
+Serious aggression resulting in injury or significant risk of harm.
+Medication error resulting in harm or requiring medical intervention.
+Emergency service involvement (police, ambulance, fire department).
+Any event requiring Child and Family Services (CFS) notification.
+Any incident that creates a significant risk to the client, staff, or others.
+→
+Who makes that decision — the worker on shift or the supervisor?
+Front-Line Support Worker
+The front-line worker is responsible for:
+Recognizing and documenting the event as accurately as possible.
+Completing the appropriate documentation based on their understanding of the situation.
+Immediately notifying the Team Lead when there is uncertainty or potential risk.
+Front-line staff are encouraged to escalate concerns rather than minimize an event.
+
+Team Lead/Supervisor
+The Team Lead/Supervisor is responsible for:
+Reviewing submitted documentation.
+Determining whether the event has been categorized correctly.
+Reclassifying documentation when required.
+Ensuring appropriate reporting, escalation, and follow-up processes are completed.
+The final determination of whether an event requires Incident Report classification rests with supervisory oversight.
+
+→
+Currently, if a worker writes a Noteworthy Update but the supervisor decides it should be an Incident Report, what happens — does the worker redo the paperwork?
+If a worker submits a Noteworthy Update and the supervisor determines that it meets the criteria for an Incident Report:
+The Supervisor reviews the information and identifies the need for incident reporting.
+The Supervisor notifies the staff member who completed the original entry.
+The existing documentation is either:
+Converted/reclassified into an Incident Report within the system, if the system allows; or
+The Incident Report is created using the original information, with the worker providing any additional details required.
+The original Noteworthy Update remains part of the record to maintain documentation history, where applicable.
+The Supervisor reviews and signs off on the completed Incident Report.
+The worker does not restart the documentation process from the beginning. The goal is to preserve accurate information while ensuring the event is recorded under the correct category.
+
+Answer / Notes:
+Documentation Responsibility Summary
+Role
+Responsibility
+Front-Line Support Worker
+Documents observed events and notifies supervisor of concerns
+Team Lead/Supervisor
+Reviews classification, escalates when needed, approves incident documentation
+Program Manager/Director of Operations
+Reviews serious incidents and ensures organizational compliance
+This process ensures staff can document events efficiently while maintaining appropriate clinical, safety, and regulatory oversight.
+
+
+Q10
+How does the Medication Administration Record (MAR) work in practice?
+Why we're asking: The form exists but the medication dropdown is empty — medications are not pre-loaded. We also saw that medications are tracked in both the MAR and the Behavior Tracker.
+→
+Where does the list of a client's medications come from — a doctor's order, the Client Info face sheet, both?
+The client’s medication list is based on both the prescribing healthcare provider’s orders and the Client Information/Medication Profile documentation.
+The process includes:
+Medication orders received from the physician, nurse practitioner, pharmacy, or other authorized healthcare provider.
+Verification of medication details, including:
+Medication name.
+Dosage.
+Frequency.
+Route of administration.
+Special instructions.
+Updating the client’s medication information within the approved medication record.
+The Medication Administration Record (MAR) serves as the official documentation tool for tracking medication administration.
+
+→
+Who is authorized to administer medication and record it on the MAR? Any staff or only specific roles?
+Only staff who have completed required medication administration training and have been approved by NextGen Support Services may administer medication and document administration on the MAR.
+Authorized medication administration staff are responsible for:
+Following the medication order exactly as prescribed.
+Confirming the correct client, medication, dosage, time, route, and documentation requirements.
+Recording medication administration immediately on the MAR.
+Documenting refusals, missed doses, errors, or concerns according to policy.
+Front-line staff who are not medication administration trained may provide other client supports but cannot administer medication or complete MAR entries.
+
+→
+What happens when a dose is missed or refused? Is there a specific person notified?
+Medication Errors, Missed, Refused, or Late Medication Administration
+The medication management system should include automated safety alerts to identify medication errors, missed doses, refusals, and medication administrations outside the approved timeframe. These alerts ensure timely awareness, appropriate escalation, and proper follow-up.
+Any medication-related alert generated by the system should be automatically sent to the:
+Team Lead/Supervisor.
+Program Manager.
+Director of Operations.
+Executive Director.
+Staff must accurately document all medication-related events, and system-generated alerts cannot be overridden, hidden, dismissed, or removed by staff.
+
+Medication Administration Exceptions
+If medication is not administered according to the prescribed schedule, including missed doses, refusals, or delayed administration, the authorized medication-trained staff member must:
+Document the medication outcome on the MAR.
+Record the reason for the missed, refused, or delayed medication (where applicable).
+Notify the appropriate supervisory personnel according to medication procedures.
+Complete an Incident Report documenting the medication-related event and follow-up actions.
+A system alert should be automatically triggered when:
+Medication is administered more than one hour before the scheduled administration time.
+Medication is administered more than one hour after the scheduled administration time.
+A scheduled medication dose is missed.
+A client refuses medication.
+The Incident Report must include:
+Date and time of the medication event.
+Medication involved.
+Scheduled administration time and actual administration time (if applicable).
+Reason for the delay, refusal, or missed dose.
+Actions taken by staff.
+Individuals notified.
+Follow-up instructions or recommendations received.
+
+Medication Error Alerts
+The system must automatically flag and escalate medication errors, including:
+Wrong medication administered.
+Medication administered to the wrong client.
+Incorrect dosage administered.
+Incorrect route of administration.
+Medication administered outside the approved administration window.
+Any deviation from the authorized medication order.
+When a medication error is detected:
+A system-generated alert is immediately sent to the Team Lead/Supervisor, Program Manager, Director of Operations, and Executive Director.
+The staff member involved must complete the required documentation.
+An Incident Report must be completed.
+The incident must remain permanently recorded for review and audit purposes.
+Staff must not be able to delete, hide, modify, dismiss, or override system-generated medication error alerts at any stage. All flagged medication events must remain visible in the audit history to maintain accountability, transparency, and client safety.
+
+Review and Follow-Up
+The Supervisor and management team review all medication-related alerts and incidents to determine:
+Immediate corrective actions required.
+Whether medical consultation is needed.
+Whether additional notifications are required.
+Whether staff training, policy review, or system improvements are necessary.
+The Director of Operations and Executive Director provide oversight for serious medication incidents and ensure organizational compliance with medication safety standards.
+
+→
+The Behavior Tracker also has a 'Medication Taken' column — is this the same information being recorded twice, or do they serve different purposes?
+The Medication Taken section on the Behaviour Tracker and the MAR serve different purposes and are not duplicate documentation.
+Medication Administration Record (MAR)
+The MAR is the official medication administration record and documents:
+Whether medication was administered.
+Date and time administered.
+Staff member responsible.
+Any medication-related exceptions or issues.
+Behaviour Tracker
+The Behaviour Tracker documents the relationship between medication status and client presentation or behaviour.
+It may be used to monitor:
+Behaviour patterns.
+Mood changes.
+Client responses.
+Potential changes after medication administration.
+Trends that may inform support strategies.
+The Behaviour Tracker does not replace the MAR and is not considered the official medication administration record.
+
+→
+Are there controlled substances involved? If so, is a two-staff verification required?
+Yes, controlled substances/narcotics may be involved and require additional safeguards.
+For controlled medications:
+A two-staff verification process is required.
+Two authorized staff members verify:
+Medication name.
+Quantity/count.
+Administration details.
+Remaining inventory after administration.
+Controlled medication counts are documented according to organizational procedures.
+Any discrepancy requires immediate notification to the Team Lead/Supervisor and completion of required incident documentation.
+
+Answer / Notes:
+Medication Responsibility Summary
+Role
+Responsibility
+Front-Line Support Worker (Medication Trained)
+Administer medication, complete MAR, report concerns
+Team Lead/Supervisor
+Review medication documentation, address errors/refusals, provide oversight
+Program Manager/Director of Operations/ED
+Monitor compliance, review medication incidents, ensure policies are followed
+Two Authorized Staff
+Verify controlled substance/narcotic counts and administration
+This process ensures medication administration is completed safely, accurately, and in compliance with client safety requirements and organizational standards.
+
+
+Q11
+How does the Behavior Tracker's incentive system work?
+Why we're asking: The form calculates daily earnings, a 25% bonus, and tracks against a $20 weekly balance — but none of this is explained on the form itself.
+→
+Is the $20 weekly cap the same for all clients, or does it vary per client or per care plan? 
+The incentive amount is determined based on:
+Client-specific needs and goals.
+Individual support strategies.
+Program requirements.
+The client’s approved Healing Plan where applicable.
+The final approval and authorization of incentive amounts are provided by:
+Executive Director
+Director of Operations
+Any changes to approved incentive amounts require review and authorization from these roles.
+
+→
+Who decides the incentive amounts — is it set by the Healing Plan or is it a standard policy?
+The system should track:
+Approved weekly incentive amount.
+Amount awarded or used.
+Current balance.
+Transaction history.
+Reasons for incentive deductions or adjustments.
+Staff member completing each entry.
+The system should maintain a clear audit trail of all incentive-related transactions.
+→
+What happens when the balance goes negative — is that an alert to a supervisor?
+If a client’s incentive balance becomes negative:
+The system automatically generates an alert.
+The alert is sent to the Supervisor/Team Lead/Director of Operations and the Executive Director for review.
+The Supervisor reviews the reason for the negative balance and determines the appropriate follow-up action.
+Additional escalation may occur if the issue requires management review.
+Staff should not be able to bypass, remove, or conceal negative balance alerts.
+
+→
+Does a supervisor review and approve the weekly summary before it's finalized?
+At the end of each incentive period:
+A weekly incentive summary is generated.
+The Supervisor reviews the summary before it is finalized.
+The Supervisor verifies:
+Transactions are accurate.
+Entries are supported by documentation.
+Incentives align with the approved client plan.
+Any exceptions or concerns are addressed.
+Once reviewed and approved, the weekly summary is finalized and becomes part of the client record.
+
+Answer / Notes:
+Incentive Management Responsibility Summary
+Role
+Responsibility
+Front-Line Support Worker
+Record incentive-related activities and transactions accurately
+Team Lead/Supervisor
+Review entries, investigate discrepancies, approve weekly summaries
+Director of Operations
+Approve incentive structures and provide operational oversight
+Executive Director
+Provide final authorization and organizational oversight
+This process ensures client incentives remain individualized, transparent, and aligned with approved support goals while maintaining appropriate financial and documentation controls.
+
+
+Q12
+What are the actual tasks in the Shift Checklist?
+Why we're asking: The shift checklist has three sections (Morning, Afternoon, Night) but every task row is empty — no tasks are listed.
+→
+Can you give us the standard morning, afternoon, and night tasks for a Group Home shift?
+The Shift Checklist is used to guide front-line staff through required tasks during each shift. Tasks are organized by shift type (Morning, Afternoon, and Night) and include client care responsibilities, household responsibilities, safety checks, medication-related duties, and documentation requirements.
+Morning Shift Tasks
+Morning shift responsibilities include:
+Shift Transition and Safety
+Complete shift exchange upon arrival.
+Review staff communication log.
+Complete medication/narcotic count.
+Complete sharp count.
+Review important client updates and safety information.
+Client Support
+Complete medication administration and MAR documentation (for medication-trained staff).
+Support clients with morning routines.
+Follow client food schedules.
+Schedule or transport clients to appointments.
+Drop off clients at school or support school-related transportation needs.
+Household and Environment
+Clean and sanitize kitchen, dining, and living areas as needed.
+Mop floors if required.
+Complete client laundry, including washing, drying, folding, and putting away.
+Complete seasonal outdoor tasks:
+Winter: Shovel sidewalks, clean stairways, and salt walkways.
+Summer: Maintain grass/yard areas.
+Check water temperature.
+Documentation
+Complete Behaviour Tracker forms.
+Complete Daily Logs, Case Notes, and Incident Reports when required.
+Complete shift exchange before departure.
+
+Afternoon Shift Tasks
+Afternoon shift responsibilities include:
+Shift Transition and Safety
+Complete shift exchange upon arrival.
+Review staff communication log.
+Complete medication/narcotic count.
+Complete medication administration and MAR documentation where applicable.
+Complete sharp count.
+Client Support
+Support clients in completing assigned chores.
+Support appointments and community activities.
+Complete school pick-up when required.
+Follow client food schedules.
+Household and Environment
+Start dishwasher.
+Clean and sanitize kitchen, dining, and living areas as needed.
+Lightly clean bathrooms when required.
+Mop floors if needed.
+Complete seasonal outdoor tasks.
+Check water temperature.
+Documentation
+Complete Daily Logs and Case Notes.
+Complete Behaviour Tracker forms.
+Complete Incident Reports when required.
+Complete shift exchange before departure.
+
+Night Shift Tasks
+Night shift responsibilities include:
+Shift Transition and Safety
+Complete shift exchange upon arrival.
+Review staff communication log.
+Complete medication/narcotic count.
+Complete medication administration and MAR documentation where applicable.
+Complete sharp count.
+Client Support
+Review upcoming appointments and set reminders.
+Follow client food schedules.
+Support client night routines, including hygiene and bedtime routines.
+Household and Environment
+Clean and sanitize kitchen, dining, and living areas.
+Clean bathrooms.
+Mop floors.
+Clean laundry and furnace areas.
+Documentation
+Complete Daily Logs, Case Notes, and Incident Reports when required.
+Complete Behaviour Tracker forms.
+Complete shift exchange before departure.
+→
+Are shift tasks the same across all programs, or does a Group Home have different tasks than SIL?
+No. The Shift Checklist is program-specific.
+While all programs share common responsibilities such as:
+Shift exchange.
+Documentation.
+Client safety monitoring.
+Medication procedures (where applicable).
+Communication requirements.
+The specific tasks vary depending on the program model and client needs.
+For example:
+Group Home
+Includes household responsibilities because staff support a shared living environment.
+Includes cleaning common areas, laundry support, meal routines, and household safety checks.
+Supported Independent Living (SIL)
+Focuses more on promoting client independence.
+Tasks may include:
+Supporting clients with personal goals.
+Skill development.
+Community participation.
+Independent living skills.
+Apartment/home management coaching.
+Other programs, such as Family Reunification or Youth Programs, may have different task requirements based on service delivery expectations.
+→
+Are there client-specific tasks that get added to a shift checklist based on that client's care plan?
+Yes. Client-specific tasks can be added to the Shift Checklist based on the client’s:
+Healing Plan.
+Individual Needs Assessment.
+Support goals.
+Medical requirements.
+Behaviour support strategies.
+Daily routines and preferences.
+Examples of client-specific tasks may include:
+Supporting a specific morning routine.
+Completing specialized communication strategies.
+Supporting therapy recommendations.
+Tracking specific behaviours.
+Providing additional health or safety supports.
+Following individualized dietary requirements.
+Supporting personal development goals.
+These tasks are added according to the client’s approved support plan and are visible to assigned staff who require the information to provide care.
+→
+When all tasks are complete, does the checklist get reviewed by a supervisor or just filed?
+When all tasks are completed:
+The front-line staff member reviews the checklist for completeness.
+The checklist is saved and locked in the system.
+Once locked, staff cannot make further changes.
+The completed checklist is reviewed by the Team Lead/Supervisor as part of routine documentation oversight and quality assurance.
+The Supervisor reviews:
+Completion of required tasks.
+Missing or incomplete documentation.
+Comments or concerns recorded by staff.
+Medication, safety, or incident-related notes.
+Any follow-up actions required.
+If concerns are identified, the Supervisor follows up with the staff member and escalates significant concerns to the Program Manager or Director of Operations.
+
+Answer / Notes:
+Shift Checklist Responsibility Summary
+Role
+Responsibility
+Front-Line Support Worker
+Complete assigned shift tasks, document activities, and submit checklist
+Team Lead/Supervisor
+Review completed checklists, address concerns, and ensure compliance
+Program Manager
+Monitor program-level documentation quality
+Director of Operations
+Provide operational oversight and ensure consistent implementation
+The Shift Checklist functions as both a daily workflow tool and a quality assurance record to ensure consistent service delivery across NextGen Support Services programs.
+
+
+Q13
+What is the 'Save and Lock' process in your current workflow?
+Why we're asking: Multiple forms have a Save and Lock button that permanently disables all fields. But there's no approval workflow — who locks it, and what does locking mean?
+→
+Currently, who decides when a form is final and gets locked?
+The staff member completing the form is responsible for ensuring the documentation is accurate, complete, and ready for submission.
+Once the staff member has completed the required information, they select “Save & Lock” to finalize the form.
+Locking indicates that:
+The staff member has completed their documentation.
+The information has been submitted as a final record.
+Further edits are restricted to maintain documentation integrity and audit accountability.
+The lock function does not automatically mean the form has been reviewed or approved by a Supervisor.
+→
+If a mistake is found after a form is locked, what happens — who can unlock it or create a correction?
+If an error is identified after a form has been locked:
+The original locked form remains unchanged as part of the official record.
+Staff cannot edit, delete, or overwrite the original documentation.
+A correction process is initiated to maintain an accurate audit trail.
+Depending on the type of error:
+A correction note/addendum may be added to the original form.
+The reason for the correction must be documented.
+The ability to unlock forms or make corrections is restricted to authorized supervisory or administrative roles, such as:
+Program Manager.
+Director of Operations.
+Executive director (for higher-level review or system administration).
+All changes after locking must maintain a record of:
+Who made the correction.
+Date and time of correction.
+Reason for the change.
+Original information and updated information where applicable.
+→
+Does locking mean a supervisor has reviewed and approved it, or just that the worker is done filling it out?
+No.
+Locking only confirms that the staff member has completed and submitted the form.
+It does **not automatically indicate that:
+A Supervisor has reviewed it.
+A Supervisor has approved it.
+The information has been verified.
+Supervisor review occurs separately through quality assurance processes.
+Supervisors review documentation to ensure:
+Required information is completed.
+Documentation is accurate and appropriate.
+Follow-up actions are identified.
+Policies and procedures have been followed.
+
+→
+Are there forms that should require supervisor co-signature before they can be locked?
+Yes. Certain high-risk or accountability-related documents should require Supervisor review and co-signature before becoming finalized.
+Forms requiring Supervisor co-signature may include:
+Incident Reports
+Completed by the staff member involved or witness.
+Reviewed and signed by the Team Lead/Supervisor before finalization.
+Escalated to Program Manager/Director of Operations when required.
+Medication-Related Documentation
+Medication error reports.
+Medication incident documentation.
+Controlled substance discrepancy reports.
+Client Assessments and Planning Documents
+Individual Needs Assessment.
+Healing Plan.
+Significant updates to client support plans.
+Discharge Documentation
+Discharge Form.
+Discharge Checklist.
+Final service summaries.
+High-Risk Documentation
+Serious behavioural incidents.
+Safety-related reports.
+Missing person/AWOL documentation.
+Emergency response documentation.
+Routine operational documentation, such as:
+Daily Logs.
+Case Notes.
+Shift Checklists.
+Behaviour Trackers.
+may be completed and locked by authorized staff, with Supervisor review occurring through regular documentation audits.
+
+Answer / Notes:
+Form Locking Responsibility Summary
+All forms and documents within the NextGen Support Services system should include a locking feature to maintain documentation integrity, ensure accountability, and create a complete audit trail. The locking function applies to all documentation, including routine records, clinical documents, safety-related forms, medication records, incident reports, and administrative documents.
+Role
+Responsibility
+Front-Line Support Worker
+Complete documentation accurately, review entries for completeness, and lock forms once documentation is finalized.
+Team Lead/Supervisor
+Review documentation for quality assurance, approve or co-sign required documents, manage correction requests, and ensure locked records are appropriately maintained.
+Program Manager
+Monitor documentation standards, review compliance, oversee documentation practices across programs, and support resolution of documentation concerns.
+Director of Operations
+Oversee system controls, access permissions, escalation processes, compliance requirements, and documentation governance.
+Executive Director
+Provide organizational oversight, approve significant documentation policies, and ensure overall accountability and regulatory compliance.
+Once a form or document is locked:
+Staff cannot edit, delete, or overwrite the original entry.
+Any required changes must follow the correction/addendum process.
+All corrections must maintain an audit trail identifying who made the change, when it was made, and the reason for the change.
+Locked records remain part of the official client or organizational record.
+This universal locking feature ensures all documentation remains accurate, transparent, traceable, and legally defensible while allowing appropriate corrections without compromising the integrity of the original record.
+
+
+Q14
+How does the Sharp Count Checklist work, and who is responsible for it?
+Why we're asking: The form tracks sharps (needles, blades, etc.) per shift across a full month — but the preset sharp types for every program are completely empty.
+→
+What types of sharps are tracked in each program (Group Home, SIL, Mental Health Unit)?
+Sharp tracking requirements vary depending on the program environment, client needs, and identified risk levels.
+Group Home
+Sharps tracked may include:
+Kitchen knives and cutting utensils.
+Scissors.
+Razors and personal grooming items where applicable.
+Other sharp household items identified through the client’s risk assessment or support plan.
+Any restricted items identified as requiring monitoring.
+Sharp counts are completed to ensure client safety, maintain accountability, and identify any missing items promptly.
+
+Supported Independent Living (SIL)
+Sharp tracking is based on the individual client’s needs, risk assessment, and level of independence.
+Sharps may include:
+Kitchen knives.
+Scissors.
+Razors or personal care items where required.
+Any items identified within the client’s Healing Plan or Individual Needs Assessment as requiring monitoring.
+Clients who demonstrate safe independent use of items may have reduced tracking requirements based on approved support planning.
+
+Mental Health Unit
+Due to the increased potential for safety risks, sharp tracking is more restrictive.
+Tracked items may include:
+All knives and cutting utensils.
+Scissors.
+Razors.
+Personal grooming sharps.
+Medical or treatment-related sharps where applicable.
+Any item identified as a potential safety concern.
+The level of monitoring is determined by client risk factors, clinical needs, and safety protocols.
+
+→
+Is a two-person verification required for sharp counts — i.e., two staff must independently count and agree?
+Yes. A two-person verification process is required for formal sharp counts.
+The process requires:
+Two authorized staff members independently complete the count.
+Both staff confirm the count matches the recorded inventory.
+Both staff document and verify the count.
+The verification process ensures:
+Accuracy of counts.
+Shared accountability.
+Reduced risk of errors or missed discrepancies.
+Clear documentation of responsibility.
+The system should capture:
+Names of both staff members.
+Date and time of count.
+Program/location.
+Count results.
+Any discrepancies identified.
+→
+What happens when a count doesn't match — is that an immediate incident, or a noteworthy event?
+A missing, incorrect, or inconsistent sharp count is treated as a safety concern and requires immediate escalation through the system.
+When a sharp count does not match:
+The system automatically flags the discrepancy and generates an alert.
+The alert is sent to the appropriate supervisory and management personnel, including:
+Team Lead/Supervisor.
+Program Manager.
+Director of Operations.
+Executive Director (for significant safety concerns).
+Staff immediately notify the Team Lead/Supervisor.
+Staff complete a search and verification process according to established safety procedures.
+The staff member responsible for the count completes a Staff-Related Incident Report documenting the discrepancy, actions taken, and outcome.
+The Staff-Related Incident Report must include:
+Date and time the discrepancy was identified.
+Program/location where the count occurred.
+Staff members involved in the count.
+Expected count and actual count.
+Description of the discrepancy.
+Search and verification steps completed.
+Notifications made.
+Resolution or follow-up actions required.
+Examples requiring a Staff-Related Incident Report include:
+Missing knife or sharp item.
+Client access to an unauthorized sharp item.
+Unknown location of a tracked sharp.
+Incorrect count recorded by staff.
+Failure to complete or document a required sharp count.
+Any situation involving potential risk to client or staff safety.
+All system-generated alerts related to sharp discrepancies must remain part of the permanent record and cannot be deleted, hidden, or overridden by staff. The Supervisor and management team review the incident to determine additional actions, including safety reviews, training needs, or changes to risk management procedures.
+
+→
+How often is the sharp count done — every shift, daily, or at specific times?
+Sharp counts are completed based on program requirements and client risk levels.
+For programs requiring active sharp monitoring:
+Every shift — Morning, Afternoon, and Night shifts.
+Counts are completed during shift transition.
+Counts are documented on the Shift Checklist and/or Monthly Sharp Count Checklist.
+Additional counts may be required:
+After use of restricted items.
+Following incidents involving safety concerns.
+When directed by a Supervisor or management.
+Based on individual client risk assessments.
+
+Answer / Notes:
+Sharp Count Responsibility Summary
+Role
+Responsibility
+Front-Line Support Worker
+Complete assigned sharp counts, document results, and report discrepancies immediately
+Second Verifying Staff Member
+Independently verify counts and confirm accuracy
+Team Lead/Supervisor
+Review discrepancies, initiate follow-up, and determine escalation requirements
+Program Manager
+Monitor compliance and review repeated concerns
+Director of Operations
+Oversee safety procedures and risk management
+Executive Director
+Provide organizational oversight for significant safety incidents
+The sharp count process ensures accountability, supports client safety, and provides a documented system for managing potential risks across all NextGen Support Services programs.
+
+
+04 The Workflow — How Everything Connects
+
+The most important thing we need to understand is how your forms, people, and programs connect. Right now each form is isolated. The portal connects everything.
+
+Q15
+Draw us the flow: what happens between a staff member starting their shift and ending it?
+Why we're asking: We need to understand the full documentation chain for a typical shift so the portal puts the right forms in front of the right person at the right time.
+→
+When a staff member arrives for their shift, what is the first thing they do (check a handover note, read the daily log, check medications)?
+When a staff member arrives for their shift, the first step is to complete a shift exchange and review of current client information.
+The incoming staff member must:
+Complete a verbal shift handover with the outgoing staff member.
+Review the staff communication log for important updates.
+Review relevant client documentation, including:
+Daily Logs.
+Case Notes.
+Noteworthy Updates (where applicable).
+Incident Reports or safety alerts.
+Behaviour Tracking information.
+Medication-related information.
+Complete medication/narcotic count where applicable.
+Complete sharp count where required.
+Review the Shift Checklist and begin assigned shift responsibilities.
+This ensures staff have the most current information before assuming responsibility for client care.
+
+→
+During the shift, what triggers them to fill out a form — is it a scheduled thing (end of shift) or event-driven (something happened)?
+Documentation is completed based on both scheduled requirements and event-driven situations.
+Scheduled Documentation
+Staff complete required documentation as part of normal shift responsibilities, including:
+Shift Checklist.
+Daily Logs.
+Contact Notes.
+Case Notes.
+Behaviour Tracker.
+Medication Administration Record (MAR), when applicable.
+Medication/Narcotic Count.
+Sharp Count documentation.
+These forms are completed according to program requirements and shift expectations.
+
+Event-Driven Documentation
+Additional forms are completed when a significant event occurs, including:
+Incident Reports.
+Emergency Preparedness documentation.
+Staff-related incident reports.
+Medication error reports.
+Safety concerns (Noteworthy/ Incident Report).
+Behavioural incidents requiring additional review (Noteworthy/ Incident Report).
+Client changes requiring communication and follow-up (Noteworthy/ Incident Report).
+The staff member does not wait until the end of the shift to document urgent or safety-related events. Documentation must be completed as soon as reasonably possible after the event occurs.
+
+→
+At the end of a shift, what forms must be completed before a staff member can hand over to the next shift?
+Before ending their shift, the outgoing staff member must ensure all required documentation is completed, including:
+Shift Checklist.
+Daily Logs.
+Case Notes.
+Behaviour Tracker.
+Medication Administration Record (MAR), if responsible for medication administration.
+Medication/Narcotic Count documentation.
+Sharp Count documentation.
+Incident Reports for any incidents that occurred during the shift.
+Any other program-specific required documentation.
+Once documentation is complete, forms are saved and locked according to system requirements.
+
+→
+How does the outgoing staff member communicate critical information to the incoming staff member — verbally, a written log, both?
+
+Answer / Notes:
+
+
+
+Q16
+How do supervisors currently monitor what is happening across programs and clients?
+Why we're asking: Currently there is no dashboard — supervisors see only what gets handed to them. The portal can change this.
+→
+How does a supervisor currently know if a form hasn't been submitted for a shift — do they check manually?
+The system should automatically monitor required shift documentation and notify supervisors when expected forms have not been completed or submitted.
+Supervisors should not rely solely on manual checks. The system should generate alerts for:
+Missing Shift Checklists.
+Incomplete Daily Logs.
+Missing Case Notes.
+Outstanding MAR documentation.
+Missing Incident Reports when required.
+Incomplete Sharp Count or Medication/Narcotic Count documentation.
+Alerts should be sent to:
+Team Lead/Supervisor.
+Program Manager.
+Director of Operations/ Executive Director (for significant or repeated issues).
+The Supervisor reviews the alert, follows up with the responsible staff member, and ensures the required documentation is completed.
+
+→
+What reports does management currently produce — weekly, monthly, quarterly? What data goes into them?
+Management reporting should be generated through the system on a regular basis, including:
+Weekly Reports
+Weekly reports may include:
+Shift documentation completion rates.
+Missing or late documentation.
+Incident reports submitted.
+Medication administration compliance.
+Medication errors or alerts.
+Sharp count discrepancies.
+Behaviour tracking trends.
+Client activities completed.
+Family visits/contact activities completed.
+Staff-related documentation concerns.
+
+Monthly Reports
+Monthly reports provide a broader review of program operations and may include:
+Client progress summaries.
+Incident trends and analysis.
+Medication compliance rates.
+Behaviour trends.
+Service delivery activities.
+Program participation.
+Staff documentation compliance.
+Training or support needs identified.
+Quality assurance findings.
+
+Quarterly Reports
+Quarterly reports provide leadership-level oversight and may include:
+Overall program performance.
+Safety trends.
+Serious incident reviews.
+Client outcomes.
+Service utilization.
+Compliance trends.
+Risk management reviews.
+Operational improvement recommendations.
+
+→
+Are there any metrics leadership tracks regularly (number of incidents, family visits completed, medication compliance)?
+Leadership should monitor key performance and quality indicators, including:
+Client Safety Metrics
+Number and type of incidents.
+Serious incident trends.
+Emergency responses.
+Missing person/AWOL events.
+Behavioural incidents.
+Medication Safety Metrics
+Medication administration compliance.
+Missed medications.
+Medication refusals.
+Medication errors.
+Controlled substance discrepancies.
+Service Delivery Metrics
+Family visits/contact completed.
+Client activities completed.
+Appointments supported.
+Goal progress.
+Healing Plan reviews completed.
+Documentation and Compliance Metrics
+Completed versus missing documentation.
+Late submissions.
+Form locking compliance.
+Incident report completion timelines.
+Staff training compliance.
+→
+When something goes wrong (missed medication, incident), how does the supervisor find out — is there any escalation process today?
+When an issue occurs, the system should support an automated escalation process.
+Examples include:
+Missed medication.
+Medication error.
+Safety incident.
+Client injury.
+Missing sharp item.
+Serious behavioural event.
+The process includes:
+Staff Response
+Staff ensure immediate client safety.
+Required documentation is completed.
+Team Lead/Supervisor is notified.
+System Alert
+The system generates an alert based on the severity and type of event.
+Notifications are sent to appropriate personnel:
+Team Lead/Supervisor.
+Program Manager.
+Director of Operations.
+Executive Director for significant events.
+Supervisor Review
+Supervisor reviews the event.
+Confirms required actions were completed.
+Ensures Incident Reports and related documentation are finalized.
+Management Follow-Up
+Program Manager and Director of Operations review trends, risks, and corrective actions.
+Executive Director provides oversight for serious or high-risk matters.
+
+Answer / Notes:
+Automated Documentation Review and Critical Event Alert System
+The system should have the capability to automatically review completed documentation submitted within the previous 16 hours and identify any entries that contain indicators of significant events, safety concerns, or important client changes.
+If the system detects a potential critical event mentioned in documentation (such as Daily Logs, Case Notes, Contact Notes, Behaviour Trackers, Shift Checklists, or other client records) and there is no corresponding Incident Report, Noteworthy Update, or required follow-up documentation completed, the system should automatically generate an alert.
+Alerts should be sent to:
+Team Lead/Supervisor.
+Program Manager.
+Director of Operations.
+Executive Director (for high-risk or serious concerns).
+The system should not replace professional judgement; rather, it should act as an additional quality assurance and safety mechanism to identify possible missed documentation requirements.
+
+Critical Events Requiring Documentation Review
+A. Negative Critical Events (Safety, Risk, and Incident-Related)
+The system should flag documentation that references:
+1. Client Safety Concerns
+Client injury or accident.
+Fall resulting in injury or medical concern.
+Client experiencing sudden health concerns.
+Emergency medical situations.
+Ambulance or emergency service involvement.
+Hospital visit or emergency room admission.
+Significant change in physical condition.
+Expected Documentation:
+Incident Report.
+Case Note.
+Medical follow-up documentation where required.
+
+2. Abuse, Neglect, or Protection Concerns
+Suspected physical abuse.
+Suspected sexual abuse or exploitation.
+Suspected emotional abuse.
+Neglect concerns.
+Unsafe living conditions.
+Allegations involving staff, caregivers, family members, or other individuals.
+Expected Documentation:
+Incident Report.
+Required external reporting documentation (where applicable).
+
+3. Behavioural and Mental Health Emergencies
+Suicide attempt or serious self-harm concerns.
+Suicidal thoughts with safety concerns.
+Threats of harm toward self or others.
+Serious aggression or violence.
+Physical altercation.
+Significant emotional crisis requiring intervention.
+Mental health crisis requiring emergency response.
+Expected Documentation:
+Incident Report.
+Behaviour documentation.
+Safety planning updates where required.
+
+4. Medication-Related Events
+Medication missed.
+Medication refused.
+Medication administered late or early outside the approved timeframe.
+Wrong medication administered.
+Wrong client medication administration.
+Incorrect dosage.
+Medication error.
+Controlled medication discrepancy.
+Expected Documentation:
+MAR update.
+Incident Report.
+Medication follow-up documentation.
+
+5. Missing Person / AWOL Events
+Client left without authorization.
+Client missing from residence.
+Client unable to be located.
+Police notification.
+Search initiated.
+Expected Documentation:
+Incident Report.
+Emergency documentation.
+Follow-up notes.
+
+6. Safety and Environmental Risks
+Missing sharp item.
+Sharp count discrepancy.
+Unsafe equipment or environment.
+Fire alarm activation.
+Emergency evacuation.
+Property damage creating safety concerns.
+Exposure to hazardous conditions.
+Expected Documentation:
+Incident Report.
+Safety follow-up documentation.
+
+7. Legal or External Agency Involvement
+Police involvement.
+Child and Family Services (CFS) involvement.
+Emergency services involvement.
+Court-related concerns.
+Significant complaints from families, guardians, or stakeholders.
+Expected Documentation:
+Incident Report.
+Contact Note.
+External communication record.
+
+B. Positive Critical Events (Achievement, Progress, and Significant Milestones)
+The system should also recognize significant positive events that may require documentation through a Noteworthy Update, Case Note, or progress documentation.
+Examples include:
+1. Major Client Achievements
+Successful completion of a major personal goal.
+Significant improvement in independence skills.
+Successful transition to a higher level of independence.
+Completion of education, employment, or training milestones.
+Successful community integration.
+Expected Documentation:
+Noteworthy Update.
+Case Note.
+Healing Plan progress update.
+
+2. Positive Behavioural Progress
+Significant reduction in challenging behaviours.
+Successful use of coping strategies.
+Improved emotional regulation.
+Successful conflict resolution.
+Demonstrated positive decision-making.
+Expected Documentation:
+Behaviour Tracker.
+Noteworthy Update.
+Progress documentation.
+
+3. Positive Health and Wellness Changes
+Successful completion of treatment goals.
+Improved medication adherence.
+Improved self-care routines.
+Positive health outcomes.
+Expected Documentation:
+Case Note.
+Noteworthy Update.
+
+4. Family and Relationship Milestones
+Successful family visit.
+Positive family reunification progress.
+Improved caregiver relationship.
+Achievement of relationship goals.
+Expected Documentation:
+Contact Note.
+Noteworthy Update.
+
+5. Program Transition Milestones
+Successful move between programs.
+Increased independence.
+Completion of readiness goals.
+Successful discharge planning progress.
+Expected Documentation:
+Noteworthy Update.
+Transition documentation.
+Updated Healing Plan.
+
+Automated Review Logic Example
+Scenario:
+Daily Log Entry:
+"Client became very upset, stated they did not want to live anymore, staff provided crisis support and contacted emergency services."
+System Review:
+Detects keywords related to suicide risk and emergency response.
+Checks whether Incident Report exists within 16 hours.
+If no Incident Report is found:
+Generates critical alert.
+Notifies Supervisor, Program Manager, Director of Operations, and Executive Director.
+
+This automated review process ensures that significant client events are consistently identified, appropriately documented, and escalated while supporting quality assurance, compliance, and client safety.
+
+
+Q17
+How do your programs relate to each other and to your physical locations?
+Why we're asking: Your forms reference multiple programs but we don't know whether these run out of the same building or different sites, and whether the same staff work across programs.
+→
+How many physical houses or sites do you currently operate?
+NextGen Support Services operates multiple physical locations/sites to deliver client services. The system should be designed to support multiple houses, locations, and service sites, with each site having its own:
+Program designation.
+Client assignments.
+Staff assignments.
+Documentation records.
+Shift schedules.
+Site-specific tasks and requirements.
+The system should allow for future expansion by adding additional locations without changing the overall structure.
+
+→
+Does each site run one program or multiple programs?
+Each physical site may operate:
+A single dedicated program, or
+Multiple programs depending on the service model, client needs, and operational requirements.
+For example:
+A Group Home site may primarily provide Group Care Services.
+A SIL site may support clients living independently within designated units or apartments.
+A site may also support multiple service streams where appropriate.
+The system should allow each site to be linked to one or more programs while maintaining clear separation of client records, documentation, and reporting.
+
+→
+Do staff work across multiple sites or programs, or are they assigned to one?
+Staff assignments depend on operational needs and program requirements.
+Staff may be:
+Assigned to a specific site and program.
+Scheduled across multiple sites or programs when required.
+Assigned temporarily to provide coverage, emergency support, or specialized services.
+The system should allow staff access based on their assigned responsibilities and permissions.
+Front-line staff should only have access to information required to support clients they are assigned to during their shifts, while supervisors and management roles may have broader oversight access based on their role.
+
+→
+Does each site have a dedicated coordinator, or is coordination centralized?
+Coordination is managed through a combination of site-level and centralized leadership.
+Each site may have designated Team Leads/Supervisors responsible for:
+Daily operations.
+Staff support.
+Shift coordination.
+Documentation review.
+Immediate issue escalation.
+Overall operational coordination is centralized through:
+Program Manager.
+Director of Operations.
+Executive Director.
+The centralized leadership structure ensures consistency across programs, supports quality assurance, manages compliance requirements, and provides oversight across all locations.
+
+Answer / Notes:
+
+
+
+Q18
+What does the family/guardian relationship look like in your documentation?
+Why we're asking: Multiple forms touch on family contact — Family Reunification is a whole program — but we need to understand how family is tracked and who can communicate with them.
+→
+Are family members ever given access to any documentation, or is all family communication done by staff?
+Family members, guardians, and external contacts are not provided direct access to client documentation within the system.
+All documentation related to clients remains confidential and is accessible only to authorized NextGen Support Services staff based on their role and assigned responsibilities.
+Family communication and updates are managed through authorized staff members and documented appropriately within the client record.
+
+→
+Who is authorized to contact a client's family or guardian — any staff, or only specific roles?
+Only designated leadership roles are authorized to initiate formal communication with a client’s family member, guardian, or external representative.
+Authorized roles include:
+Program Manager
+Director of Operations
+Executive Director (where required)
+Front-line staff and other employees should not independently contact families or guardians regarding client matters unless specifically directed or authorized by leadership.
+This ensures:
+Consistent communication.
+Protection of client confidentiality.
+Appropriate information sharing.
+Clear accountability for external relationships.
+
+→
+When family contact is made, where is that documented — the Contact Note, the Daily Log, or both?
+All external communication involving a client must be documented appropriately.
+Case Note
+The Case Note is the primary documentation method for staff-to-external communication.
+Case Notes are used when staff communicate with:
+Family members.
+Guardians.
+Child and Family Services (CFS).
+Healthcare providers.
+Schools.
+Other external agencies or professionals.
+Case Notes provide detailed documentation, including:
+Date and time of communication.
+Individual contacted.
+Purpose of contact.
+Information discussed.
+Decisions made.
+Follow-up actions required.
+
+Daily Log
+The Daily Log provides a brief summary of significant daily events and may reference that external communication occurred.
+Example:
+"Staff contacted guardian regarding upcoming appointment."
+The Daily Log does not replace the Case Note and does not contain the same level of detail.
+
+Contact Note
+The Contact Note is used specifically to document client-to-external contact.
+Examples include:
+Client phone call with family.
+Client visit with family.
+Client interaction with an external support person.
+Client communication with a significant person in their life.
+The Contact Note captures information about the client's interaction rather than staff communication.
+
+→
+For children in care, is there a family visit schedule that needs to be tracked? How is that managed today?
+For children in care, NextGen Support Services does not maintain a standard internal family visit schedule.
+Family visits are managed through appointments arranged by the external party initiating the contact, such as:
+Family members.
+Guardians.
+Child and Family Services (CFS).
+Other authorized representatives.
+When a visit or family contact occurs:
+The details are documented in the appropriate documentation record.
+Any significant concerns, outcomes, or follow-up actions are recorded.
+Required notifications are completed based on the nature of the contact.
+The system should support documentation of family visits and contacts but does not require a fixed recurring visitation schedule.
+
+Answer / Notes:
+
+
+
+05 Compliance, Privacy & Legal
+
+NextGen works with Indigenous children and youth in care. This means heightened privacy obligations, mandatory reporting requirements, and data sovereignty considerations that must be built into the portal from day one — not added later.
+
+Q19
+What are your current legal and regulatory obligations around documentation?
+Why we're asking: You operate under Alberta child welfare legislation and deal with CFS regularly. We need to know exactly what compliance requirements the portal must meet.
+→
+Are you licensed or registered with Alberta Children's Services or a similar body? Do they audit your documentation?
+NextGen Support Services operates within the requirements and standards established by Alberta Children’s Services and other applicable regulatory bodies governing child, youth, and family support services.
+Where applicable, regulatory bodies may review or audit organizational documentation to ensure compliance with:
+Client service requirements.
+Documentation standards.
+Safety and incident reporting requirements.
+Medication management practices.
+Staff qualifications and training.
+Record-keeping requirements.
+The system should support regulatory readiness by maintaining:
+Complete client records.
+Audit trails for all documentation changes.
+Locked and timestamped forms.
+Documentation access history.
+Incident reporting records.
+Compliance reports.
+→
+Are there mandatory retention periods for client records — e.g. must be kept for 7 years after discharge?
+Client records must be retained according to applicable Alberta legislation, contractual requirements, licensing standards, and organizational policies.
+The system should support configurable retention periods to ensure records are maintained for the required timeframe after:
+Client discharge.
+Program completion.
+Service closure.
+Retention requirements should apply to:
+Client files.
+Assessments.
+Healing Plans.
+Needs Assessments.
+Case Notes.
+Contact Notes.
+Daily Logs.
+Incident Reports.
+Medication Records.
+Supporting documentation.
+Once the retention period has been met, records should follow an approved secure disposal process. The system should not allow unauthorized deletion of records before the required retention period expires.
+
+→
+What legislation governs your data practices — FOIP (Freedom of Information and Protection of Privacy Act), PIPA, PIPEDA, or a combination?
+NextGen Support Services data practices are governed by applicable privacy legislation, including:
+Freedom of Information and Protection of Privacy Act (FOIP)
+FOIP applies where information is collected, stored, or managed by public bodies or organizations operating under applicable government agreements or requirements.
+Personal Information Protection Act (PIPA)
+PIPA governs the collection, use, disclosure, storage, and protection of personal information by private organizations operating in Alberta.
+Personal Information Protection and Electronic Documents Act (PIPEDA)
+PIPEDA may apply where personal information is handled in certain commercial activities involving interprovincial or federal privacy requirements.
+The system should support privacy compliance through:
+Role-based access controls.
+Minimum necessary access principles.
+Secure document storage.
+Audit logs.
+User activity tracking.
+Controlled information sharing.
+Data encryption.
+Secure authentication.
+→
+Do you have any existing policies around data breach notification?
+NextGen Support Services should maintain a formal Data Breach Response Policy to address unauthorized access, disclosure, loss, or misuse of personal information.
+If a potential privacy breach occurs:
+The incident is immediately reported through the organization’s incident reporting process.
+Access to affected information is reviewed and contained.
+The breach is investigated to determine:
+What information was affected.
+Who accessed or received the information.
+When the breach occurred.
+Potential risks to affected individuals.
+Appropriate leadership personnel are notified, including:
+Team Lead/Supervisor.
+Program Manager.
+Director of Operations.
+Executive Director.
+Required notifications are completed in accordance with applicable privacy legislation and contractual obligations.
+The system should support breach management by maintaining:
+Privacy incident reports.
+Investigation records.
+Notification documentation.
+Corrective action plans.
+Audit history.
+Answer / Notes:
+
+
+
+Q20
+How is Indigenous data sovereignty considered in how you store and manage client information?
+Why we're asking: Your organization serves Indigenous families. The OCAP principles (Ownership, Control, Access, Possession) may apply to how data is collected and stored.
+→
+Have you consulted with the Indigenous communities you serve about how their data should be handled?
+NextGen Support Services recognizes the importance of culturally respectful and community-informed approaches when collecting, storing, using, and sharing information related to Indigenous clients.
+Where services involve Indigenous children, youth, families, or communities, NextGen should engage with relevant Indigenous communities, representatives, and governing bodies to understand:
+Community expectations regarding information management.
+Cultural considerations related to client records.
+Appropriate information-sharing practices.
+Data sovereignty expectations.
+Any Nation-specific requirements or protocols.
+Consultation should inform organizational policies and ensure that data practices respect Indigenous rights, traditions, and community values.
+
+→
+Are there any Nation-specific agreements or protocols that affect how you can store or share client information?
+Where applicable, NextGen Support Services will identify and follow any Nation-specific agreements, service agreements, or information-sharing protocols that apply to Indigenous clients.
+These agreements may define:
+Who can access client information.
+How information can be shared.
+What approvals are required before disclosure.
+How records should be stored and protected.
+Community ownership or governance expectations regarding information.
+The system should support the ability to apply different data-sharing rules based on:
+Client affiliation.
+Program requirements.
+Service agreements.
+Community-specific protocols.
+→
+Should data for Indigenous clients be stored differently or with additional access restrictions?
+Indigenous client information should be protected using the same strong privacy and security standards applied to all client records, while allowing additional controls where required by community agreements or cultural data governance principles.
+The system should support:
+Role-based access controls.
+Restricted access based on service need.
+Additional permissions for sensitive cultural or community-related information.
+Audit tracking of all access and changes.
+Controlled sharing of information outside the organization.
+Additional restrictions may apply to:
+Cultural identity information.
+Community affiliation information.
+Traditional or family-related information.
+Information identified as sensitive by the client, family, or Indigenous governing body.
+
+→
+Does any data need to be shared with or accessible to specific Indigenous governing bodies?
+Information should only be shared with Indigenous governing bodies, Nations, or community organizations when:
+There is appropriate authorization or consent.
+A legal or service agreement permits sharing.
+Disclosure aligns with privacy legislation and organizational policies.
+Where required, the system should support:
+Documented consent records.
+Information-sharing agreements.
+Tracking of disclosures.
+Identification of the individual or organization receiving information.
+Date, purpose, and scope of information shared.
+Examples of authorized information sharing may include:
+Coordinated service planning.
+Cultural support planning.
+Child and family support coordination.
+Case management collaboration.
+Answer / Notes:
+
+
+
+Q21
+Where should the portal data be stored, and who controls it?
+Why we're asking: For a Canadian organization serving vulnerable populations, data residency matters.
+→
+Are you required or do you prefer to have all data stored on Canadian servers?
+NextGen Support Services requires that client and organizational data be stored securely and prefers that all data be hosted on Canadian-based servers to support compliance with applicable Canadian privacy requirements and strengthen data protection.
+The system should prioritize:
+Canadian data hosting locations.
+Secure cloud infrastructure.
+Encryption of stored and transmitted information.
+Regular security monitoring.
+Controlled access based on staff roles and responsibilities.
+Any exception to Canadian data storage requirements should be reviewed and approved by organizational leadership, including the Director of Operations and Executive Director.
+→
+Who owns the data — NextGen, or do clients have rights to their own records?
+All client records and organizational documentation created, collected, or maintained by NextGen Support Services are owned and managed by NextGen Support Services as part of its responsibility to provide services and maintain regulatory compliance.
+However, clients retain important rights regarding their personal information, including:
+The right to access their information where permitted by applicable privacy legislation.
+The right to request corrections to inaccurate information.
+The right to understand how their information is collected, used, and disclosed.
+The right to have their information protected and handled confidentially.
+Client information should only be accessed, used, or shared for legitimate service delivery, safety, legal, or regulatory purposes.
+
+→
+Do you have any existing IT infrastructure (servers, cloud accounts) we should work with?
+NextGen Support Services currently has no existing organizational technology infrastructure that should be considered when implementing new systems.
+→
+Has your organization had any past data breaches or privacy incidents that shaped your current policies?
+NextGen Support Services has not identified any previous major data breaches or privacy incidents that have directly shaped current policies.
+However, the organization recognizes the importance of proactive privacy and security measures and requires the system to include strong safeguards, including:
+Audit trails for all document access and changes.
+User activity tracking.
+Role-based permissions.
+Automatic alerts for suspicious activity.
+Secure document storage.
+Data breach reporting workflows.
+Any future privacy incident should be managed through the organization’s Data Breach Response Policy, including:
+Immediate reporting.
+Investigation.
+Risk assessment.
+Corrective actions.
+Required notifications.
+Answer / Notes:
+
+
+
+Q22
+Who currently has access to physical client files, and how is that controlled?
+Why we're asking: Before we can design digital access controls, we need to understand how access is managed today.
+→
+Are physical files kept in a locked cabinet? Who has the key?
+Physical client files, where maintained, must be stored in a secure, locked cabinet or designated secure storage area to protect confidential information.
+Access to physical files is restricted to authorized personnel only.
+Keys or access credentials are controlled by designated leadership personnel, including:
+Team Lead/ Supervisor
+Program Manager.
+Director of Operations.
+Executive Director (where required).
+Keys should not be freely accessible to front-line staff or unauthorized employees.
+
+→
+Can any staff member pull any client file, or is access tracked and limited?
+Staff members cannot freely access any client file.
+Access is limited based on:
+Staff role.
+Program assignment.
+Client support responsibilities.
+Operational need.
+Access should be tracked through:
+File access logs.
+Sign-out records.
+Electronic tracking where applicable.
+The organization should maintain accountability by documenting:
+Who accessed the file.
+Date and time accessed.
+Reason for access.
+File returned status.
+Front-line staff should only access information required to provide direct support to assigned clients.
+
+→
+Has there ever been a situation where a staff member accessed information they shouldn't have?
+NextGen Support Services has not identified any previous situations where a staff member accessed client information without authorization.
+However, the system and organizational processes should be designed to prevent and detect unauthorized access through:
+Role-based access controls.
+Access logs.
+Regular privacy audits.
+Staff confidentiality agreements.
+Privacy training requirements.
+Disciplinary processes for inappropriate access.
+Any suspected unauthorized access should be treated as a privacy concern and managed through the organization’s privacy incident response process.
+→
+Are clients or their guardians ever given copies of their own documentation?
+Clients and/or their authorized guardians may request copies of their own documentation, subject to:
+Applicable privacy legislation.
+Client consent requirements.
+Legal restrictions.
+Information that may impact another individual’s privacy or safety.
+Requests for documentation should be reviewed and approved by authorized leadership personnel, including:
+Program Manager.
+Director of Operations.
+Executive Director (where required).
+Approved documentation requests should be:
+Verified before release.
+Provided through a secure method.
+Documented in the client record.
+The system should maintain a record of:
+Who requested the information.
+Date of request.
+Information provided.
+Person who approved the release.
+Method of delivery.
+Answer / Notes:
+
+
+
+06 The Portal — Expectations & Constraints
+
+Now that we understand how things work today, we need to understand what success looks like for this portal and what constraints we're working within.
+
+Q23
+When you imagine staff using this portal on a busy shift, what does that look like?
+Why we're asking: We need to design for reality — a support worker at 11pm in a group home is not just sitting at a desk with a fast computer.
+→
+Do staff primarily use phones, tablets, or desktop computers during their shifts?
+Staff primarily use desktop computers as the main method for accessing organizational systems and completing documentation.
+Phones are also used as a supporting tool when required, particularly for:
+Quick access to client information.
+Reviewing schedules.
+Communication needs.
+Completing time-sensitive updates when a computer is not immediately available.
+The system should therefore be designed to support both:
+Desktop/computer-based workflows for detailed documentation.
+Mobile access for convenience, real-time updates, and shift-based needs.
+
+→
+Is there reliable WiFi in all your houses and offices? Or do some staff work in areas with poor connectivity?
+NextGen Support Services requires reliable internet connectivity across all operating locations, including:
+Residential houses.
+Program sites.
+Administrative offices.
+The system should be designed to function effectively with standard internet connectivity and should consider situations where connectivity may temporarily be limited.
+Where possible, the system should support:
+Autosave functionality.
+Data synchronization when connectivity is restored.
+Clear notifications when information has not successfully uploaded.
+
+→
+Is there a shared device at each site, or does every staff member use their own phone?
+Staff access organizational systems through organization-managed devices and approved accounts.
+The organization may utilize:
+Shared desktop computers at program locations.
+Organization-approved devices where required.
+Staff access through individual organizational accounts.
+Each staff member should have their own login credentials to ensure:
+Individual accountability.
+Audit tracking.
+Secure access management.
+Documentation ownership.
+Staff should not share usernames or passwords.
+
+→
+Are there any staff who are not comfortable with smartphones or digital tools?
+Staff have varying levels of comfort with digital tools.
+The majority of staff are expected to use:
+Desktop computers as their primary documentation tool.
+Phones as secondary/support devices.
+The system should be designed to be:
+User-friendly.
+Simple to navigate.
+Supported by clear workflows.
+Accessible with minimal technical training.
+New staff should receive onboarding and training on:
+System navigation.
+Documentation requirements.
+Privacy and security practices.
+Digital form completion.
+Locking and correction procedures.
+Additional support should be available for staff who require assistance becoming comfortable with digital documentation tools.
+
+Answer / Notes:
+
+
+
+Q24
+What are the 3 most important things the portal must do — the things that if it didn't do them, it would be useless?
+Why we're asking: This tells us where to focus first and what the MVP (minimum viable product) looks like.
+→
+If you could only launch with one feature, what would it be?
+If only one feature could be launched initially, the priority would be a centralized digital documentation and client management system.
+The portal should provide staff with one secure location to:
+Complete all required client documentation.
+Access assigned client information.
+Complete shift checklists.
+Submit case notes and daily logs.
+Complete medication documentation.
+Submit incident reports.
+Track required follow-up actions.
+Maintain accurate and accessible client records.
+The goal is to replace fragmented documentation processes with a single, organized platform that improves communication, accountability, and continuity of care.
+
+→
+What is the single biggest pain point your staff have with documentation today?
+The biggest challenge staff experience with documentation is managing multiple forms and ensuring information is completed, updated, and accessible in the correct place.
+Current pain points include:
+Multiple documentation requirements across different forms.
+Difficulty knowing which documentation is required for specific situations.
+Risk of missed documentation.
+Time spent searching for client information.
+Lack of real-time visibility for supervisors.
+Difficulty tracking whether forms have been completed.
+Limited ability to identify documentation gaps quickly.
+A centralized system with automated reminders, alerts, and clear workflows would significantly reduce administrative burden and improve documentation quality.
+
+→
+What would make your supervisors say 'this portal was worth it' within the first 3 months?
+Supervisors would consider the portal successful if it provides immediate improvements in oversight, accountability, and efficiency.
+Key success indicators include:
+Improved Documentation Compliance
+Real-time visibility of completed and missing forms.
+Automated alerts for overdue documentation.
+Reduced missing shift documentation.
+Improved accuracy and completeness of records.
+Better Incident and Safety Management
+Immediate notifications for critical events.
+Automated identification of possible missed incident reports.
+Clear incident tracking and follow-up processes.
+Better visibility of safety trends.
+Reduced Administrative Workload
+Less manual file checking.
+Faster access to client records.
+Easier preparation for audits and reviews.
+Automated reporting.
+Improved Communication Between Staff
+Better shift-to-shift handover.
+Centralized client updates.
+Clear tracking of important changes and follow-up items.
+
+Answer / Notes:
+
+
+
+Q25
+What does the portal explicitly NOT need to do?
+Why we're asking: Scope creep is the biggest risk in a project like this. Defining what's out of scope is as important as defining what's in.
+→
+Is payroll or HR management in scope, or is that handled by a separate system?
+Payroll and HR management are not the primary scope of the portal and will continue to be managed through a separate HR/payroll system.
+The portal should focus primarily on:
+Client service delivery.
+Documentation management.
+Staff workflows.
+Program operations.
+Compliance tracking.
+Quality assurance.
+Where required, the portal may integrate with existing HR systems to support:
+Staff directory information.
+Employment status.
+Role assignments.
+Access permissions.
+Training and credential verification.
+→
+Is scheduling (who works which shift) in scope, or is that managed elsewhere?
+Scheduling is a core operational function and should be integrated within the staff portal to support workforce management, shift coordination, and payroll preparation.
+The system should provide scheduling capabilities similar to workforce management platforms such as BrightHR, allowing administrators and supervisors to:
+Create and manage staff schedules.
+Assign staff to specific programs, sites, clients, and shifts.
+View staff availability and prevent scheduling conflicts.
+Manage shift changes, replacements, and coverage requests.
+Track recurring schedules and program staffing requirements.
+Notify staff of assigned shifts, schedule changes, and updates.
+Maintain a complete history of scheduled and completed shifts.
+The scheduling module should connect with client documentation workflows to ensure operational accountability by tracking:
+Which staff member was scheduled and assigned to each shift.
+The program/site where the shift occurred.
+The clients supported during the shift.
+Required documentation associated with the shift.
+Whether required shift documentation, such as shift checklists, daily logs, case notes, and medication documentation, has been completed.
+
+Time Clock and Attendance Tracking
+The system should include time tracking functionality that allows staff to:
+Clock in and clock out for assigned shifts.
+GPS Location Stamps, Geofencing
+Record actual hours worked.
+Track late arrivals, early departures, and missed shifts.
+Submit corrections for inaccurate time entries.
+Allow supervisors to review and approve time records.
+Maintain an audit trail of all time adjustments.
+The system should support location/program-based time tracking to verify staff attendance at assigned sites where required.
+
+Timesheet Generation for Payroll Processing
+The system should automatically generate staff timesheets that can be exported in Excel format for payroll processing.
+Generated timesheets should include:
+Staff name.
+Employee ID.
+Position/role.
+Program/site worked.
+Client assignment (where applicable).
+Date of shift.
+Scheduled shift time.
+Actual clock-in and clock-out times.
+Total hours worked.
+Regular hours.
+Overtime hours (where applicable).
+Approved shift changes.
+Missed or adjusted punches.
+Supervisor approvals.
+Payroll notes or exceptions.
+The Excel export should allow administrative staff to:
+Review and verify payroll information.
+Make approved payroll adjustments.
+Submit accurate hours for payroll processing.
+Maintain payroll documentation records.
+
+Supervisor Oversight and Approval
+Supervisors should have access to dashboards that allow them to monitor:
+Upcoming schedules.
+Staff attendance.
+Unfilled shifts.
+Overtime hours.
+Missing time entries.
+Pending approvals.
+Documentation completion linked to shifts.
+The system should generate alerts for:
+Staff failing to clock in/out.
+Unapproved timesheet changes.
+Scheduling conflicts.
+Missing required shift documentation.
+Excessive overtime or staffing concerns.
+
+→
+Do you need the portal to generate billing or invoices to funders?
+Yes. The portal should support billing and reporting capabilities for funder-related services, where required.
+The system should be able to capture information that supports billing, including:
+Client service hours.
+Program utilization.
+Staff service delivery records.
+Approved activities/services provided.
+Mileage or approved reimbursable expenses (where applicable).
+The portal should support reporting needed for:
+Funder submissions.
+Service verification.
+Internal financial tracking.
+→
+Will there be a need of a family/guardian-facing portal, or is this strictly internal staff-facing?
+The initial portal scope is strictly internal staff-facing.
+Family members, guardians, and external contacts will not have direct access to the internal staff portal or client documentation.
+All communication with families and guardians will continue to be managed by authorized staff members, including:
+Program Manager.
+Director of Operations.
+Executive Director (where required).
+The system should support documentation of family communication through:
+Case Notes (staff-to-external communication).
+Contact Notes (client-to-external contact).
+Appropriate client records.
+A future family/guardian-facing portal may be considered separately if organizational needs require it, with appropriate privacy controls, consent management, and restricted access.
+
+Answer / Notes:
+
+
+
+Q26
+Are there any existing tools or systems the portal needs to connect with?
+Why we're asking: If staff are already using scheduling software, email, or a case management system, the portal either replaces or connects to those.
+→
+What software do you currently use for any part of your operations (scheduling, HR, email, accounting)? 
+NextGen Support Services does not currently use any dedicated software for its operational functions.
+The organization does not have existing systems for:
+Scheduling.
+Human Resources (HR).
+Payroll management.
+Case management.
+Documentation management.
+Accounting or financial management.
+The new portal should therefore serve as the organization's primary operational platform and be designed to support future growth and scalability.
+
+→
+Is there any existing case management software in use, even partially? 
+NextGen Support Services does not currently use any case management software.
+The new portal should include a comprehensive case management module that enables staff to:
+Manage client profiles.
+Complete and store all client documentation.
+Track client progress.
+Manage referrals, intake, assessments, Healing Plans, and discharge records.
+Monitor incidents, medications, appointments, and service delivery.
+Maintain a complete audit trail for all client records.
+The case management system should become the organization's centralized source of truth for all client information.
+
+→
+Do you currently use any cloud storage (Google Drive, OneDrive, Dropbox) for forms or files? 
+NextGen Support Services does not currently utilize cloud storage platforms such as Google Drive, Microsoft OneDrive, or Dropbox for storing forms or client documentation.
+The portal should include a secure, centralized document management system that:
+Stores all client and organizational documents electronically.
+Organizes documents by client, program, site, and document type.
+Supports role-based access permissions.
+Maintains version history and audit logs.
+Provides advanced search capabilities.
+Supports secure backups and disaster recovery.
+Stores data securely on Canadian-based servers where possible.
+This eliminates the need for third-party file storage solutions and ensures all documentation is managed within a single secure platform.
+→
+Do you use any communication tools (Teams, Slack, WhatsApp) for internal staff communication? No but we would like to have our in-house communication tool
+NextGen Support Services does not currently use third-party communication platforms such as Microsoft Teams, Slack, or WhatsApp for internal communication.
+The organization requires the portal to include an integrated in-house communication system to support secure collaboration between staff and management.
+The communication module should include features such as:
+Individual staff messaging.
+Group and team chats.
+Program- or site-specific communication channels.
+Organization-wide announcements.
+Shift handover messaging.
+Read receipts for important communications.
+File and document sharing.
+Photo sharing where appropriate.
+Push notifications for urgent messages.
+Role-based messaging permissions.
+Searchable message history.
+Message archiving for audit purposes.
+The communication tool should also integrate with other portal functions by delivering automated notifications for:
+New client assignments.
+Schedule changes.
+Shift reminders.
+Documentation deadlines.
+Missing forms.
+Incident alerts.
+Medication alerts.
+Supervisor requests.
+Organization-wide announcements.
+The in-house communication system should replace the need for external messaging applications while ensuring all staff communications remain secure, centralized, and fully integrated with daily operations.
+
+Answer / Notes:
+
+
+
+Q27
+Who on your team will manage the portal once it is live?
+Why we're asking: Every portal needs an internal administrator. Without this, updates stall and things break without being fixed.
+→
+Is there a specific person whose role would include managing user accounts, permissions, and settings?
+NextGen Support Services does not currently have a dedicated individual whose sole responsibility is to manage the system.
+Instead, system administration responsibilities will be assigned to designated members of leadership based on organizational needs. These responsibilities may include:
+Managing user accounts.
+Assigning and updating user roles and permissions.
+Resetting passwords.
+Activating and deactivating staff accounts.
+Managing program and site settings.
+Configuring system preferences.
+Monitoring system activity and audit logs.
+Maintaining organizational settings.
+The system should support multiple System Administrators to ensure continuity and reduce reliance on a single individual.
+
+→
+How comfortable is that person with technology — can they learn to do admin tasks with training?
+The designated System Administrators are expected to learn and manage the system through comprehensive training provided during implementation.
+The administration interface should be:
+User-friendly and intuitive.
+Easy to navigate.
+Supported by administrator guides and documentation.
+Designed so that authorized personnel can perform routine administrative tasks without requiring technical expertise.
+Training should include:
+User account management.
+Role and permission configuration.
+System settings.
+Reporting and dashboards.
+Audit log monitoring.
+Basic troubleshooting.
+Backup and recovery procedures.
+→
+What happens when that person is sick or leaves the organization — is there a backup?
+To ensure uninterrupted system administration, NextGen Support Services will establish backup administrative coverage.
+If a designated System Administrator is unavailable due to illness, leave, or departure from the organization:
+Another authorized System Administrator will assume responsibility.
+Administrative access should be role-based rather than tied to a single individual.
+The system should support multiple administrator accounts with appropriate permissions.
+Administrative actions should continue to be recorded through comprehensive audit logs.
+This approach ensures operational continuity and minimizes disruption to staff and service delivery.
+
+→
+Will you need us (the developers) to remain on a support contract after launch, or do you want to manage it fully in-house?
+Following implementation, NextGen Support Services intends to manage the system internally.
+The organization expects to receive:
+Complete administrator training.
+System documentation.
+User manuals.
+Technical documentation where appropriate.
+Knowledge transfer sufficient to support day-to-day administration.
+However, the system should also allow for the option of entering into a post-launch support and maintenance agreement with the developers if future operational needs require additional assistance.
+Potential support services may include:
+Technical troubleshooting.
+System maintenance.
+Software updates.
+Feature enhancements.
+Security updates.
+Performance optimization.
+Integration support.
+This support arrangement would be optional and based on the organization's needs after the system has been deployed.
+
+Answer / Notes:
+
+
+
+07 Open Issues to Resolve Before Building
+
+The following are issues we identified in the forms that need to be resolved before development is picked up. These are not design decisions — they are gaps that affect compliance, safety, and data integrity.
+
+!
+The Incident Report appears to be incomplete. Sections 3 onwards (what happened, who was notified, timestamps) do not exist. This needs to be completed before the portal is built.
+The Client Incident Report template shared with the development team contains only the general incident information required for internal documentation.
+The portal should provide a mechanism to attach the official Government of Alberta Incident Report form (or any other approved regulatory incident reporting document) to the client's incident record. This will allow NextGen Support Services to maintain both its internal documentation and the official incident report required by the governing authority within a single incident record.
+For Client Incident Reports, the system should therefore include:
+General incident information captured within the portal.
+The ability to upload and securely store the completed official Government of Alberta Incident Report in its approved format.
+Version control and audit tracking for uploaded documents.
+Electronic signatures where applicable.
+Document locking and audit trail.
+In addition, NextGen Support Services requires a separate Staff Incident Report module.
+Unlike the Client Incident Report, the Staff Incident Report will be a fully digital form built directly into the portal using a standardized organizational template. The complete format and required fields for this form will be provided separately and should be used to develop the Staff Incident Report module.
+This approach allows the portal to:
+Maintain compliance with Government of Alberta reporting requirements for client incidents.
+Preserve official incident documents within the client's electronic record.
+Support comprehensive digital reporting for staff-related incidents using NextGen Support Services' approved template.
+!
+The MAR Sheet and Medication Administration Record are identical files. Decide which one to keep — or clarify if they serve different purposes.
+Please retain the title as Medication Administration Record (MAR), but the characteristics of the document should be as described above.
+!
+The Activity Calendar and Monthly Activity form are identical files. One must be removed.
+Please remove the Monthly Activity Form
+!
+The Client Case Note and Individual Contact Note overlap significantly. Decide: merge into one form or clearly differentiate their use cases.
+The intended distinction should be confirmed as follows:
+Case Note
+Used to document detailed communication between staff and external individuals or agencies.
+Includes communication with:
+Guardians.
+Families.
+Schools.
+Healthcare professionals.
+Child and Family Services.
+Community agencies.
+Other external stakeholders.
+Individual Contact Note
+Used exclusively to document contact between the client and external individuals.
+Includes:
+Family visits.
+Telephone calls.
+Community visits.
+Meetings with approved contacts.
+These use cases should remain separate within the portal.
+!
+The Shift Checklist has no actual tasks listed. The full task list for each program (Group Home, SIL, etc.) must be provided before this form can be built.
+Standard task lists have been defined above for:
+Group Home
+Supported Independent Living (SIL)
+Additional task lists must still be developed for:
+Family Reunification.
+Youth Program.
+Any future programs.
+The system should support program-specific and client-specific checklist items generated from each client's Healing Plan and Individual Needs Assessment.
+!
+The Sharp Count presets are empty for all programs. The list of sharp types tracked per program must be provided.
+Each program requires predefined sharp inventory lists before implementation.
+Examples include:
+Kitchen knives.
+Utility knives.
+Scissors.
+Razors.
+Sewing needles.
+Medical sharps.
+Box cutters.
+Craft tools.
+Other restricted sharp items.
+The system should support program-specific sharp inventories and require two-staff verification during every shift count, whereby the Team Lead/ Supervisor or anyone in leadership will be able to enter specific items defined as sharps for a specific program based on client needs.
+!
+The Medication dropdown on the MAR form is empty. Decide: is medication pre-populated from the client record, or entered fresh each time?
+Medication entries should not be manually entered during each administration.
+Instead:
+Medications should automatically populate from the client's approved medication profile and physician's orders.
+Only active medications should appear in the MAR.
+Staff should select the scheduled medication for administration.
+Any medication error (wrong client, wrong medication, wrong dose, wrong route, or administration more than one hour before or after the scheduled time) must automatically trigger a system alert, require an Incident Report, and notify the Team Lead, Program Manager, Director of Operations, and Executive Director.
+!
+The Behavior Tracker incentive system ($20 cap, 25% bonus) is hardcoded. Confirm: is this universal or per client? Who sets these amounts?
+The incentive system should not be hardcoded.
+The portal should allow incentive amounts to be configured individually for each client.
+The Executive Director and Director of Operations will determine:
+Weekly spending limits.
+Incentive amounts.
+Bonus percentages.
+Behaviour reward criteria.
+The system should automatically calculate balances and generate alerts whenever a client's account enters a negative balance.
+!
+The Healing Plan has no version control or review date. The review cycle needs to be defined before building.
+The Healing Plan requires formal version management.
+The portal should include:
+Version numbering.
+Review dates.
+Next scheduled review date.
+Historical versions.
+Reason for revisions.
+Electronic approval history.
+Complete audit trail.
+Healing Plans should only be editable by authorized clinical staff and should become locked once finalized.
+!
+The '(CU)' prefix on Daily Log fields is unexplained. This means needs to be defined so it can be correctly labelled in the portal.
+The "(CU)" prefix currently appearing on Daily Log fields refers to Client Update.
+However, the "(CU)" prefix does not need to be retained in the portal. The system should display the fields using clear user-facing terminology without the abbreviation to improve usability and consistency.
+The Daily Log fields should therefore be labelled appropriately as Daily Logs or equivalent terminology throughout the portal.
+!
+The Noteworthy Update to Incident Report escalation path is undefined. A clear decision rule needs to be  be written before either form is built into the portal.
+The escalation process between a Noteworthy Update and an Incident Report must be formally documented.
+The portal should include decision logic that guides staff in determining the appropriate form based on the event.
+Where required, the system should automatically prompt staff to complete an Incident Report when documentation contains indicators of a critical event or safety concern as previously explained.
+In addition, the portal should automatically review documentation completed within the previous 16 hours and generate alerts when a critical event is identified in Daily Logs, Case Notes, Behaviour Trackers, Contact Notes, or other documentation without a corresponding Incident Report or Noteworthy Update, notifying the appropriate leadership for follow-up.
+
+Additional System Requirements and Considerations
+The following additional requirements should be incorporated into the overall portal design to ensure the system accurately reflects NextGen Support Services' operational structure, documentation requirements, and future scalability.
+
+1. Program, Site, and House Management Structure
+The system should support a flexible program and location structure that allows administrators to create and manage multiple service locations under each program.
+The system should only include the following general programs:
+Transportation
+Respite Care
+Group Care Program (also referred to as Youth Programs)
+Family Reunification Support
+Supported Independent Living (SIL)
+Mental Health Services should not be listed as a standalone program. Instead, mental health support is considered a service component that may be provided within all programs depending on client needs and should be incorporated into relevant client plans, documentation, and service delivery records.
+
+2. Program and House/Site Management
+The system should allow administrators to create multiple houses or service locations under applicable programs.
+For example:
+Group Care Program (Youth Programs) may include multiple houses/sites such as:
+Ravens Nest
+Eagles Nest
+Golden Bear
+Whispering Harmony
+Similar location structures should be available for other programs where applicable.
+The system should allow an administrator to:
+Add program-specific house/site names.
+Edit or deactivate existing locations.
+Assign clients to specific houses/sites.
+Assign staff to specific programs and locations.
+Schedule staff based on the specific program and house/site where services are delivered.
+
+3. Program and House Information Integration
+Program and house/site information should automatically flow throughout the system and be reflected in:
+Client profiles.
+Client assignments.
+Staff scheduling.
+Shift assignments.
+Daily Logs.
+Case Notes.
+Individual Contact Notes.
+Incident Reports.
+Medication Records.
+Behaviour Trackers.
+Shift Checklists.
+Monthly Activity Records.
+Reports and dashboards.
+For example:
+If a youth is assigned to Ravens Nest under the Group Care Program, the location should automatically appear throughout the client's documentation, assigned staff schedules, and reporting records.
+This ensures accurate tracking of:
+Where services are delivered.
+Which staff supported the client.
+Which program requirements apply.
+Which documentation belongs to each location.
+
+4. Mental Health Services Integration
+Mental health support should be available as a service component across all programs rather than as an independent program.
+The system should allow mental health-related information, interventions, and supports to be documented within applicable client records, including:
+Healing Plans.
+Individual Needs Assessments.
+Case Notes.
+Behaviour Trackers.
+Incident Reports.
+Service plans.
+Where a client's support plan includes mental health interventions, the system should allow this information to be connected to the client's assigned program and service location.
+
+5. Document Locking and Record Integrity
+All forms and documents within the portal should include a locking functionality to ensure documentation integrity, accountability, and compliance.
+Once a document is completed and finalized:
+The document should be locked to prevent unauthorized editing or alteration.
+The system should record the individual who completed the document.
+The system should record the date and time the document was completed and locked.
+The system should maintain a complete audit trail of all document activities.
+Locked documents should only be modified through a controlled unlocking and correction process.
+Document Unlocking Authority
+The ability to unlock locked documents should be restricted by default to the System Administrator(s) only.
+The System Administrator will have the authority to:
+Unlock documents when corrections or amendments are required.
+Review and approve requests for document unlocking.
+Maintain oversight of all unlocked records.
+Ensure all changes remain fully traceable through the audit history.
+However, the System Administrator may grant document-unlocking permissions to specific authorized leadership personnel where operationally necessary.
+Examples of individuals who may be granted this permission include:
+Director of Operations.
+Program Manager(s).
+Designated leadership personnel approved by the Executive Director.
+Any delegated unlocking permission should be:
+Role-based.
+Clearly assigned within the system permissions.
+Fully auditable.
+Removable when no longer required.
+When a locked document is unlocked:
+The system should record who unlocked the document.
+The reason for unlocking should be documented.
+The date and time of the unlock action should be recorded.
+All previous versions should remain preserved.
+The corrected document should create a new version while maintaining the original record.
+This locking and controlled unlocking process should apply to all documentation, including:
+Daily Logs.
+Case Notes.
+Individual Contact Notes.
+Incident Reports.
+Medication Administration Records.
+MAR Sheets.
+Behaviour Trackers.
+Shift Checklists.
+Healing Plans.
+Needs Assessments.
+Activity Records.
+Intake Documents.
+This ensures that client records remain accurate, transparent, legally defensible, and protected from unauthorized changes while still allowing appropriate corrections when required.
+6. Client Incident Report Attachment Capability
+For Client Incident Reports, the portal should include an attachment feature that allows staff to upload supporting evidence and official reporting documents.
+The attachment function should support:
+PDF documents.
+Microsoft Word documents.
+Images/photos.
+The system should allow multiple attachments to be uploaded under one incident record.
+Examples of attachments may include:
+Government-approved incident report forms.
+Photographic evidence.
+Supporting documentation.
+Witness statements.
+Additional records related to the incident.
+The system should maintain:
+Attachment history.
+Upload date and time.
+User who uploaded the document.
+Document type.
+Access history.
+Send notification to management about the submission
+Audit trail.
+
+7. Client, Staff, and Documentation Assignment Logic
+The system should ensure program, location, client, and staff relationships remain connected throughout the platform.
+When a client is assigned to a program and location:
+Only authorized staff should access relevant client documentation.
+Documentation should automatically associate with the correct program and location.
+Scheduling should reflect the correct assignment.
+Supervisors should be able to filter information by program, house/site, and client.
+
+8. Administrative Configuration and Scalability
+The system should allow authorized administrators to manage operational structures without requiring developer involvement.
+Administrators should be able to:
+Add new houses/sites under existing programs.
+Update program locations.
+Assign clients to programs and locations.
+Assign staff permissions.
+Configure workflows.
+Manage alerts and notifications.
+This will allow NextGen Support Services to expand services while maintaining consistent documentation and operational standards.
+
+Overall System Design Principle
+The portal should be designed as a flexible, scalable, secure, and fully integrated multi-program platform that reflects the operational needs of NextGen Support Services while supporting future expansion.
+The system should support the following core operational areas:
+Program and Service Management
+The portal should support the following general programs:
+Transportation.
+Respite Care.
+Group Care Program (also referred to as Youth Programs).
+Family Reunification Support.
+Supported Independent Living (SIL).
+Mental Health Services should not be configured as a separate program. Instead, mental health support should be integrated as a service component available across all programs based on individual client needs, care plans, and service requirements.
+The system should support:
+Multiple houses/sites under applicable programs.
+Program-specific locations and service environments.
+Client assignment to specific programs and houses/sites.
+Staff assignment based on program and location.
+Scheduling linked to program and site assignments.
+
+Documentation Management and Record Integrity
+The portal should provide secure documentation management with:
+Centralized electronic client records.
+Role-based access permissions.
+Secure storage of all client and operational documents.
+Complete document history and audit tracking.
+Version control.
+Document locking functionality across all forms and records.
+All documents should allow the lock feature to prevent unauthorized changes.
+The ability to unlock locked documents should be restricted by default to System Administrators.
+System Administrators may delegate unlocking permissions to specific leadership personnel where operationally required, such as:
+Director of Operations.
+Program Managers.
+Other approved leadership personnel authorized by the Executive Director.
+Any delegated unlocking access must be:
+Role-based.
+Clearly assigned through system permissions.
+Fully auditable.
+Revocable when no longer required.
+When a locked document is unlocked:
+The system must record who unlocked the document.
+The reason for unlocking must be documented.
+The date and time of unlocking must be recorded.
+Previous versions must remain preserved.
+Any correction must create a new version while maintaining the original record.
+This ensures all records remain accurate, transparent, legally defensible, and protected from unauthorized alteration.
+
+Client Incident Reporting and Evidence Management
+The system should support comprehensive incident management by allowing:
+Internal incident documentation.
+Uploading of approved external incident report forms.
+Secure attachment of supporting evidence.
+The client incident report attachment function should support:
+PDF documents.
+Microsoft Word documents.
+Images/photos.
+The system should allow multiple attachments to be uploaded under a single incident record.
+Attachments may include:
+Government-approved incident report forms.
+Photographs.
+Supporting documentation.
+Witness statements.
+Additional evidence related to the incident.
+All uploaded documents should maintain:
+Upload history.
+User identification.
+Date and time records.
+Access history.
+Audit trail.
+
+Workforce Management and Operational Integration
+The portal should integrate operational workflows including:
+Staff scheduling.
+Shift assignments.
+Staff attendance tracking.
+Payroll preparation.
+Timesheet generation.
+Documentation completion monitoring.
+The system should connect staff assignments with:
+Programs.
+Houses/sites.
+Assigned clients.
+Required documentation.
+Shift responsibilities.
+
+Security, Compliance, and Accountability
+The system should provide:
+Role-based access control.
+Privacy and confidentiality protection.
+Automated alerts and notifications.
+Compliance monitoring.
+Audit reporting.
+Documentation completion tracking.
+Record retention support.
+The system should allow leadership to monitor:
+Documentation compliance.
+Incident trends.
+Medication compliance.
+Staff activity.
+Program performance.
+Service delivery outcomes.
+
+Administrative Flexibility and Future Growth
+The portal should allow authorized administrators to manage organizational changes without requiring developer involvement.
+Administrators should be able to:
+Add new programs where required.
+Add new houses/sites under existing programs.
+Update locations.
+Manage user permissions.
+Configure workflows.
+Manage alerts and notifications.
+Update system settings.
+
+Final System Vision
+The NextGen Support Services portal should function as a centralized operational platform supporting:
+Transportation.
+Respite Care.
+Group Care Program (Youth Programs).
+Family Reunification Support.
+Supported Independent Living.
+Integrated mental health services across all programs.
+Multiple houses/sites under applicable programs.
+Secure client documentation.
+Workforce scheduling.
+Payroll preparation.
+Automated compliance monitoring.
+Role-based access management.
+Controlled document locking and unlocking.
+Complete auditability.
+The system should reflect NextGen Support Services’ current operational structure while remaining flexible enough to support additional programs, locations, staff growth, and expanded service delivery in the future.

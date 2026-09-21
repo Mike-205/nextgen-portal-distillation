@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Monthly Sharp Count Checklist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f1ed;
+      color: #4b3a2f;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    header, footer {
+      background-color: #eaddd1;
+      border-color: #d4c4b5;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      border-bottom: 2px solid;
+      padding: 10px 20px;
+      z-index: 1001;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    header h2 {
+      margin: 0;
+      font-size: 20px;
+      flex-grow: 1;
+      min-width: 180px;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    select, input[type="text"] {
+      padding: 6px;
+      font-size: 14px;
+    }
+
+    main {
+      flex: 1;
+      margin-top: 100px;
+      margin-bottom: 200px;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    #programSelectWrapper {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    #otherProgramInput {
+      display: none;
+      padding: 6px;
+      font-size: 14px;
+      width: 180px;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      position: relative;
+    }
+
+    table {
+      min-width: 1000px;
+      max-width: 100%;
+      border-collapse: collapse;
+      background-color: #fffaf6;
+      margin-top: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      table-layout: fixed;
+      position: relative;
+    }
+
+    th, td {
+      border: 1px solid #d4c4b5;
+      padding: 6px;
+      text-align: center;
+      font-size: 12px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      background-color: #fffaf6;
+    }
+
+    th {
+      background-color: #eaddd1;
+    }
+
+    input[type="text"] { width: 140px; }
+    input[type="number"] { width: 60px; }
+    input[type="checkbox"] { width: 18px; height: 18px; }
+
+    /* Sticky left columns: Sharp Type and Quantity */
+    th.sticky, td.sticky {
+      position: sticky;
+      left: 0;
+      background-color: #f0e6dc;
+      z-index: 10;
+      top: 0; /* Fix vertical when scrolling up/down */
+    }
+
+    th.sticky.second, td.sticky.second {
+      position: sticky;
+      left: 140px;
+      background-color: #f0e6dc;
+      z-index: 10;
+      top: 0; /* Fix vertical when scrolling */
+    }
+
+    /* Sticky header rows */
+    thead tr:first-child th {
+      position: sticky;
+      top: 0;
+      background-color: #eaddd1;
+      z-index: 20;
+      text-align: center;
+      border-bottom: 2px solid #b59e83;
+    }
+
+    /* Sticky second header row: days */
+    thead tr:nth-child(2) th {
+      position: sticky;
+      top: 36px; /* height of first header row */
+      background-color: #f4efe7;
+      z-index: 19;
+      text-align: center;
+    }
+
+    /* Sticky third header row: shifts */
+    thead tr:nth-child(3) th {
+      position: sticky;
+      top: 66px; /* height of first + second header rows */
+      background-color: #f8f5f0;
+      z-index: 18;
+      text-align: center;
+    }
+
+    .change-entry {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin-top: 10px;
+      gap: 10px;
+    }
+
+    .change-entry input[type="text"],
+    .change-entry select,
+    .change-entry textarea {
+      padding: 6px;
+      font-size: 14px;
+    }
+
+    .change-entry textarea {
+      width: 300px;
+      min-height: 60px;
+      resize: vertical;
+      overflow: auto;
+      flex-grow: 1;
+    }
+
+    .change-entry button {
+      padding: 6px 10px;
+      font-size: 12px;
+      background-color: #7b5e3c;
+      color: white;
+      border: none;
+      cursor: pointer;
+      height: 34px;
+      align-self: center;
+    }
+
+    .change-entry.locked input,
+    .change-entry.locked select,
+    .change-entry.locked textarea,
+    .change-entry.locked button.lock-btn {
+      background-color: #eee;
+      pointer-events: none;
+      color: #666;
+      cursor: default;
+    }
+
+    #addEntryBtn {
+      margin-top: 10px;
+      padding: 6px 12px;
+      background-color: #7b5e3c;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-top: 2px solid;
+      padding: 10px 20px;
+      z-index: 1000;
+
+      /* Center align buttons */
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      background-color: #eaddd1;
+    }
+
+    button {
+      padding: 8px 16px;
+      font-size: 14px;
+      background-color: #7b5e3c;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background-color: #a79c91;
+      cursor: not-allowed;
+    }
+
+    #notesSection {
+      margin-top: 30px;
+      display: none;
+    }
+
+    #toggleNotesBtn {
+      margin-top: 30px;
+      background-color: #5e4429;
+      cursor: pointer;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      font-size: 14px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Monthly Sharp Count Checklist</h2>
+    <div class="controls">
+      <label for="monthSelect">Month:</label>
+      <select id="monthSelect"></select>
+      <label for="yearSelect">Year:</label>
+      <select id="yearSelect"></select>
+    </div>
+  </header>
+
+  <main>
+    <div id="programSelectWrapper">
+      <label for="programSelect">Program:</label>
+      <select id="programSelect">
+        <option value="default">-- Select Program --</option>
+        <option value="groupHome">Group Home</option>
+        <option value="supportiveLiving">Supported Independent Living</option>
+        <option value="family reunification">Family Reunification</option>
+        <option value="youthProgram">Youth Program</option>
+        <option value="mentalHealthUnit">Mental Health Unit</option>
+        <option value="other">Other</option>
+      </select>
+      <input type="text" id="otherProgramInput" placeholder="Enter program name" />
+    </div>
+
+    <div class="table-container">
+      <table id="sharpTable">
+        <thead>
+          <tr>
+            <th class="sticky">Sharp Type</th>
+            <th class="sticky second">Quantity</th>
+            <th id="headerDates" colspan="93">Date</th>
+          </tr>
+          <tr id="dayHeaders"><th></th><th></th></tr>
+          <tr id="shiftHeaders"><th></th><th></th></tr>
+        </thead>
+        <tbody id="sharpBody"></tbody>
+      </table>
+    </div>
+
+    <button id="toggleNotesBtn">Show Notes/Changes</button>
+
+    <div id="notesSection">
+      <h3>Notes/Changes</h3>
+      <div id="changeEntries"></div>
+      <button id="addEntryBtn">Add Entry</button>
+    </div>
+  </main>
+
+  <footer>
+    <button id="addSharpBtn">Add Sharp Type</button>
+    <button id="lockTypeBtn">Lock Sharp Type</button>
+    <button id="lockQtyBtn">Lock Quantity</button>
+    <button id="saveBtn">Save</button>
+    <button id="saveLockBtn">Save and Lock</button>
+  </footer>
+
+  <script>
+    const shifts = ['A', 'P', 'N'];
+
+    const sharpDataPresets = {
+      groupHome: [
+      ],
+      supportiveLiving: [
+      ],
+      youthProgram: [
+      ],
+      mentalHealthUnit: [
+      ],
+      other: []
+    };
+    let sharpData = [];
+
+    const lockStatus = {};
+
+    function populateMonthYear() {
+      const monthSelect = document.getElementById('monthSelect');
+      const yearSelect = document.getElementById('yearSelect');
+      const now = new Date();
+      const currentMonth = now.getMonth() + 1;
+      const currentYear = now.getFullYear();
+
+      const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+      monthNames.forEach((name, i) => {
+        const option = document.createElement('option');
+        option.value = i + 1;
+        option.textContent = name;
+        if (i + 1 === currentMonth) option.selected = true;
+        monthSelect.appendChild(option);
+      });
+
+      for(let y = 2000; y <= 2100; y++) {
+        const option = document.createElement('option');
+        option.value = y;
+        option.textContent = y;
+        if(y === currentYear) option.selected = true;
+        yearSelect.appendChild(option);
+      }
+    }
+
+    function getCurrentLockKey() {
+      const year = parseInt(document.getElementById('yearSelect').value);
+      const month = parseInt(document.getElementById('monthSelect').value);
+      return `${year}-${month}`;
+    }
+
+    function buildHeaders(numDays) {
+      const dayRow = document.getElementById('dayHeaders');
+      const shiftRow = document.getElementById('shiftHeaders');
+      const headerDates = document.getElementById('headerDates');
+      headerDates.colSpan = numDays * shifts.length;
+
+      dayRow.innerHTML = '<th></th><th></th>';
+      shiftRow.innerHTML = '<th></th><th></th>';
+
+      for (let day = 1; day <= numDays; day++) {
+        const th = document.createElement('th');
+        th.colSpan = shifts.length;
+        th.textContent = `Day ${day}`;
+        dayRow.appendChild(th);
+
+        shifts.forEach(shift => {
+          const thShift = document.createElement('th');
+          thShift.textContent = shift;
+          shiftRow.appendChild(thShift);
+        });
+      }
+    }
+
+    function buildTableBody(numDays) {
+      const tbody = document.getElementById('sharpBody');
+      tbody.innerHTML = '';
+
+      const lockKey = getCurrentLockKey();
+      const locked = lockStatus[lockKey] || { lockType: false, lockQty: false };
+
+      sharpData.forEach((sharp, index) => {
+        const tr = document.createElement('tr');
+
+        const tdName = document.createElement('td');
+        tdName.classList.add('sticky');
+        const inputName = document.createElement('input');
+        inputName.type = 'text';
+        inputName.value = sharp.name;
+        inputName.disabled = locked.lockType;
+        inputName.dataset.index = index;
+        inputName.dataset.type = 'name';
+        tdName.appendChild(inputName);
+        tr.appendChild(tdName);
+
+        const tdQty = document.createElement('td');
+        tdQty.classList.add('sticky', 'second');
+        const inputQty = document.createElement('input');
+        inputQty.type = 'number';
+        inputQty.value = sharp.quantity;
+        inputQty.disabled = locked.lockQty;
+        inputQty.min = 0;
+        inputQty.dataset.index = index;
+        inputQty.dataset.type = 'quantity';
+        tdQty.appendChild(inputQty);
+        tr.appendChild(tdQty);
+
+        for(let day = 1; day <= numDays; day++) {
+          shifts.forEach(() => {
+            const td = document.createElement('td');
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            td.appendChild(checkbox);
+            tr.appendChild(td);
+          });
+        }
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    function refreshTable() {
+      const month = parseInt(document.getElementById('monthSelect').value);
+      const year = parseInt(document.getElementById('yearSelect').value);
+      const numDays = new Date(year, month, 0).getDate();
+
+      buildHeaders(numDays);
+      buildTableBody(numDays);
+    }
+
+    document.getElementById('programSelect').addEventListener('change', (e) => {
+      const value = e.target.value;
+      if(value === 'other') {
+        document.getElementById('otherProgramInput').style.display = 'inline-block';
+        sharpData = [];
+      } else {
+        document.getElementById('otherProgramInput').style.display = 'none';
+        sharpData = sharpDataPresets[value] ? JSON.parse(JSON.stringify(sharpDataPresets[value])) : [];
+      }
+      refreshTable();
+    });
+
+    document.getElementById('addSharpBtn').onclick = () => {
+      sharpData.push({ name: '', quantity: 0 });
+      refreshTable();
+    };
+
+    document.getElementById('lockTypeBtn').onclick = () => {
+      const key = getCurrentLockKey();
+      if(!lockStatus[key]) lockStatus[key] = { lockType: false, lockQty: false };
+      lockStatus[key].lockType = !lockStatus[key].lockType;
+      refreshTable();
+      alert(`Sharp Type column is now ${lockStatus[key].lockType ? 'locked' : 'unlocked'} for ${key}`);
+    };
+
+    document.getElementById('lockQtyBtn').onclick = () => {
+      const key = getCurrentLockKey();
+      if(!lockStatus[key]) lockStatus[key] = { lockType: false, lockQty: false };
+      lockStatus[key].lockQty = !lockStatus[key].lockQty;
+      refreshTable();
+      alert(`Quantity column is now ${lockStatus[key].lockQty ? 'locked' : 'unlocked'} for ${key}`);
+    };
+
+    document.getElementById('saveBtn').onclick = () => {
+      alert('Data saved (placeholder). Implement your saving logic here.');
+    };
+
+    document.getElementById('saveLockBtn').onclick = () => {
+      document.querySelectorAll('input, select, button').forEach(elem => {
+        if(elem.id !== 'toggleNotesBtn') elem.disabled = true;
+      });
+      alert('Checklist saved and fully locked.');
+    };
+
+    document.getElementById('toggleNotesBtn').onclick = () => {
+      const notes = document.getElementById('notesSection');
+      const toggleBtn = document.getElementById('toggleNotesBtn');
+      const isHidden = notes.style.display === 'none' || notes.style.display === '';
+      notes.style.display = isHidden ? 'block' : 'none';
+      toggleBtn.textContent = isHidden ? 'Hide Notes/Changes' : 'Show Notes/Changes';
+    };
+
+    document.getElementById('addEntryBtn').onclick = () => {
+      const container = document.getElementById('changeEntries');
+      const wrapper = document.createElement('div');
+      wrapper.className = 'change-entry';
+      wrapper.innerHTML = `
+        <input type="text" placeholder="Staff Name" />
+        <textarea placeholder="Change Noted"></textarea>
+        <select>${Array.from({length:31}, (_,i) => `<option value="${i+1}">Day ${i+1}</option>`).join('')}</select>
+        <button class="lock-btn" type="button">Lock Entry</button>
+      `;
+      container.appendChild(wrapper);
+
+      const lockBtn = wrapper.querySelector('.lock-btn');
+      lockBtn.onclick = () => {
+        wrapper.classList.add('locked');
+      };
+    };
+
+    document.getElementById('monthSelect').onchange = refreshTable;
+    document.getElementById('yearSelect').onchange = refreshTable;
+
+    populateMonthYear();
+    sharpData = [];
+    refreshTable();
+  </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+Incident Report Requirements
+General Reporting Rule
+When to Notify: Children and Family Services (CFS) must be notified within 24 hours of any incidents.
+
+Serious Incidents: When an incident meets the threshold of a 'serious incident,' CFS must be notified immediately.
+
+Section 1: Child or Youth's Information
+This section requires specific identifying and administrative details about the child or youth involved.
+
+Name:
+
+Last Name of Child or Youth
+
+First Name
+
+Identifying Data:
+
+Date of Birth (yyyy-mm-dd)
+
+Child's I.D. Number
+
+Case Management:
+
+Child Intervention Practitioner (CIP)
+
+CIP Office
+
+CFS Status (Check all that apply):
+
+□ CAG (CFS Applicant Group)
+
+□ TGO (Temporary Guardianship Order)
+
+□ CAY (CFS Applicant Youth)
+
+□ PGO (Permanent Guardianship Order)
+
+□ ICO (Interim Custody Order)
+
+□ SFP (Secure Facility Placement)
+
+Section 2: Facility Information
+This section documents where the incident occurred, covering agency, facility, and caregiver details.
+
+Agency/Caregiver Identification:
+
+Name of Agency / Program / Foster Caregivers / Kinship Caregivers
+
+License # / Caregiver ID (if applicable)
+
+Type of Facility (Check all that apply):
+
+□ Foster Care
+
+□ Kinship Care
+
+□ ILS/ SIL/ TSIL (Independent/Supported/Transitional Living Supports)
+
+□ Community Group Care
+
+□ Agency Campus-based Treatment Centre
+
+□ Ministry Campus-based Treatment Centre
+
+□ Personalized Community Care
+
+□ Secure Services / PSECA Confinement
+
+□ PSECA (Voluntary)
+
+□ 'Other' (Must specify)
+
+Location Details:
+
+Facility / Caregiver Address (include street address)
+
+City or Town
+
+Province (pre-filled as AB on the form)
+
+Postal Code

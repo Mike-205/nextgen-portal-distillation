@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NextGen Support Services - Monthly Activity</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f8f5;
+      color: #3e2c1c;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #6b4e2e;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* two columns */
+      gap: 20px;
+      margin-top: 20px;
+      align-items: flex-start;
+    }
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+    }
+    input[type="text"], select, textarea, input[type="date"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    textarea {
+      height: 60px;
+      resize: vertical;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+    }
+    th, td {
+      border: 1px solid #c8b08a;
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #e0d2bc;
+    }
+    .section {
+      background-color: #eee4d1;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 8px;
+    }
+    .date-range {
+      display: flex;
+      gap: 5px;
+    }
+    .date-range input[type="date"] {
+      flex: 1;
+    }
+    .button-group {
+      margin-top: 40px;
+      text-align: center;
+    }
+    button {
+      background-color: #6b4e2e;
+      color: white;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #5a3f21;
+    }
+  </style>
+</head>
+<body>
+  <h1>NextGen Support Services</h1>
+  <h2>Monthly Activity</h2>
+
+  <div class="section">
+    <div class="form-grid">
+      <div>
+        <label for="month">Month:</label>
+        <select id="month" name="month">
+          <option value="">Select Month</option>
+          <option>January 2025</option>
+          <option>February 2025</option>
+          <option>March 2025</option>
+          <option>April 2025</option>
+          <option>May 2025</option>
+          <option>June 2025</option>
+          <option>July 2025</option>
+          <option>August 2025</option>
+          <option>September 2025</option>
+          <option>October 2025</option>
+          <option>November 2025</option>
+          <option>December 2025</option>
+        </select>
+      </div>
+      <div>
+        <label for="program">Program:</label>
+        <select id="program" name="program" onchange="toggleOtherProgram()">
+          <option value="">Select Program</option>
+          <option value="Group Home">Group Home</option>
+          <option value="Supported Living">Supported Independent Living</option>
+          <option value="family reunification">Family Reunification</option>
+          <option value="Youth Program">Youth Program</option>
+          <option value="Mental Health Unit">Mental Health Unit</option>
+          <option value="Other">Other</option>
+        </select>
+        <input type="text" id="otherProgram" name="otherProgram" placeholder="Specify other program..." style="display: none;" />
+      </div>
+      <div>
+        <label for="coordinator">Coordinator/Lead Staff:</label>
+        <input type="text" id="coordinator" name="coordinator" />
+      </div>
+      <div>
+        <label for="clientName">Client Name:</label>
+        <input type="text" id="clientName" name="clientName" />
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>1. Monthly Focus/Goals</h3>
+    <textarea placeholder="Describe goals for the month..."></textarea>
+    <textarea></textarea>
+    <textarea></textarea>
+  </div>
+
+  <div class="section">
+    <h3>2. Weekly Breakdown of Activities</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Week</th>
+          <th>Date Range</th>
+          <th>Planned Activities</th>
+          <th>Objective / Purpose</th>
+          <th>Responsible Staff</th>
+          <th>Materials Needed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>
+            <div class="date-range">
+              <input type="date" /> – <input type="date" />
+            </div>
+          </td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>
+            <div class="date-range">
+              <input type="date" /> – <input type="date" />
+            </div>
+          </td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>
+            <div class="date-range">
+              <input type="date" /> – <input type="date" />
+            </div>
+          </td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>
+            <div class="date-range">
+              <input type="date" /> – <input type="date" />
+            </div>
+          </td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>
+            <div class="date-range">
+              <input type="date" /> – <input type="date" />
+            </div>
+          </td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+          <td><textarea></textarea></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h3>3. Participant Engagement/Notes</h3>
+    <label>Week 1:</label>
+    <textarea></textarea>
+    <label>Week 2:</label>
+    <textarea></textarea>
+    <label>Week 3:</label>
+    <textarea></textarea>
+    <label>Week 4:</label>
+    <textarea></textarea>
+    <label>Week 5:</label>
+    <textarea></textarea>
+  </div>
+
+  <div class="section">
+    <h3>4. Outcomes & Reflection</h3>
+    <textarea placeholder="Reflect on whether goals were met, challenges, successes..."></textarea>
+    <textarea></textarea>
+  </div>
+
+  <div class="section">
+    <h3>5. Planning for Next Month</h3>
+    <label>Identified Needs/Suggestions:</label>
+    <textarea></textarea>
+    <label>Proposed Goals:</label>
+    <textarea></textarea>
+  </div>
+
+  <div class="button-group">
+    <button onclick="alert('Saved (placeholder).')">Save</button>
+    <button onclick="lockForm()">Save and Lock</button>
+    <button onclick="window.print()">Export as PDF</button>
+  </div>
+
+  <script>
+    function toggleOtherProgram() {
+      const programSelect = document.getElementById("program");
+      const otherInput = document.getElementById("otherProgram");
+      otherInput.style.display = programSelect.value === "Other" ? "block" : "none";
+    }
+
+    function lockForm() {
+      const elements = document.querySelectorAll('input, select, textarea, button:not([onclick="window.print()"])');
+      elements.forEach(el => {
+        if (el.tagName !== "BUTTON") {
+          el.disabled = true;
+        } else {
+          el.style.display = el.textContent.includes("Save") ? "none" : el.style.display;
+        }
+      });
+    }
+  </script>
+</body>
+</html>

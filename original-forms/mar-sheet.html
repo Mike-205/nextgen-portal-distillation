@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Medication Administration Record</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      max-width: 1200px;
+    }
+    h1 {
+      text-align: center;
+      color: #8B4513; /* Earth brown */
+      margin-bottom: 40px;
+    }
+    h2 {
+      text-align: center;
+      color: #8B4513; /* Earth brown */
+      margin-top: 40px;
+    }
+    .toggle-container {
+      display: flex;
+      justify-content: center;
+      margin-top: -20px;
+      margin-bottom: 10px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-full {
+      width: 100%;
+      display: block;
+      margin-top: 5px;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+    input[type="text"], input[type="date"], input[type="time"], input[type="datetime-local"], textarea, select {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      margin-top: 5px;
+    }
+    .medication-block, .med-admin-entry, .missed-dose-entry, .emergency-entry, .leave-entry {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    .button-group, .section-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+    button {
+      background-color: #8B4513; /* Earth brown */
+      color: white;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #5A2E0A; /* Darker earth brown */
+    }
+    .hidden {
+      display: none;
+    }
+    .error-flag {
+      color: #d8000c;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+    .reason-container {
+      margin-top: 10px;
+      display: none;
+    }
+    #qrScannerContainer {
+      text-align: center;
+      margin-top: 10px;
+      display: none;
+    }
+    #qrVideo {
+      border: 1px solid #ccc;
+      width: 300px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Medication Administration Record</h1>
+
+<!-- Client Info -->
+<h2>Client Information</h2>
+<div class="form-grid">
+  <div>
+    <label>Client Name:</label>
+    <input type="text" />
+  </div>
+  <div>
+    <label>Date of Birth:</label>
+    <input type="date" />
+  </div>
+  <div>
+    <label>Program:</label>
+    <select onchange="toggleOther(this, 'programOther')">
+      <option value="">--Select--</option>
+      <option>Group Home</option>
+      <option>Supported Independent Living</option>
+      <option value="family reunification">Family Reunification</option>
+      <option>Youth Program</option>
+      <option>Mental Health Unit</option>
+      <option>Other</option>
+    </select>
+    <input type="text" class="other-comment" id="programOther" style="display:none;" placeholder="Specify other program" />
+  </div>
+  <div>
+    <label>Prescribing Physician:</label>
+    <input type="text" />
+  </div>
+</div>
+
+<!-- Medication Details -->
+<h2>Medication Details</h2>
+<div class="toggle-container">
+  <button onclick="toggleSection('medicationsSection', this)">Hide</button>
+</div>
+<div id="medicationsSection">
+  <div id="medications"></div>
+  <div class="section-button">
+    <button type="button" onclick="scanBarcode()">Scan Barcode</button>
+    <button type="button" onclick="scanQRCode()">Scan QR Code</button>
+    <button type="button" onclick="addMedication()">Add Medication</button>
+  </div>
+  <div id="qrScannerContainer">
+    <video id="qrVideo" playsinline></video>
+    <br />
+    <button type="button" onclick="stopQRScan()">Stop Scanning</button>
+  </div>
+</div>
+
+<!-- Medication Administration Entry -->
+<h2>Medication Administration Entry</h2>
+<div class="toggle-container">
+  <button onclick="toggleSection('medAdminSection', this)">Hide</button>
+</div>
+<div id="medAdminSection">
+  <div id="medAdminEntriesContainer"></div>
+  <div class="section-button">
+    <button type="button" onclick="addMedAdminEntry()">Add Another Entry</button>
+  </div>
+</div>
+
+<!-- Missed or Refused Dose Record -->
+<h2>Missed or Refused Dose Record</h2>
+<div class="toggle-container">
+  <button onclick="toggleSection('missedDoseSection', this)">Hide</button>
+</div>
+<div id="missedDoseSection">
+  <div id="missedDoseEntriesContainer"></div>
+  <div class="section-button">
+    <button type="button" onclick="addMissedDoseEntry()">Add Another Entry</button>
+  </div>
+</div>
+
+<!-- Leave of Absence -->
+<h2>Leave of Absence</h2>
+<div class="toggle-container">
+  <button onclick="toggleSection('leaveSection', this)">Hide</button>
+</div>
+<div id="leaveSection">
+  <div id="leaveEntriesContainer"></div>
+  <div class="section-button">
+    <button type="button" onclick="addLeaveEntry()">Add Another Entry</button>
+  </div>
+</div>
+
+<!-- Emergency Response -->
+<h2>Emergency Response (If Applicable)</h2>
+<div class="toggle-container">
+  <button onclick="toggleSection('emergencySection', this)">Hide</button>
+</div>
+<div id="emergencySection">
+  <div id="emergencyEntriesContainer"></div>
+  <div class="section-button">
+    <button type="button" onclick="addEmergencyEntry()">Add Another Entry</button>
+  </div>
+</div>
+
+<!-- Follow-up Contacts -->
+<h2>Follow-up Contacts</h2>
+<div class="toggle-container">
+  <button onclick="toggleSection('followUpContactsSection', this)">Hide</button>
+</div>
+<div id="followUpContactsSection">
+  <div class="form-grid">
+    <label><input type="checkbox" /> Parent / Guardian</label>
+    <label><input type="checkbox" /> Physician</label>
+    <label><input type="checkbox" /> Emergency Services</label>
+    <label><input type="checkbox" /> Supervisor</label>
+    <label><input type="checkbox" /> Medication Error Report Completed</label>
+    <label><input type="checkbox" /> Other: <input type="text" /></label>
+  </div>
+</div>
+
+<!-- Save Buttons -->
+<div class="button-group">
+  <button onclick="handleSave()">Save</button>
+  <button onclick="handleSaveAndLock()">Save & Lock</button>
+  <!-- Added Export as PDF Button -->
+  <button id="exportPdfBtn" type="button">Export as PDF</button>
+</div>
+
+<!-- Include html2pdf library for PDF export -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+// Load jsQR from CDN
+const jsQRScript = document.createElement('script');
+jsQRScript.src = "https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js";
+document.head.appendChild(jsQRScript);
+
+function toggleOther(select, inputId) {
+  const input = document.getElementById(inputId);
+  input.style.display = select.value === "Other" ? "block" : "none";
+}
+
+function toggleSection(sectionId, btn) {
+  const section = document.getElementById(sectionId);
+  const hidden = section.classList.toggle('hidden');
+  btn.textContent = hidden ? 'Show' : 'Hide';
+}
+
+function addMedication(medication = '') {
+  const id = Date.now();
+  const medDiv = document.createElement('div');
+  medDiv.className = 'medication-block form-grid';
+  medDiv.innerHTML = `
+    <div>
+      <label>Medication Name:</label>
+      <input type="text" class="medName" value="${medication}" oninput="updateMedicationDropdowns()" />
+    </div>
+    <div>
+      <label>Dosage:</label>
+      <select onchange="toggleOther(this, 'doseOther_${id}')">
+        <option>5mg</option><option>10mg</option><option>25mg</option><option>Other</option>
+      </select>
+      <input type="text" class="other-comment" id="doseOther_${id}" style="display:none;" placeholder="Specify dosage" />
+    </div>
+    <div>
+      <label>Route:</label>
+      <select onchange="toggleOther(this, 'routeOther_${id}')">
+        <option>Oral</option><option>Topical</option><option>Injection</option>
+        <option>Inhaler</option><option>Sublingual</option><option>Other</option>
+      </select>
+      <input type="text" class="other-comment" id="routeOther_${id}" style="display:none;" placeholder="Specify route" />
+    </div>
+    <div>
+      <label>Time(s) to Administer:</label>
+      <input type="time" class="scheduledTime" />
+    </div>
+    <div>
+      <label>Start Date:</label>
+      <input type="date" />
+    </div>
+    <div>
+      <label>End Date:</label>
+      <input type="date" />
+    </div>
+    <div style="grid-column: 1 / -1;">
+      <label>Purpose / Notes:</label>
+      <textarea rows="2" class="form-full"></textarea>
+    </div>
+  `;
+  document.getElementById('medications').appendChild(medDiv);
+  updateMedicationDropdowns();
+
+  // Auto add a medication administration entry for this medication with current timestamp
+  if (medication) {
+    addMedAdminEntryWithMedication(medication);
+  }
+}
+
+function scanBarcode() {
+  const barcode = prompt("Scan or enter barcode:");
+  if (barcode) {
+    parseAndAddMedications(barcode);
+  }
+}
+
+function parseAndAddMedications(data) {
+  let meds = [];
+
+  // Try to parse JSON array
+  try {
+    const parsed = JSON.parse(data);
+    if (Array.isArray(parsed)) {
+      meds = parsed;
+    } else if (typeof parsed === 'string') {
+      meds = [parsed];
+    } else {
+      meds = [data];
+    }
+  } catch {
+    // Not JSON - try comma separated
+    if (data.includes(',')) {
+      meds = data.split(',').map(m => m.trim()).filter(m => m.length > 0);
+    } else {
+      meds = [data];
+    }
+  }
+
+  meds.forEach(med => {
+    if(med) addMedication(med);
+  });
+}
+
+function updateMedicationDropdowns() {
+  const meds = document.querySelectorAll('.medName');
+  const adminSelects = document.querySelectorAll('.adminMedicationSelect');
+  const missedSelects = document.querySelectorAll('.missedMedicationSelect');
+
+  [adminSelects, missedSelects].forEach(selects => {
+    selects.forEach(select => {
+      select.innerHTML = '<option>--Select--</option>';
+      meds.forEach(med => {
+        if (med.value.trim()) {
+          const opt = document.createElement('option');
+          opt.textContent = med.value;
+          select.appendChild(opt);
+        }
+      });
+    });
+  });
+}
+
+function addMedAdminEntry() {
+  addMedAdminEntryWithMedication(null);
+}
+
+function addMedAdminEntryWithMedication(medicationName) {
+  const div = document.createElement('div');
+  div.className = 'form-grid med-admin-entry';
+
+  // Get current date and time formatted for input fields
+  const now = new Date();
+  const yyyy = now.getFullYear();
+  const mm = String(now.getMonth() + 1).padStart(2, '0');
+  const dd = String(now.getDate()).padStart(2, '0');
+  const hh = String(now.getHours()).padStart(2, '0');
+  const min = String(now.getMinutes()).padStart(2, '0');
+
+  const today = `${yyyy}-${mm}-${dd}`;
+  const currentTime = `${hh}:${min}`;
+
+  div.innerHTML = `
+    <div><label>Date:</label><input type="date" class="adminDate" onchange="checkMedicationTime(this)" value="${today}" /></div>
+    <div><label>Time Administered:</label><input type="time" class="adminTime" onchange="checkMedicationTime(this)" value="${currentTime}" /></div>
+    <div><label>Medication Administered:</label><select class="adminMedicationSelect" onchange="checkMedicationTime(this)"><option>--Select--</option></select></div>
+    <div><label>Dose Given:</label><select><option>Full Dose</option><option>Half Dose</option><option>Other</option></select></div>
+    <div><label>Administered By (Staff):</label><input type="text" /></div>
+    <div><label>Signature:</label><input type="text" /></div>
+    <label>Comments:</label><textarea rows="3" class="form-full"></textarea>
+
+    <div class="error-flag hidden" aria-live="polite"></div>
+
+    <div class="reason-container">
+      <label>Reason for administration outside scheduled window:</label>
+      <textarea rows="2" class="form-full reason-text"></textarea>
+    </div>
+  `;
+
+  document.getElementById('medAdminEntriesContainer').appendChild(div);
+  updateMedicationDropdowns();
+
+  // If medicationName is provided, select it by default
+  if (medicationName) {
+    const selects = div.querySelectorAll('.adminMedicationSelect');
+    selects.forEach(select => {
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].text === medicationName) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+    });
+  }
+}
+
+function checkMedicationTime(element) {
+  const entryDiv = element.closest('.med-admin-entry');
+  if (!entryDiv) return;
+
+  const dateInput = entryDiv.querySelector('.adminDate');
+  const timeInput = entryDiv.querySelector('.adminTime');
+  const medSelect = entryDiv.querySelector('.adminMedicationSelect');
+  const errorFlag = entryDiv.querySelector('.error-flag');
+  const reasonContainer = entryDiv.querySelector('.reason-container');
+  const reasonText = entryDiv.querySelector('.reason-text');
+
+  errorFlag.textContent = '';
+  errorFlag.classList.add('hidden');
+  reasonContainer.style.display = 'none';
+  reasonText.value = '';
+
+  if (!dateInput.value || !timeInput.value || !medSelect.value || medSelect.value === '--Select--') return;
+
+  const meds = document.querySelectorAll('.medication-block');
+  let scheduledTimeStr = null;
+
+  meds.forEach(med => {
+    const medNameInput = med.querySelector('.medName');
+    if (medNameInput && medNameInput.value === medSelect.value) {
+      const timeInputScheduled = med.querySelector('.scheduledTime');
+      if (timeInputScheduled && timeInputScheduled.value) {
+        scheduledTimeStr = timeInputScheduled.value;
+      }
+    }
+  });
+
+  if (!scheduledTimeStr) return;
+
+  const scheduledDateTime = new Date(`${dateInput.value}T${scheduledTimeStr}:00`);
+  const actualDateTime = new Date(`${dateInput.value}T${timeInput.value}:00`);
+
+  const diffMs = actualDateTime - scheduledDateTime;
+  const diffMinutes = diffMs / (1000 * 60);
+
+  if (diffMinutes < -60 || diffMinutes > 60) {
+    errorFlag.textContent = '⚠️ Medication administered outside the 1-hour scheduled window.';
+    errorFlag.classList.remove('hidden');
+    reasonContainer.style.display = 'block';
+  }
+}
+
+function addMissedDoseEntry() {
+  const div = document.createElement('div');
+  div.className = 'form-grid missed-dose-entry';
+  div.innerHTML = `
+    <div><label>Date:</label><input type="date" /></div>
+    <div><label>Time:</label><input type="time" /></div>
+    <div><label>Medication:</label><select class="missedMedicationSelect"><option>--Select--</option></select></div>
+    <div><label>Reason:</label>
+      <select onchange="toggleOther(this, 'missedReasonOther')">
+        <option>Refused</option><option>Missed</option><option>Vomited</option>
+        <option>Medication Not Available</option><option>Other</option>
+      </select>
+      <input type="text" class="other-comment" id="missedReasonOther" style="display:none;" placeholder="Specify other reason" />
+    </div>
+    <div style="grid-column: 1 / -1;"><label>Staff Action Taken:</label><textarea rows="3" class="form-full"></textarea></div>
+  `;
+  document.getElementById('missedDoseEntriesContainer').appendChild(div);
+  updateMedicationDropdowns();
+}
+
+function addLeaveEntry() {
+  const div = document.createElement('div');
+  div.className = 'form-grid leave-entry';
+  div.innerHTML = `
+    <div><label>Leave Start Date:</label><input type="date" /></div>
+    <div><label>Leave Start Time:</label><input type="time" /></div>
+    <div><label>Return Date:</label><input type="date" /></div>
+    <div><label>Return Time:</label><input type="time" /></div>
+    <div><label>Staff Name:</label><input type="text" /></div>
+    <div><label>Reason for Leave:</label><textarea rows="2" class="form-full"></textarea></div>
+  `;
+  document.getElementById('leaveEntriesContainer').appendChild(div);
+}
+
+function addEmergencyEntry() {
+  const div = document.createElement('div');
+  div.className = 'form-grid emergency-entry';
+  div.innerHTML = `
+    <div><label>Date & Time of Event:</label><input type="datetime-local" /></div>
+    <div style="grid-column: 1 / -1;"><label>What Happened:</label><textarea rows="3" class="form-full"></textarea></div>
+    <div style="grid-column: 1 / -1;"><label>Immediate Actions Taken:</label><textarea rows="3" class="form-full"></textarea></div>
+  `;
+  document.getElementById('emergencyEntriesContainer').appendChild(div);
+}
+
+function handleSave() {
+  alert("Form saved.");
+}
+
+function handleSaveAndLock() {
+  alert("Form saved and locked.");
+  document.querySelectorAll('input, select, textarea, button').forEach(el => {
+    if (!el.textContent?.includes("Save")) el.disabled = true;
+  });
+}
+
+window.onload = () => {
+  addMedication();
+  addMedAdminEntry();
+  addMissedDoseEntry();
+  addLeaveEntry();
+  addEmergencyEntry();
+};
+
+// QR code scanning feature
+let qrScanning = false;
+let videoStream = null;
+
+function scanQRCode() {
+  if (qrScanning) return;
+  const video = document.getElementById('qrVideo');
+  const container = document.getElementById('qrScannerContainer');
+  container.style.display = 'block';
+  qrScanning = true;
+
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    alert("Camera access is not supported in this browser.");
+    qrScanning = false;
+    container.style.display = 'none';
+    return;
+  }
+
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+    .then(stream => {
+      videoStream = stream;
+      video.srcObject = stream;
+      video.play();
+      requestAnimationFrame(tick);
+    })
+    .catch(() => {
+      alert("Camera permission denied or not available.");
+      qrScanning = false;
+      container.style.display = 'none';
+    });
+
+  function tick() {
+    if (!qrScanning) {
+      video.pause();
+      if (videoStream) {
+        videoStream.getTracks().forEach(track => track.stop());
+        videoStream = null;
+      }
+      return;
+    }
+    if (video.readyState === video.HAVE_ENOUGH_DATA) {
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+
+      if (window.jsQR) {
+        const code = jsQR(imageData.data, imageData.width, imageData.height);
+        if (code) {
+          qrScanning = false;
+          container.style.display = 'none';
+          video.pause();
+          if (videoStream) {
+            videoStream.getTracks().forEach(track => track.stop());
+            videoStream = null;
+          }
+          parseAndAddMedications(code.data);
+          alert("QR Code scanned: " + code.data);
+          return;
+        }
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+}
+
+function stopQRScan() {
+  qrScanning = false;
+  const container = document.getElementById('qrScannerContainer');
+  const video = document.getElementById('qrVideo');
+  container.style.display = 'none';
+  video.pause();
+  if (videoStream) {
+    videoStream.getTracks().forEach(track => track.stop());
+    videoStream = null;
+  }
+}
+
+// Export as PDF functionality
+document.getElementById('exportPdfBtn').addEventListener('click', () => {
+  // Clone the body to exclude buttons temporarily
+  const clone = document.body.cloneNode(true);
+
+  // Remove all buttons except Export as PDF to avoid clutter in PDF
+  clone.querySelectorAll('button').forEach(btn => {
+    if (btn.id !== 'exportPdfBtn') btn.remove();
+  });
+
+  // Create a container div for PDF generation
+  const container = document.createElement('div');
+  container.appendChild(clone);
+
+  // Use html2pdf to generate PDF from cloned content
+  html2pdf()
+    .set({
+      margin: 0.5,
+      filename: 'Medication_Administration_Record.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    })
+    .from(container)
+    .save();
+});
+</script>
+
+</body>
+</html>

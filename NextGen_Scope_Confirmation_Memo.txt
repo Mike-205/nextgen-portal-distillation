@@ -1,0 +1,98 @@
+NextGen Support Services
+Staff Portal — Scope Confirmation Memo
+Prepared: July 11, 2026
+
+Purpose of this memo
+When the original budget and timeline for the NextGen Support Services staff portal were agreed upon, the project was scoped as a documentation and forms portal. Since then, discovery has surfaced substantially more detail about how the organization operates — and NextGen has requested several additional modules that were not part of the original conversation. This memo lays out exactly what has changed, so we can agree on a revised scope, timeline, and budget before development begins.
+
+1. What Was Originally Scoped
+The original engagement was scoped as:
+A staff-facing web portal to digitize existing paper/HTML forms (Daily Logs, Case Notes, Incident Reports, MAR, Behaviour Tracker, etc.)
+Basic client record-keeping tied to each form
+Role-based access for staff vs. supervisors
+Replacing fragmented, duplicate, and incomplete forms with a single clean set
+
+2. What Discovery Revealed
+Two full rounds of discovery — form-by-form audit and a comprehensive non-technical discovery questionnaire — surfaced a much larger operational picture than the original form set suggested. NextGen is not just digitizing paperwork; they are building the operational backbone of a growing organization from a standing start (currently 0 active clients, scaling to a target of roughly 300 within 6–12 months, across multiple programs and yet-to-be-created sites).
+
+3. New Modules Requested — Not in Original Scope
+The following were explicitly requested by NextGen during discovery and were not part of the original scoped project:
+
+Staff Scheduling & Shift Assignment
+Full scheduling system — assign staff to programs/sites/clients/shifts, manage availability, handle shift changes and coverage requests, comparable to a platform like BrightHR.
+Why it's new: Not part of a documentation portal. This is a workforce management system in its own right.
+
+Time Clock, GPS Geofencing & Attendance Tracking
+Clock in/out, GPS location stamps to verify staff are on-site, late/early/missed shift tracking, correction workflows.
+Why it's new: Introduces location services, device permissions, and a new compliance/audit surface not previously discussed.
+
+Timesheet Generation & Payroll Export
+Auto-generated timesheets exportable to Excel, including regular/overtime hours, supervisor approvals, and payroll notes.
+Why it's new: This is a payroll-adjacent feature; the original scope explicitly excluded payroll/HR.
+
+In-House Communication Tool
+A built-in messaging system (1:1, group, site-specific channels, announcements, shift handover messaging, push notifications) intended to fully replace the need for Teams/Slack/WhatsApp.
+Why it's new: This is effectively a second product — a real-time messaging platform — layered inside the portal.
+
+Automated Critical-Event Detection (16-Hour Documentation Review)
+The system automatically scans Daily Logs, Case Notes, Behaviour Trackers, and Contact Notes for language indicating a critical event (injury, abuse concern, self-harm risk, medication error, missing person, etc.), and if no matching Incident Report exists, auto-generates an alert to leadership.
+Why it's new: This requires text analysis / keyword-detection logic, not just structured form fields — a materially different technical build than a documentation form.
+
+Client Billing & Funder Reporting Support
+Capturing service hours, program utilization, and reimbursable expenses to support funder billing and reporting.
+Why it's new: Introduces a financial/reporting layer previously not discussed.
+
+Full Case Management System
+Referral intake, eligibility review, acceptance workflow, program transitions, and discharge — as the organization's single source of truth for client records, since NextGen has no existing case management software today.
+Why it's new: The original scope treated 'forms' as the deliverable; this reframes the portal as the agency's core operating system.
+
+4. Side-by-Side: Then vs. Now
+
+Area
+Originally Scoped
+Now Confirmed
+Core purpose
+Digitize existing paper/HTML forms
+Full agency operations platform
+Client scale
+Unknown / assumed small
+Designed for ~300 active clients within 12 months
+Sites/locations
+Not addressed
+Flexible, admin-managed, zero-to-growing structure
+Scheduling
+Out of scope
+Full scheduling module requested
+Time tracking
+Not discussed
+GPS-based clock in/out + attendance tracking
+Payroll
+Explicitly out of scope
+Timesheet generation + Excel payroll export
+Communication
+Not discussed
+Full in-house messaging system
+Incident detection
+Manual form only
+Automated AI-style scan of documentation for missed incidents
+Billing/funders
+Not discussed
+Funder billing/reporting support requested
+
+5. What This Means for Timeline and Budget
+The modules above are not small additions — several are standalone systems in their own right (scheduling software, a messaging platform, a payroll export engine, and a document-scanning alert engine). Combined with a case management system built to scale to 300 clients across multiple sites from a zero starting point, the effort required is substantially larger than the original scope.
+
+We recommend one of the following paths forward:
+Phase the build: launch with core case management, documentation, and admin setup tools first (the modules essential to operating at all), and treat scheduling, time clock/payroll, communications, and automated detection as Phase 2 and 3 additions.
+Re-scope and re-quote: revise the timeline and budget now to reflect the full platform as currently described, so expectations are aligned before development starts.
+Confirm priority order: if budget is fixed, NextGen tells us which modules matter most for launch, and the rest move to a post-launch roadmap.
+
+6. Requested Decision
+Before we move into technical discovery and wireframing, we need NextGen to confirm:
+Whether all modules above are must-haves for launch, or which can move to a later phase
+An updated budget and timeline reflecting the confirmed scope
+Sign-off on this memo as the current source of truth for what is being built
+
+
+
+Prepared for internal review and client sign-off prior to Technical Discovery.

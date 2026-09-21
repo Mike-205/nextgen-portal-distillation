@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NextGen Support Services – Grocery List</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    :root {
+      --earth-brown: #6b4c3b;
+      --tan-bg: #f5f0e6;
+      --light-brown: #c9b7a2;
+      --dark-text: #3b2e2a;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--tan-bg);
+      color: var(--dark-text);
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid var(--earth-brown);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      color: var(--earth-brown);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      background-color: var(--light-brown);
+      color: white;
+      padding: 10px;
+      margin-top: 30px;
+    }
+
+    .form-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 20px;
+    }
+
+    .form-header label {
+      flex: 0 0 48%;
+      display: flex;
+      flex-direction: column;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea {
+      padding: 6px;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      font-size: 14px;
+      margin-top: 4px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    #other-program {
+      display: none;
+      margin-top: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+
+    th {
+      background-color: var(--earth-brown);
+      color: white;
+    }
+
+    th, td {
+      border: 1px solid #aaa;
+      padding: 8px;
+      text-align: left;
+    }
+
+    td input[type="text"] {
+      width: 100%;
+      padding: 6px;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: var(--earth-brown);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 4px;
+      margin: 10px 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #5a3e31;
+    }
+
+    .locked input,
+    .locked textarea,
+    .locked select {
+      background-color: #eee;
+      pointer-events: none;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body id="grocery-form">
+  <h1>NextGen Support Services – Grocery List</h1>
+
+  <div class="form-header">
+    <label>
+      Week:
+      <input type="date" id="date" />
+    </label>
+    <label>
+      Program:
+      <select id="program" onchange="toggleOtherProgram()">
+        <option value="">-- Select Program --</option>
+        <option value="Group Home">Group Home</option>
+        <option value="Supported Living">Supportive Independent Living</option>
+        <option value="family reunification">Family Reunification</option>
+        <option value="Youth Program">Youth Program</option>
+        <option value="Mental Health Unit">Mental Health Unit</option>
+        <option value="Other">Other</option>
+      </select>
+      <input type="text" id="other-program" placeholder="Specify other program..." />
+    </label>
+  </div>
+
+  <div class="section" id="produce-section">
+    <h2>🥦 Produce</h2>
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Quantity</th><th>Notes</th></tr>
+      </thead>
+      <tbody id="produce-body"></tbody>
+    </table>
+    <button onclick="addRow('produce-body')">Add Entry</button>
+  </div>
+
+  <div class="section" id="bakery-section">
+    <h2>🍞 Bakery & Grains</h2>
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Quantity</th><th>Notes</th></tr>
+      </thead>
+      <tbody id="bakery-body"></tbody>
+    </table>
+    <button onclick="addRow('bakery-body')">Add Entry</button>
+  </div>
+
+  <div class="section" id="meat-section">
+    <h2>🥩 Meat, Poultry & Fish</h2>
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Quantity</th><th>Notes</th></tr>
+      </thead>
+      <tbody id="meat-body"></tbody>
+    </table>
+    <button onclick="addRow('meat-body')">Add Entry</button>
+  </div>
+
+  <div class="section" id="dairy-section">
+    <h2>🧀 Dairy & Alternatives</h2>
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Quantity</th><th>Notes</th></tr>
+      </thead>
+      <tbody id="dairy-body"></tbody>
+    </table>
+    <button onclick="addRow('dairy-body')">Add Entry</button>
+  </div>
+
+  <div class="section" id="cleaning-section">
+    <h2>🧼 Household & Cleaning Supplies</h2>
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Quantity</th><th>Notes</th></tr>
+      </thead>
+      <tbody id="cleaning-body"></tbody>
+    </table>
+    <button onclick="addRow('cleaning-body')">Add Entry</button>
+  </div>
+
+  <div class="section" id="pantry-section">
+    <h2>🍽️ Pantry</h2>
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Quantity</th><th>Notes</th></tr>
+      </thead>
+      <tbody id="pantry-body"></tbody>
+    </table>
+    <button onclick="addRow('pantry-body')">Add Entry</button>
+  </div>
+
+  <div class="section" id="beverages-section">
+    <h2>🧃 Beverages</h2>
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Quantity</th><th>Notes</th></tr>
+      </thead>
+      <tbody id="beverages-body"></tbody>
+    </table>
+    <button onclick="addRow('beverages-body')">Add Entry</button>
+  </div>
+
+  <div class="section" id="snacks-section">
+    <h2>🍭 Snacks & Treats</h2>
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Quantity</th><th>Notes</th></tr>
+      </thead>
+      <tbody id="snacks-body"></tbody>
+    </table>
+    <button onclick="addRow('snacks-body')">Add Entry</button>
+  </div>
+
+  <div class="section" id="frozen-section">
+    <h2>❄️ Frozen Foods</h2>
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Quantity</th><th>Notes</th></tr>
+      </thead>
+      <tbody id="frozen-body"></tbody>
+    </table>
+    <button onclick="addRow('frozen-body')">Add Entry</button>
+  </div>
+
+  <div class="section">
+    <h2>📝 Additional Notes / Special Requests</h2>
+    <textarea id="notes" style="width: 100%; height: 100px;"></textarea>
+  </div>
+
+  <div style="text-align: center;">
+    <button onclick="saveForm()">Save</button>
+    <button onclick="lockForm()">Save & Lock</button>
+    <button onclick="exportPDF()">Export as PDF</button>
+  </div>
+
+  <script>
+    function addRow(sectionId) {
+      const tbody = document.getElementById(sectionId);
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td><input type="text" /></td>
+        <td><input type="text" /></td>
+        <td><input type="text" /></td>
+      `;
+      tbody.appendChild(row);
+    }
+
+    function lockForm() {
+      document.getElementById('grocery-form').classList.add('locked');
+      alert('Form saved and locked.');
+    }
+
+    function saveForm() {
+      alert('Form saved (but still editable).');
+    }
+
+    function exportPDF() {
+      const element = document.getElementById('grocery-form');
+      const opt = {
+        margin: 0.5,
+        filename: 'NextGen_Grocery_List.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().from(element).set(opt).save();
+    }
+
+    function toggleOtherProgram() {
+      const programSelect = document.getElementById('program');
+      const otherInput = document.getElementById('other-program');
+      otherInput.style.display = programSelect.value === 'Other' ? 'block' : 'none';
+      if (programSelect.value !== 'Other') otherInput.value = '';
+    }
+  </script>
+</body>
+</html>

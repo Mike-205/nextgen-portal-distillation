@@ -1,0 +1,367 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shift Checklist</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f1ee;
+      color: #3e2f2f;
+    }
+    header {
+      background-color: #5d4037;
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto 60px;
+      padding: 0 30px 40px;
+    }
+    .form-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+      gap: 20px;
+    }
+    .form-group {
+      flex: 1 1 48%;
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    input[type="text"], input[type="time"], select {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #bdbdbd;
+      border-radius: 6px;
+      background-color: #fff;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+      width: 100%;
+    }
+    input[type="text"]:focus, input[type="time"]:focus, select:focus {
+      outline: none;
+      border-color: #6d4c41;
+      box-shadow: 0 0 5px #6d4c41aa;
+    }
+    .tab-bar {
+      display: flex;
+      justify-content: center;
+      background-color: #d7ccc8;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 40px;
+      box-shadow: inset 0 -2px 4px #a1887faa;
+    }
+    .tab-bar button {
+      background-color: #a1887f;
+      border: none;
+      padding: 15px 50px;
+      cursor: pointer;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+      flex: 1;
+      text-align: center;
+    }
+    .tab-bar button:hover:not(.active) {
+      background-color: #8d6e63;
+    }
+    .tab-bar button.active {
+      background-color: #5d4037;
+      box-shadow: inset 0 -4px 8px #3e2723cc;
+    }
+    .shift-section {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .shift-section.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 14px 18px;
+      border-bottom: 1px solid #e0e0e0;
+      vertical-align: middle;
+    }
+    th {
+      background-color: #6d4c41;
+      color: white;
+      text-align: left;
+      font-weight: 700;
+      font-size: 16px;
+      user-select: none;
+    }
+    td input[type="text"] {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: border-color 0.3s ease;
+    }
+    td input[type="text"]:focus {
+      outline: none;
+      border-color: #6d4c41;
+      box-shadow: 0 0 6px #6d4c4188;
+    }
+    td input[type="checkbox"] {
+      transform: scale(1.2);
+      margin-right: 8px;
+      cursor: pointer;
+    }
+    .btn-check, .btn-save {
+      margin: 0 10px;
+      padding: 12px 28px;
+      background-color: #4e342e;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+      box-shadow: 0 4px 6px #3e2723bb;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+      user-select: none;
+    }
+    .btn-check:hover, .btn-save:hover {
+      background-color: #3e2723;
+    }
+    .btn-group {
+      margin-top: 20px;
+      text-align: center; /* Center align buttons */
+    }
+    #otherProgramContainer {
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" ></script>
+  <script>
+    $(function() {
+      $("#date").datepicker({ dateFormat: 'yy-mm-dd' });
+
+      // Show/hide textbox for "Other" program
+      $('#programSelect').on('change', function() {
+        if (this.value === 'other') {
+          $('#otherProgramContainer').show();
+          $('#otherProgramInput').attr('required', true);
+        } else {
+          $('#otherProgramContainer').hide();
+          $('#otherProgramInput').attr('required', false).val('');
+        }
+      });
+    });
+
+    function showSection(id) {
+      document.querySelectorAll('.shift-section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelectorAll('.tab-bar button').forEach(b => b.classList.remove('active'));
+      document.getElementById(id + '-tab').classList.add('active');
+    }
+
+    function checkAll(sectionId) {
+      const section = document.getElementById(sectionId);
+      section.querySelectorAll('input[type="checkbox"]:not(:disabled)').forEach(cb => cb.checked = true);
+    }
+
+    function saveShift(shift) {
+      alert("Save button clicked for " + shift + " shift. Implement save functionality here.");
+    }
+
+    function saveAndLockShift(shift) {
+      const section = document.getElementById(shift);
+      // Disable all inputs inside the shift section
+      section.querySelectorAll('input').forEach(input => input.disabled = true);
+
+      // Hide Save & Lock button after locking
+      document.getElementById(shift + '-save-lock-btn').style.display = 'none';
+
+      alert(shift.charAt(0).toUpperCase() + shift.slice(1) + " shift saved and locked. No further changes allowed.");
+    }
+  </script>
+</head>
+<body>
+
+<header>Shift Checklist</header>
+
+<div class="container">
+
+  <!-- Staff & Program & Date/Time -->
+  <div class="form-row">
+    <div class="form-group">
+      <label for="staffName">Staff Name</label>
+      <input type="text" id="staffName" name="staffName" />
+    </div>
+    <div class="form-group">
+      <label for="programSelect">Program</label>
+      <select id="programSelect" name="programSelect" required>
+        <option value="" disabled selected>Select program</option>
+        <option value="group home">Group Home</option>
+        <option value="supported independent living">Supported Independent Living</option>
+        <option value="family reunification">Family Reunification</option>
+        <option value="youth program">Youth Program</option>
+        <option value="mental health unit">Mental Health Unit</option>
+        <option value="other">Other</option>
+      </select>
+      <div id="otherProgramContainer">
+        <input type="text" id="otherProgramInput" name="otherProgramInput" placeholder="Please specify the program" />
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input type="text" id="date" name="date" placeholder="Select date" autocomplete="off" />
+    </div>
+    <div class="form-group">
+      <label for="time">Time</label>
+      <input type="time" id="time" name="time" />
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tab-bar">
+    <button id="morning-tab" class="active" onclick="showSection('morning')">Morning Shift</button>
+    <button id="afternoon-tab" onclick="showSection('afternoon')">Afternoon Shift</button>
+    <button id="night-tab" onclick="showSection('night')">Night Shift</button>
+  </div>
+
+  <!-- Morning Shift -->
+  <section class="shift-section active" id="morning">
+    <h2>Morning Shift Tasks</h2>
+    <table>
+      <thead>
+        <tr><th>Task</th><th>Comment</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><input type="checkbox" /> Shift Exchange To Be Completed Upon Arrival</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Medication/Narc Count Done</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Meds Administered & Signed Off</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Staff Communication Log Read</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Client Wake Up Call to Complete Morning Routines</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Schedule/ Take Client for Appointments</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Drop off at School/ Pick Up as needed</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Follow Client Food Schedule</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Kitchen/Dining/Living Area Cleaned & Sanitized as Needed</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Mop Floor If Needed</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Sharp Count Completed</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Client's Laundry Washed, Dried & Folded</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Put Clean Laundry away in Room</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Winter: Shovel Sidewalks, Stairway Clean & Salt Walkways</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Summer: Trim Grass</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Water Temperature Checked</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Behavior Tracker Form completed</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Complete Daily Logs, Case Notes & Incident Reports</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Shift Exchange To Be Completed Before Departure</td><td><input type="text" /></td></tr>
+      </tbody>
+    </table>
+    <div class="btn-group">
+      <button class="btn-check" onclick="checkAll('morning')">Checkmark All</button>
+      <button class="btn-save" onclick="saveShift('morning')">Save</button>
+      <button class="btn-save" id="morning-save-lock-btn" onclick="saveAndLockShift('morning')">Save &amp; Lock</button>
+    </div>
+  </section>
+
+  <!-- Afternoon Shift -->
+  <section class="shift-section" id="afternoon">
+    <h2>Afternoon Shift Tasks</h2>
+    <table>
+      <thead>
+        <tr><th>Task</th><th>Comment</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><input type="checkbox" /> Shift Exchange To Be Completed Upon Arrival</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Medication/Narc Count Done</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Meds Administered & Signed Off</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Staff Communication Log Read</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Support Client to complete their chores</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Schedule/ Take Client for Appointments</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> School Pick Up</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Follow Client Food Schedule</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Dishwasher started</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Kitchen/Dining/Living Area Cleaned & Sanitized as Needed</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Lightly Clean all Bathrooms if needed</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Mop Floor If Needed</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Sharp Count Completed</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Complete Case notes/ Daily logs</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Behavior Tracker Form completed</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Winter: Shovel Sidewalks, Stairway Clean & Salt Walkways</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Summer: Trim Grass</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Water Temperature Checked</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Complete Daily Logs, Case Notes & Incident Reports</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Shift Exchange To Be Completed Before Departure</td><td><input type="text" /></td></tr>
+      </tbody>
+    </table>
+    <div class="btn-group">
+      <button class="btn-check" onclick="checkAll('afternoon')">Checkmark All</button>
+      <button class="btn-save" onclick="saveShift('afternoon')">Save</button>
+      <button class="btn-save" id="afternoon-save-lock-btn" onclick="saveAndLockShift('afternoon')">Save &amp; Lock</button>
+    </div>
+  </section>
+
+  <!-- Night Shift -->
+  <section class="shift-section" id="night">
+    <h2>Night Shift Tasks</h2>
+    <table>
+      <thead>
+        <tr><th>Task</th><th>Comment</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><input type="checkbox" /> Shift Exchange To Be Completed Upon Arrival</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Staff Communication Log Read</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Medication/Narc Count Done</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Meds Administered & Signed Off</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Check Appointment & Set Reminders</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Follow Client Food Schedule</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Client Night Routines Supported (Hygiene, Bedtime)</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Sharp Count Completed</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Kitchen/Dining/Living Area Cleaned & Sanitized</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Clean all Bathrooms</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Mop Floor</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Clean Laundry & Furnace Room</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Complete Daily Logs, Case Notes & Incident Reports</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Behavior Tracker Form completed</td><td><input type="text" /></td></tr>
+        <tr><td><input type="checkbox" /> Shift Exchange To Be Completed Before Departure</td><td><input type="text" /></td></tr>
+      </tbody>
+    </table>
+    <div class="btn-group">
+      <button class="btn-check" onclick="checkAll('night')">Checkmark All</button>
+      <button class="btn-save" onclick="saveShift('night')">Save</button>
+      <button class="btn-save" id="night-save-lock-btn" onclick="saveAndLockShift('night')">Save &amp; Lock</button>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>

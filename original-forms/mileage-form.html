@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NextGen Support Services - Personal Mileage Form</title>
+  <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+  <style>
+    :root {
+      --earth-brown: #6b4c3b;
+      --soft-cream: #fdfaf6;
+      --light-border: #d9cfc2;
+      --header-color: #3d2b1f;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--soft-cream);
+      color: #333;
+      margin: 0;
+      padding: 40px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: var(--header-color);
+      margin-bottom: 10px;
+    }
+
+    .form-wrapper {
+      background-color: #fff;
+      padding: 40px;
+      border: 1px solid var(--light-border);
+      border-radius: 6px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 40px;
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--header-color);
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid var(--light-border);
+      border-radius: 4px;
+      background-color: #fff;
+      box-sizing: border-box;
+    }
+
+    input[readonly] {
+      background-color: #f3f3f3;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+      margin-bottom: 20px;
+      background-color: white;
+    }
+
+    th, td {
+      border: 1px solid var(--light-border);
+      padding: 0;
+    }
+
+    th {
+      background-color: var(--earth-brown);
+      color: white;
+      font-weight: 600;
+      padding: 10px;
+      text-align: center;
+    }
+
+    td input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      font-size: 14px;
+      box-sizing: border-box;
+      background-color: white;
+    }
+
+    .add-button,
+    .button-row {
+      margin-top: 10px;
+    }
+
+    /* Center-align Add Entry button */
+    .add-button {
+      text-align: center;
+    }
+
+    /* Center-align Save and Export buttons */
+    .button-row {
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      background-color: var(--earth-brown);
+      color: white;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    button:hover {
+      background-color: #5a3f2e;
+    }
+
+    .signature-section {
+      margin-top: 40px;
+    }
+
+    .signature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 40px;
+    }
+
+    .signature-section h3 {
+      color: var(--header-color);
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+
+    .total-km-row input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      font-size: 14px;
+      background-color: #f3f3f3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-wrapper" id="form-content">
+    <h1>NextGen Support Services</h1>
+    <h2>Personal Mileage Form</h2>
+
+    <div class="form-grid">
+      <div>
+        <label>Employee Name:</label>
+        <input type="text">
+      </div>
+      <div>
+        <label>Employee #:</label>
+        <input type="text">
+      </div>
+      <div>
+        <label>Pay Period From:</label>
+        <input type="date">
+      </div>
+      <div>
+        <label>To:</label>
+        <input type="date">
+      </div>
+      <div>
+        <label>Supervisor Name:</label>
+        <input type="text">
+      </div>
+      <div>
+        <label>Program:</label>
+        <select id="programSelect" onchange="toggleOtherProgram()">
+          <option value="">-- Select Program --</option>
+          <option>Group Home</option>
+          <option>Supported Independent Living</option>
+          <option value="family reunification">Family Reunification</option>
+          <option>Community Inclusion</option>
+          <option>Respite</option>
+          <option>Day Program</option>
+          <option>Community Support</option>
+          <option>Youth Support</option>
+          <option value="Other">Other</option>
+        </select>
+        <div id="otherProgramDiv" class="hidden" style="margin-top: 10px;">
+          <label>Specify Other Program:</label>
+          <input type="text" id="otherProgramInput">
+        </div>
+      </div>
+    </div>
+
+    <table id="mileageTable">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>From</th>
+          <th>To</th>
+          <th>KM Travelled</th>
+          <th>Clients in Transit</th>
+          <th>Reason for Trip</th>
+        </tr>
+      </thead>
+      <tbody id="entryBody">
+        <tr>
+          <td><input type="date"></td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+          <td><input type="number" step="0.1" class="km" oninput="calculateTotalKM()"></td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="add-button">
+      <button onclick="addEntryRow()">+ Add Entry</button>
+    </div>
+
+    <table>
+      <tr class="total-km-row">
+        <td colspan="3"><strong style="padding-left: 10px;">Total KM</strong></td>
+        <td colspan="3"><input type="number" id="totalKm" readonly></td>
+      </tr>
+    </table>
+
+    <div class="form-grid">
+      <div>
+        <label>Reimbursement Rate:</label>
+        <input type="text" value="$0.50" readonly>
+      </div>
+      <div>
+        <label>Total Claim:</label>
+        <input type="text" id="totalClaim" readonly>
+      </div>
+    </div>
+
+    <div class="signature-section">
+      <h3>Signatures</h3>
+      <div class="signature-grid">
+        <div>
+          <label>Employee’s Sign:</label>
+          <input type="text">
+        </div>
+        <div>
+          <label>Date:</label>
+          <input type="date">
+        </div>
+        <div>
+          <label>Manager/Supervisor Sign:</label>
+          <input type="text">
+        </div>
+        <div>
+          <label>Date:</label>
+          <input type="date">
+        </div>
+      </div>
+    </div>
+
+    <div class="button-row">
+      <button onclick="saveForm()">Save</button>
+      <button onclick="lockForm()">Save & Lock</button>
+      <button onclick="exportPDF()">Export as PDF</button>
+    </div>
+  </div>
+
+  <script>
+    function calculateTotalKM() {
+      const kmInputs = document.querySelectorAll('.km');
+      let total = 0;
+      kmInputs.forEach(input => {
+        const val = parseFloat(input.value);
+        if (!isNaN(val)) {
+          total += val;
+        }
+      });
+      document.getElementById('totalKm').value = total.toFixed(1);
+      document.getElementById('totalClaim').value = "$" + (total * 0.50).toFixed(2);
+    }
+
+    function addEntryRow() {
+      const tbody = document.getElementById('entryBody');
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td><input type="date"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="number" step="0.1" class="km" oninput="calculateTotalKM()"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+      `;
+      tbody.appendChild(row);
+    }
+
+    function toggleOtherProgram() {
+      const select = document.getElementById("programSelect");
+      const otherDiv = document.getElementById("otherProgramDiv");
+      if (select.value === "Other") {
+        otherDiv.classList.remove("hidden");
+      } else {
+        otherDiv.classList.add("hidden");
+      }
+    }
+
+    function saveForm() {
+      alert("Form has been saved (functionality stub).");
+    }
+
+    function lockForm() {
+      const inputs = document.querySelectorAll('input, select, button');
+      inputs.forEach(el => {
+        if (el.type !== "button") el.disabled = true;
+      });
+      alert("Form has been saved and locked.");
+    }
+
+    function exportPDF() {
+      const element = document.getElementById('form-content');
+      html2pdf().from(element).set({
+        margin: 0.5,
+        filename: 'Mileage_Form.pdf',
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      }).save();
+    }
+  </script>
+
+</body>
+</html>
