@@ -18,8 +18,8 @@ Sources: `NextGen_Portal_Discovery.txt` (D), `NextGen_Scope_Confirmation_Memo.tx
   - Training & Consultation Services → Professional Development, Workplace/Organizational Training, Professional Records
   - Plus a free-text "Other" option at the top level.
   This two-level model **resolves** the "Program dropdown has 4+ incompatible variants" cross-cutting finding from the forms audit going forward — it's the new canonical taxonomy. It does NOT retroactively fix the inconsistent lists already sitting in the original 19 forms or the other 4 recently-sent forms; reconciling those against this model is entity-model/open-questions-register work, not glossary work.
-  - **New tension to register, not resolved here:** §13 lets a client select *multiple* services/subservices at intake ("select each service, then any relevant sub-services"), which sits awkwardly next to D Q7's confirmed statement that "each client is assigned to one primary program at a time" and doesn't appear across multiple programs simultaneously. Needs reconciling in the entity model — does requesting multiple services at intake collapse into one active Placement, or can a Client have concurrent Placements now?
-- Variants seen and superseded as program names: "Group Home" (F18/19 — informal name for a Group Care site, not a program), "Mental Health Unit" (appears as a program in F15 sharp-count.html and in the old `PROGRAMS` enum — contradicts both D and the confirmed 6-service list; OPEN, see open-questions register), "Youth Program" (used interchangeably with Group Care in D — treat as the same program).
+  - **RESOLVED (2026-09-21, client call):** §13's multi-select at intake collapses into **one primary/main service** (single active Placement, confirmed — D Q7's rule stands). Other services selected that facilitate the main one (e.g. Transportation to medical appointments under a Respite Care placement) are **secondary/facilitating services**, billed inclusively under the main placement rather than creating a second concurrent Placement. Carry "Secondary/facilitating service" into the entity model as an attribute of the active Placement, not a new Placement.
+- Variants seen and superseded as program names: "Group Home" (F18/19 — informal name for a Group Care site, not a program), "Mental Health Unit" (appears as a program in F15 sharp-count.html and in the old `PROGRAMS` enum — **RESOLVED 2026-09-21:** scrapped entirely, not a Program, Site, or subservice; any surviving preset referencing it is stale), "Youth Program" (used interchangeably with Group Care in D — treat as the same program).
 - Spelling of SIL across the 19 forms is inconsistent: "Supported Independent Living" (majority), "Supportive Independent Living" (F17 grocery-list.html), "Supportive Living" (F13 medication-administration-record.html). Canonical: **Supported Independent Living (SIL)**, per the confirmed 6-service list.
 
 **Site / House / Location** — RESOLVED as synonyms; canonical term **Site**. D uses "houses or service locations" and "site" interchangeably; a Site sits under exactly one or more Programs and is admin-created (e.g., Ravens Nest, Eagles Nest, Golden Bear, Whispering Harmony under Group Care). Not present as a concept in any of the 19 forms — this is a new structural entity the portal introduces.
@@ -36,6 +36,8 @@ Sources: `NextGen_Portal_Discovery.txt` (D), `NextGen_Scope_Confirmation_Memo.tx
 
 **Client / Youth / Family** — RESOLVED. Canonical: **Client**, regardless of program (a Client in Family Reunification is still a Client, not a separate "Family" entity). Individual form field labels use "Family/Youth Name" (intake-screening.html) or "Child Youth" (incident-report.txt) — these are form-specific labels for the same Client entity, not different entity types.
 
+**Client ID** — RESOLVED (2026-09-21, client call). Not a portal/dev-generated identifier. It's an identifier the referring government body or community agency has *already issued* to the client before intake (e.g., an Alberta Children's Services file/case number) — the Intake Form's "Client ID" field captures that pre-existing external ID, it doesn't create one. Whatever internal primary key the portal needs for its own record-keeping is a separate, unrelated concern — don't conflate the two. Exact external ID format/convention pending research (`distillation/legal-context-research.md`).
+
 ---
 
 ## Documents / forms
@@ -45,6 +47,8 @@ Sources: `NextGen_Portal_Discovery.txt` (D), `NextGen_Scope_Confirmation_Memo.tx
 **Noteworthy Update / Noteworthy Report** — RESOLVED as the same document; both names appear across D/M. Canonical: **Noteworthy Update** (matches the source form title in F08).
 
 **Daily Log / Client Daily Log Update / "(CU)"-prefixed fields** — RESOLVED. "(CU)" = "Client Update" per D's Open Issues section, but the abbreviation should NOT appear in the portal UI — display as plain "Daily Log" field labels. Canonical document name: **Daily Log**.
+
+**Shift Handover** — RESOLVED in direction (2026-09-21, client call). Handled via the Daily Log's existing "(CU) Follow Through (notes)" field (`distillation/forms/07-client-daily-log-update.md`) — there is no separate Shift Handover document or Shift Log. Note this lives in the **Daily Log**, distinct from the **Shift Checklist** (F14), a different existing document. Open, not client-confirmed: whether Follow Through Notes needs an explicit read/acknowledgment step for the incoming staff member — see `open-questions.md` OQ-16 caveat, feeds the alert/escalation matrix (cross-cutting concerns, item 7).
 
 **Incident Report (Client) vs. Staff Incident Report** — RESOLVED as two separate documents going forward (M Open Issues): **Client Incident Report** = the existing form (F09, confirmed incomplete — ends after Section 2) plus an attachment slot for the official Government of Alberta incident form. **Staff Incident Report** = a new, fully digital form using a NextGen template not yet provided (OPEN — blocked on that template).
 
@@ -78,7 +82,9 @@ Sources: `NextGen_Portal_Discovery.txt` (D), `NextGen_Scope_Confirmation_Memo.tx
 
 ---
 
-**Case Worker (external) vs. "Case Manager" (internal, undefined)** — PARTIALLY CLARIFIED, still OPEN. The Client Intake Form §8 "Funding Information" has a "Case worker" field alongside the funding agency (PDD/FSCD/AISH/Jordans Principle/Private Pay/Insurance/Other) — this is the *funding agency's own* external case worker, not a NextGen staff role. That's a different thing from the undefined internal "Case Manager" role flagged 3× across the recently-sent forms (F20-24 audit), which still has no definition anywhere in the org chart. Keep both in the open-questions register as separate items.
+**Case Worker (external) vs. "Case Manager" (internal)** — RESOLVED (2026-09-21, client call). "Case Manager," "Case Worker," and "legal guardian" are, in the client's own framing, effectively one external role: when a family isn't functioning (abuse/neglect/addiction) and a court removes children from parental care, a Children and Family Services employee is assigned to act and make decisions in the parents' place. Where the parent retains guardianship, the parent continues to function as parent/guardian instead. **Canonical term: Case Worker** (client's explicit instruction, for clarity). Internally, if "Case Manager" is used at all, it refers to a **Team Lead or Program Manager acting in that capacity** — not a distinct standalone NextGen role.
+- **Entity-model implication:** a Client needs two distinct external-party relationship concepts — **Parent/Guardian** and **Case Worker** — not one collapsed field, since custody status determines which applies (possibly both, at different points in the client's history).
+- **New open item surfaced:** "Program Manager" is a title not previously seen in the org chart or discovery doc — see `open-questions.md` OQ-17.
 
 **Funding Source** — new canonical list, RESOLVED as of the Client Intake Form: PDD, FSCD, AISH, Jordan's Principle, Private Pay, Insurance, Other. Not previously captured anywhere in the discovery doc or original 19 forms — feed into the entity model as a Client attribute.
 
@@ -86,8 +92,7 @@ Sources: `NextGen_Portal_Discovery.txt` (D), `NextGen_Scope_Confirmation_Memo.tx
 
 - Team Lead vs. Supervisor (distinct roles or one role, two names?)
 - Director of Operations vs. Program Director (one role or two?)
+- "Program Manager" as a title — newly surfaced (2026-09-21 client call), not previously seen in the org chart; needs reconciling with the two items above (OQ-17)
 - Monthly Activity Report's survival (remove per memo vs. still-live per discovery doc walkthrough)
-- Mental Health Unit as a program (appears in F15/schema, contradicts both D and the confirmed 6-service list)
-- Undefined "Case Manager" role (appears 3× in recently-sent forms, absent from org chart)
 - Undefined "Behaviour Support Plan" document (referenced in Trip Risk Assessment, doesn't exist anywhere across all 24 form files audited)
-- Multiple-services-at-intake vs. single-active-program (Client Intake Form §13 allows multi-select; D Q7 says one program at a time)
+- Follow Through Notes acknowledgment workflow — whether shift handover needs a read/ack step, or a written note is enough (OQ-16 caveat)

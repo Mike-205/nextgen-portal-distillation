@@ -14,18 +14,25 @@ Tag: CONTRADICTED (low confidence). Discovery almost always writes "Team Lead/Su
 **OQ-02 — Is "Director of Operations" the same role as "Program Director" and "Director of Programs & Operations"?**
 Tag: CONTRADICTED (low confidence). The org chart names one position, "Director of Programs & Operations." Most answers shorten this to "Director of Operations." A few (e.g., the clinical-documents approval table) instead name "Program Director" as the approver. **Ask:** confirm these all refer to the same single position.
 
-**OQ-03 — What is the "Case Manager" role?**
-Tag: MISSING MATERIAL. Referenced three times across the recently-sent forms (Individual Support Plan, Individual Safety Plan, Trip Risk Assessment) but does not appear anywhere in the organizational hierarchy given during discovery. **Ask:** is this a new role, a renamed existing one (Program Manager? Supervisor?), or an external party's role (like the funding-agency "case worker" the Intake Form separately references)?
+**OQ-17 — Is "Program Manager" a distinct title from Team Lead, Supervisor, or Director of Operations?**
+Tag: UNANSWERED (new). Surfaced via client call while resolving OQ-03: client said "team leads or program managers will act as internal case managers," naming "Program Manager" as a title never seen elsewhere in the org chart or discovery doc. **Ask:** is this a distinct tier, a synonym for one of the existing titles (Team Lead? Supervisor? Program Director, per OQ-02?), or informal phrasing on the call that shouldn't be read too literally? Feeds directly into OQ-01/OQ-02 and the permission matrix's role axis.
+
+---
+
+**OQ-03 — What is the "Case Manager" role?** — **RESOLVED (2026-09-21, client call).**
+Client clarified: "Case Manager," "Case Worker," and "legal guardian" are effectively the same external role in practice. When a family is not functioning (drug abuse, neglect, abuse) and the government removes children from parental care through the courts, the children are assigned to a Children and Family Services employee who acts and makes decisions in the parents' place. In other cases the parent retains guardian status and continues to function as parent/guardian. Client's explicit instruction: **use "Case Worker" as the standard term**, for clarity to others reading the material. Internally, if "Case Manager" is used at all, it maps to **Team Lead or Program Manager acting in that capacity** — not a distinct standalone role.
+Entity-model implication: a Client needs two distinct external-party relationship concepts, not one — **Parent/Guardian** and **Case Worker** — since custody status determines which (or both, historically) applies. Carry into item 4.
+New sub-question surfaced by this answer, registered separately below: **OQ-17** ("Program Manager" as a title not previously seen in the org chart).
 
 ---
 
 ## Programs & Services
 
-**OQ-04 — Does "Mental Health Unit" refer to a Program, or a Site?**
-Tag: CONTRADICTED. Discovery confirmed Mental Health is a cross-program service component, not one of the six Programs/Services — yet the Sharp Count Checklist form still lists "Mental Health Unit" as a selectable program, and it's a real value in `next_gen_services`'s existing `PROGRAMS` enum. **Ask:** should "Mental Health Unit" be removed as an option entirely, or does it actually name a specific Site (e.g., a Group Care site with a mental-health focus) rather than a Program?
+**OQ-04 — Does "Mental Health Unit" refer to a Program, or a Site?** — **RESOLVED (2026-09-21, client call).**
+Mental Health as a standalone program was scrapped entirely — it is neither a Program nor a Site, and not even a listed subservice. It's implicitly present inside other services (e.g., Respite Care may involve mental-health-related support) without ever being named as an explicit, separately-offered service. Action: any surviving "Mental Health Unit" preset (Sharp Count Checklist) is stale and should not be carried forward into the redesign.
 
-**OQ-05 — Can a client be placed in more than one Program/Service at once?**
-Tag: CONTRADICTED. Discovery (Q7) confirmed a client is assigned to exactly one primary program at a time, with transitions being sequential, never concurrent. But the redesigned, client-approved Client Intake Form (§13 "Service Requested") lets a client select multiple services and subservices. **Ask:** does requesting multiple services at intake result in one primary placement being chosen afterward, or has the single-placement rule actually changed? This directly decides whether "Placement" in the entity model is single-active or can be concurrent.
+**OQ-05 — Can a client be placed in more than one Program/Service at once?** — **RESOLVED (2026-09-21, client call).**
+Confirmed single: a client has exactly one primary/main service. Other services that facilitate the main service (e.g. Respite Care as primary, with Transportation to medical appointments as a secondary service supporting it) are billed inclusively under the main service — the secondary services the client actually needs are what drive the extra billing, not a second concurrent placement. Entity-model implication: `Placement` stays single-active; add a "Secondary/facilitating service" concept tied to the active Placement for billing purposes, not a second Placement. The Client Intake Form's multi-select at §13 resolves down to one primary placement plus these billing-relevant secondary services.
 
 **OQ-06 — Does the Monthly Activity Report survive?**
 Tag: CONTRADICTED. The Scope Confirmation Memo says "remove the Monthly Activity Form." The discovery doc's own shift-workflow walkthrough (Q2) still describes front-line staff completing a "Monthly Activity Report" as live documentation. Also note: the forms audit confirmed `activity-calendar.html` and `index.html` are byte-identical — there was only ever one file here, not two competing duplicates, so "which one do we keep" was the wrong framing from the start. **Ask:** is this document in or out, full stop?
@@ -56,8 +63,8 @@ Tag: NEEDS DECISION (but easy — just confirm). The source form has Spiritual, 
 
 ## Client Records & Identity
 
-**OQ-13 — Who assigns the new "Client ID" field, and how?**
-Tag: UNANSWERED. Discovery said clients are currently identified by name only, with a vague note that a unique ID "would improve record management" (the answer trails off without confirming a scheme). The redesigned Intake Form now has a "Client ID" field under "Office use only." **Ask:** auto-generated by the portal, manually assigned by intake staff under an existing numbering convention, or something we need to design?
+**OQ-13 — Who assigns the new "Client ID" field, and how?** — **RESOLVED (2026-09-21, client call).**
+Not a portal/dev-generated ID. It refers to an identifier already issued to the client by the referring government body or community agency (e.g., an Alberta Children's Services file/case number) before they ever reach NextGen — the Intake Form field *captures* that pre-existing external ID, it doesn't create one. Entity-model implication: `Client` needs a distinct **External/Referral Client ID** field (format TBD by research, likely optional since some clients may be self- or family-referred with no such ID) separate from whatever internal system key the portal generates for its own record-keeping — the two are not the same thing and shouldn't be conflated. Research into Alberta's actual ID conventions is in progress (see `distillation/legal-context-research.md`, once written).
 
 ---
 
@@ -73,8 +80,9 @@ Tag: UNANSWERED. Discovery's answer described what such consultation *should* co
 
 ## Shift Handover
 
-**OQ-16 — How does the outgoing staff member communicate critical information to the incoming one — verbal, written log, or both?**
-Tag: UNANSWERED. Asked directly in discovery (Q15); the answer field was left blank.
+**OQ-16 — How does the outgoing staff member communicate critical information to the incoming one — verbal, written log, or both?** — **RESOLVED (2026-09-21, client call), with a caveat.**
+Client's answer: the existing Daily Log's "(CU) Follow Through (notes)" field (confirmed present in the source form, `distillation/forms/07-client-daily-log-update.md`) can serve as the shift-handover mechanism — written, not a separate document. Important distinction the client's own phrasing blurs: this lives in the **Daily Log**, not the **Shift Checklist** (F14, a different existing document) — there is no separate "Shift Log."
+**Our assessment, not yet client-confirmed:** reusing Follow Through Notes for handover content is reasonable and avoids a redundant field. What isn't settled is the *workflow* around it — a chronological narrative field is fine for record-keeping, but a genuine handover often needs the incoming staff member to actually see and act on it, not just have it exist in the log. Whether Follow Through Notes needs an explicit "read/acknowledged by incoming staff" step, or a plain written note is sufficient in practice, is a **new open item for the alert/escalation matrix (item 7)**, not decided here.
 
 ---
 
@@ -84,3 +92,4 @@ Tag: UNANSWERED. Asked directly in discovery (Q15); the answer field was left bl
 - Case Note vs. Individual Contact Note distinction (resolved via Scope Memo).
 - MAR naming (resolved via Scope Memo — title stays "Medication Administration Record (MAR)"; note the memo's claim that the two source files were identical was itself refuted by the forms audit, but the naming decision stands independent of that).
 - "(CU)" prefix meaning (resolved: "Client Update," drop the abbreviation in the UI).
+- **2026-09-21 batch, via client call:** OQ-03 (Case Manager = Case Worker = legal guardian, externally; internally maps to Team Lead/Program Manager), OQ-04 (Mental Health Unit scrapped, not a Program/Site/subservice), OQ-05 (single active Placement confirmed; other services bill inclusively as secondary/facilitating), OQ-13 (Client ID = externally-issued referral ID, not portal-generated), OQ-16 (handover = Daily Log's Follow Through Notes field, not a separate Shift Log — see caveat left in place at OQ-16 on the acknowledgment-workflow question). New item opened as a result: OQ-17 ("Program Manager" title needs reconciling with OQ-01/OQ-02).

@@ -27,25 +27,36 @@ Living tracking doc for the distillation effort. Update this whenever an artifac
 
 ## Blockers
 
-### Immediate — block starting the Entity Model (item 4) right now
+### Resolved 2026-09-21 (client call, relayed by collaborator) — entity model unblocked
 
-These decide the *shape* of entities, not just field details, so guessing here would mean redoing the model later.
+- ~~OQ-05~~ (Placement cardinality) → single-active, confirmed. Secondary/facilitating services bill inclusively under the main Placement.
+- ~~OQ-04~~ (Mental Health Unit) → scrapped entirely; not a Program, Site, or subservice.
+- ~~OQ-13~~ (Client ID) → externally-issued referral ID (government/community), not portal-generated. Portal still needs its own internal key regardless — standard system design, no client input needed there.
+- ~~OQ-03~~ (Case Manager role) → external role = Case Worker (= Case Manager = legal guardian, in client's framing); internal usage maps to Team Lead/Program Manager. Opened **OQ-17** as a result (see below).
+- ~~OQ-16~~ (shift handover mechanism) → Daily Log's existing "Follow Through Notes" field, not a separate Shift Log. One workflow question left open (ack/read-receipt for handover), deferred to item 7.
 
-- **OQ-05** (single vs. concurrent Placement) — decides whether `Placement` is single-active-only or can be concurrent. Core to the entity, not a detail.
-- **OQ-04** (Mental Health Unit = Program or Site?) — decides whether `Program` and `Site` are cleanly separate entities or one bleeds into the other.
-- **OQ-13** (Client ID assignment mechanism) — decides whether `Client` has a system-generated key, a staff-assigned one, or both.
-- **OQ-03** (does "Case Manager" exist as a role?) — decides whether `Staff Assignment` needs a role that isn't in the org chart at all.
-- **OQ-16** (shift handover: verbal / written / both) — decides what data, if any, `Shift` needs to capture for handover.
+Full detail and exact resolution text: `distillation/open-questions.md`, inline at each OQ number, plus the 2026-09-21 batch entry in the resolved-items log at the bottom.
+
+**Net effect: item 4 (Entity Model) is no longer blocked.** All five structural decisions needed to start it are answered.
+
+### New — surfaced while resolving the above
+
+- **OQ-17** ("Program Manager" title, not previously seen in the org chart) — added to Roles & Org Structure section, feeds the same permission-matrix gate as OQ-01/OQ-02 below.
 
 ### Will become immediate soon — don't block item 4, but block item 5 (Permission Matrix), right after
 
 - **OQ-01** (Team Lead vs. Supervisor — one role or two tiers) — the matrix is role × document × action × scope; can't build the role axis with this unresolved.
 - **OQ-02** (Director of Operations / Program Director / Director of Programs & Operations — same position?) — same reason, at the top of the approval chain.
+- **OQ-17** (Program Manager, new) — same reason; now a third title needing reconciliation, not just two.
 
 ### Later — block item 7 (Cross-Cutting Concerns), not yet urgent
 
 - **OQ-14** (actual required retention period, not the placeholder 7-year figure) — blocks the retention & legal-hold sub-section outright.
 - **OQ-15** (has Indigenous consultation on data handling happened yet) — blocks the Indigenous data governance sub-section outright.
+
+## Active background research
+
+- **`distillation/legal-context-research.md`** (in progress, launched 2026-09-21) — collaborator flagged that Canadian privacy/data law and Indigenous data governance need substantial grounding before item 7 gets designed, not just decided ad hoc. Covers: (1) Canadian/Alberta child-welfare custody & case-worker terminology, to ground the Parent/Guardian vs. Case Worker distinction from OQ-03; (2) how government/community-issued client IDs actually work in Alberta, to ground OQ-13; (3) the applicable federal/provincial privacy framework (PIPEDA, Alberta PIPA/FOIP, Child, Youth and Family Enhancement Act, Health Information Act if relevant) and OCAP Indigenous data sovereignty principles. This is background research to inform item 7, not a client answer — anything it surfaces that only the client/counsel can settle goes into `open-questions.md`, not decided here.
 
 ### Later still — block item 9 (IA/Sitemap) and item 11 (Dev Guides), content-completeness rather than shape
 
