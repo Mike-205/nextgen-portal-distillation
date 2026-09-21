@@ -51,12 +51,21 @@ Full detail and exact resolution text: `distillation/open-questions.md`, inline 
 
 ### Later — block item 7 (Cross-Cutting Concerns), not yet urgent
 
-- **OQ-14** (actual required retention period, not the placeholder 7-year figure) — blocks the retention & legal-hold sub-section outright.
-- **OQ-15** (has Indigenous consultation on data handling happened yet) — blocks the Indigenous data governance sub-section outright.
+- **OQ-14** (actual required retention period, not the placeholder 7-year figure) — blocks the retention & legal-hold sub-section outright. Checked against research 2026-09-21, still genuinely unresolved — needs the client directly, not researchable from public sources.
+- **OQ-15** (has Indigenous consultation on data handling happened yet) — blocks the Indigenous data governance sub-section outright. Research added a second dimension: OCAP is First-Nations-specific, not universal — Métis/Inuit governance is separate and needs its own answer.
+- **OQ-18** (PIPA coverage bucket — full vs. commercial-activity-only, depends on NextGen's incorporation structure) — needs counsel.
+- **OQ-19** (HIA custodian/affiliate status for MAR data) — needs counsel; research leans toward "not a custodian, PIPA applies instead" but flagged as inference only.
+- **OQ-20** (funding-agreement Canadian-residency clauses) — needs a contract review only the client can do.
 
-## Active background research
+### New — surfaced by research, not yet urgent but tracked
 
-- **`distillation/legal-context-research.md`** (in progress, launched 2026-09-21) — collaborator flagged that Canadian privacy/data law and Indigenous data governance need substantial grounding before item 7 gets designed, not just decided ad hoc. Covers: (1) Canadian/Alberta child-welfare custody & case-worker terminology, to ground the Parent/Guardian vs. Case Worker distinction from OQ-03; (2) how government/community-issued client IDs actually work in Alberta, to ground OQ-13; (3) the applicable federal/provincial privacy framework (PIPEDA, Alberta PIPA/FOIP, Child, Youth and Family Enhancement Act, Health Information Act if relevant) and OCAP Indigenous data sovereignty principles. This is background research to inform item 7, not a client answer — anything it surfaces that only the client/counsel can settle goes into `open-questions.md`, not decided here.
+- **OQ-21** (does the entity model need court-order-type granularity — Supervision/TGO/PGO/Custody Agreement — or is Parent/Guardian-vs-Case-Worker enough) — a scope call for items 4–5.
+- **OQ-22** (Delegated First Nations Agency referral title conventions) — worth asking the client directly.
+- **OQ-23** (Client ID: one generic External Referral ID + Referral Source field, vs. per-agency fields) — NEEDS DECISION, ours to make when building item 4, flagged not silently decided.
+
+## Background research — completed
+
+- **`distillation/legal-context-research.md`** (launched and completed 2026-09-21) — covers Alberta child-welfare custody/case-worker terminology (grounds OQ-03), how referral client IDs actually work (grounds OQ-13/OQ-23), and the applicable privacy/health-information/Indigenous-data-sovereignty framework (PIPEDA, PIPA, the 2025 FOIP→ATIA/POPA split, HIA, OCAP). One correction propagated back into `glossary.md` and `open-questions.md`: the ministry is currently named **"Children and Family Services,"** not "Children's Services" (renamed 2023) — fixed everywhere that had the old name. Findings folded into OQ-03/13/15 as nuance and opened OQ-18 through OQ-23 above. Nothing in the research was treated as a client answer — every "needs confirmation" item became a register entry, not a silent decision.
 
 ### Later still — block item 9 (IA/Sitemap) and item 11 (Dev Guides), content-completeness rather than shape
 
