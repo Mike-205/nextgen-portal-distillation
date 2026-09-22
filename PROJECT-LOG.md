@@ -63,6 +63,14 @@ Separately, re-reading the client's actual trigger phrase — *"new logs are sta
 
 `glossary.md`'s "Shift Log" entry downgraded from an assertive "CONFIRMED to exist as a new document" to explicitly unresolved, with the rename-vs-separate question stated directly. Neither OQ-24 nor OQ-25 blocks item 4 from starting on everything else, but the Document entity list for item 4 needs one of these two answered before it can be finalized.
 
+### Final resolution, 2026-09-22 — one document all along
+
+Client answered OQ-24 and OQ-25 directly: **there is one document, not two or three.** "Shift Log" is the Daily Log, correctly understood as shift-grained (matches its existing AM/PM/Overnight structure). The discovery doc's "staff communication log" also turned out to be the same Daily Log, not a third artifact — client's explicit instruction: retire that term entirely to avoid this exact confusion recurring. Handover runs through the Daily Log's existing "Follow Through (notes)" field — which is, in substance, where the very first (2026-09-21) resolution landed before two rounds of overcorrection.
+
+**Net effect on item 4 (Entity Model):** simpler than it looked mid-investigation — one Document type (Daily Log), created once per shift. No new Shift Log or Staff Communication Log entities needed. OQ-16, OQ-24, and OQ-25 are all closed.
+
+**Why the false starts were still worth it:** the first "resolved" answer (Follow Through Notes) was correct in substance but hadn't actually been tested with the client — it took reopening it, then the advisor catching a real conflation in the correction itself, to get a client answer precise enough to close this properly. Worth keeping the habit of testing "resolved" register entries against the client rather than trusting our own inference, especially where a discovery-doc phrase (like "staff communication log") could plausibly name something real that was never actually provided.
+
 ### New — surfaced while resolving the above
 
 - **OQ-17** ("Program Manager" title, not previously seen in the org chart) — added to Roles & Org Structure section, feeds the same permission-matrix gate as OQ-01/OQ-02 below.
