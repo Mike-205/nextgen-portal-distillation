@@ -113,6 +113,14 @@ Tag: UNANSWERED. Research (`legal-context-research.md` §3): there's no single b
 - *2026-09-22 (second pass, after advisor review):* Untangled the two into OQ-24 (rename vs. separate document) and OQ-25 (does a real Staff Communication Log exist) as open questions to ask the client directly, rather than guessing either way.
 - *2026-09-22 (this resolution):* Client answered both directly — confirmed as one document throughout, per the final answer above.
 
+**Two smaller nuances remain, not reopening this resolution but not to be silently dropped either:**
+
+**OQ-26 — Does Follow Through Notes need an explicit "read/acknowledged" step for the incoming staff member, or is a plain written note enough?**
+Tag: UNANSWERED (carried over from the very first OQ-16 note, 2026-09-21 — never actually answered, dropped during the two rewrites). A chronological log entry is fine for record-keeping, but a real handover often needs the next person to actually see and act on it, not just have it exist in the log retroactively. This is a workflow/alert-matrix question (item 7), not a document-identity question — doesn't block item 4.
+
+**OQ-27 — Daily Log has two similar free-text fields: "Incidents and/or Follow Through" and "(CU) Follow Through (notes)." Is one redundant, or do they serve different purposes?**
+Tag: MISSING MATERIAL / UNANSWERED. Flagged in the original per-form audit (`distillation/forms/07-client-daily-log-update.md`) as an unexplained duplicate with no stated distinction in the source file. Now that Follow Through Notes is confirmed as the handover field, this matters more than it did: does "Incidents and/or Follow Through" carry different content (e.g., specifically incident-adjacent notes vs. general handover notes), or is it a leftover duplicate that should be dropped when this form gets redesigned?
+
 ---
 
 ## Log of items resolved since this register was started (for traceability, not action)
