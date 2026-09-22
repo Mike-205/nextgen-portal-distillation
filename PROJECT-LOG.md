@@ -33,11 +33,23 @@ Living tracking doc for the distillation effort. Update this whenever an artifac
 - ~~OQ-04~~ (Mental Health Unit) → scrapped entirely; not a Program, Site, or subservice.
 - ~~OQ-13~~ (Client ID) → externally-issued referral ID (government/community), not portal-generated. Portal still needs its own internal key regardless — standard system design, no client input needed there.
 - ~~OQ-03~~ (Case Manager role) → external role = Case Worker (= Case Manager = legal guardian, in client's framing); internal usage maps to Team Lead/Program Manager. Opened **OQ-17** as a result (see below).
-- ~~OQ-16~~ (shift handover mechanism) → Daily Log's existing "Follow Through Notes" field, not a separate Shift Log. One workflow question left open (ack/read-receipt for handover), deferred to item 7.
+- ~~OQ-16~~ (shift handover mechanism) → **initially** resolved as "Daily Log's existing Follow Through Notes field, not a separate Shift Log" — **this was wrong, corrected 2026-09-22 below.**
 
 Full detail and exact resolution text: `distillation/open-questions.md`, inline at each OQ number, plus the 2026-09-21 batch entry in the resolved-items log at the bottom.
 
-**Net effect: item 4 (Entity Model) is no longer blocked.** All five structural decisions needed to start it are answered.
+**Net effect: item 4 (Entity Model) is no longer blocked.** All five structural decisions needed to start it are answered — with one of them (OQ-16) later corrected, see immediately below.
+
+### Correction, 2026-09-22 — OQ-16 was resolved wrong; process note
+
+Collaborator took the OQ-16 resolution back to the client and flagged the alternative (a separate Shift Log) as something still worth weighing. Client pushed back: a Shift Log is real and distinct. Going back to the discovery doc surfaced a **"staff communication log"** mentioned 4 separate times, independently of this conversation, that the original OQ-16 resolution missed entirely — a genuine miss, not new information the client withheld. Corrected via three follow-up questions, answered 2026-09-22:
+
+- Shift Log is **per-Client** (not per-Site/House).
+- **No existing version** — needs designing from scratch. Client's words: "will serve similar to daily log in some way."
+- Does **not** replace the Shift Checklist's exchange checkboxes — both exist.
+
+**New blocker opened: OQ-24** — what actually distinguishes Shift Log content from Daily Log content. Both are now per-Client and described by the client as "similar," so this needs a real answer before the entity model can treat them as two genuinely separate document types, rather than risking an unstated-difference duplicate like several already found in the original 19-form audit.
+
+**Process lesson, not just a content correction:** worth double-checking future "resolved via client call" entries against the discovery doc's own text before marking them settled — this one would have propagated a wrong document model into the entity model (item 4) if the collaborator hadn't tested it with the client first.
 
 ### New — surfaced while resolving the above
 
