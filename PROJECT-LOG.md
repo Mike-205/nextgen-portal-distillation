@@ -51,6 +51,18 @@ Collaborator took the OQ-16 resolution back to the client and flagged the altern
 
 **Process lesson, not just a content correction:** worth double-checking future "resolved via client call" entries against the discovery doc's own text before marking them settled — this one would have propagated a wrong document model into the entity model (item 4) if the collaborator hadn't tested it with the client first.
 
+### Second correction, 2026-09-22 (advisor review) — the 2026-09-22 fix above was itself wrong
+
+The "corrected" version immediately above conflated two different things: it treated the discovery doc's "staff communication log" as *the same thing* the client meant by "Shift Log." On review, that's very unlikely — the discovery doc's staff communication log is consistently described as a site/shift-level artifact (grouped with medication/narcotic count and sharp count, no client tie; the Shift Checklist's "Staff Communication Log Read" task row sits on a form with no client field at all). The client's "Shift Log" is per-Client, which the client stated directly.
+
+Separately, re-reading the client's actual trigger phrase — *"new logs are started at the beginning of every shift and there can be 2 or more shifts in a day"* — is at least as consistent with **"the Daily Log's name is wrong"** as with **"we need a second document."** The Daily Log (form 07) is already shift-grained (has its own AM/PM/Overnight box), and the three follow-up questions asked on 2026-09-22 never actually tested the rename hypothesis against the separate-document hypothesis — both readings fit all three answers equally.
+
+**Corrected split, now in `open-questions.md`:**
+- **OQ-24** — rewritten as the actual discriminating question: is "Shift Log" the Daily Log renamed, or a second form alongside it? Framed as a one-line either/or for the client.
+- **OQ-25** — new, MISSING MATERIAL: the discovery doc's "staff communication log" is a real, likely site/shift-level artifact, referenced 4× but never provided as a form and never asked about directly. It surfaced by accident while chasing the Shift Log question.
+
+`glossary.md`'s "Shift Log" entry downgraded from an assertive "CONFIRMED to exist as a new document" to explicitly unresolved, with the rename-vs-separate question stated directly. Neither OQ-24 nor OQ-25 blocks item 4 from starting on everything else, but the Document entity list for item 4 needs one of these two answered before it can be finalized.
+
 ### New — surfaced while resolving the above
 
 - **OQ-17** ("Program Manager" title, not previously seen in the org chart) — added to Roles & Org Structure section, feeds the same permission-matrix gate as OQ-01/OQ-02 below.
