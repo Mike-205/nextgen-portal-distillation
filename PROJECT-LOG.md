@@ -9,13 +9,13 @@ Living tracking doc for the distillation effort. Update this whenever an artifac
 - Original 19 forms audited → `distillation/forms/01–19.md` + `00-index.md`
 - Recently-sent 5 forms audited → `distillation/forms/20–24.md`
 - Glossary (canonical vocabulary) → `distillation/glossary.md`
-- Open Questions & Decisions Register started → `distillation/open-questions.md` (16 entries)
+- Open Questions & Decisions Register started → `distillation/open-questions.md` (OQ-01–OQ-32 issued, 23 open, 7 resolved)
+- **Entity model (item 4)** → `distillation/entity-model.md` (2026-09-23). Built from two provenance-tagged evidence files gathered via background forks: a document inventory grounded in all 24 form audits (`distillation/research/entity-model-input-documents.md`, 22 distinct documents) and an entity-bearing-statement extract from the discovery doc/scope memo (`distillation/research/entity-model-input-discovery.md`). Covers Program/Subservice, Site, Client, Parent/Guardian & Case Worker, Placement, a new **Excursion** entity (required by the Trip Risk Assessment form — many-Clients-per-record, not in `CLAUDE.md`'s original illustrative entity list), Staff/Staff Assignment/Shift, Document/Version/Lock, Alert, and Disclosure. Explicitly scoped as shape-only, deferring policy (who/when/retention/consent) to item 7. Five new open questions surfaced and registered (OQ-28–OQ-32 — including OQ-32, a per-Client-vs-per-Placement grain question for the Client Service Agreement found while splitting the Document grain table into standing vs. episodic buckets), three existing ones strengthened (OQ-01, OQ-08, OQ-17); none block the model's structure — each is modeled with its uncertainty stated explicitly rather than guessed. A methodological caveat was also added to the register: NextGen currently has **zero active clients** (Scope Memo §2), so the discovery doc's "current process" language describes intended/designed process, not tested practice.
 - Git repo initialized for this workspace (was untracked until now)
 
 ## Not started (per `CLAUDE.md` artifact set, in dependency order)
 
-4. Entity model — **next up**
-5. Permission matrix
+5. Permission matrix — **next up**, blocked on OQ-01/OQ-02/OQ-17/OQ-30 (Staff role axis)
 6. Client lifecycle state machine
 7. Cross-cutting concerns (locking/versioning, alerts, retention, Indigenous data governance, residency)
 9. Information architecture + sitemap
@@ -89,15 +89,26 @@ Client answered OQ-24 and OQ-25 directly: **there is one document, not two or th
 - **OQ-19** (HIA custodian/affiliate status for MAR data) — needs counsel; research leans toward "not a custodian, PIPA applies instead" but flagged as inference only.
 - **OQ-20** (funding-agreement Canadian-residency clauses) — needs a contract review only the client can do.
 
+### Resolved 2026-09-23 — both feed directly into item 4
+
+- ~~OQ-21~~ (court-order-type granularity) — **client answer.** Not needed now; Parent/Guardian-vs-Case-Worker split is sufficient for NextGen's purposes. Client explicitly asked that the order-type research not be discarded — keep the entity model open to adding it later, don't build it now.
+- ~~OQ-23~~ (Client ID field structure) — **internal decision, collaborator-confirmed** (this was always ours to make, per its NEEDS DECISION tag, not the client's — not a client call). Confirmed: one generic External Referral ID field + a paired Referral Source field, not per-agency fields.
+
 ### New — surfaced by research, not yet urgent but tracked
 
-- **OQ-21** (does the entity model need court-order-type granularity — Supervision/TGO/PGO/Custody Agreement — or is Parent/Guardian-vs-Case-Worker enough) — a scope call for items 4–5.
 - **OQ-22** (Delegated First Nations Agency referral title conventions) — worth asking the client directly.
-- **OQ-23** (Client ID: one generic External Referral ID + Referral Source field, vs. per-agency fields) — NEEDS DECISION, ours to make when building item 4, flagged not silently decided.
+
+### New — surfaced while gathering entity-model evidence, 2026-09-23 — none block item 4 outright, modeled with the uncertainty flagged instead
+
+- **OQ-28** (does a Daily Log reference a real scheduled/clocked Shift record, or stay a free-standing marker) — entity model will treat Shift as first-class and note the exact Document↔Shift link as open, per this OQ.
+- **OQ-29** (foster/kinship caregiver access — Parent/Guardian vs. distinct external-user category) — a genuine discovery-doc self-contradiction (Q1 vs. Q18/Q25). Affects the entity model's external-party categories and item 5's permission matrix.
+- **OQ-30** (is the full ~25-title org chart in scope now, or just the ~7 operationally-referenced tiers) — affects the Staff entity's role reference and item 5 directly.
+- **OQ-31** (Client Incident Report's "Facility Information" — a NextGen Site, or an external caregiver's location) — affects how that one document's Site-like field gets modeled.
+- **OQ-32** (Client Service Agreement — standing per-Client document, or episodic per-Placement) — surfaced by the entity model's own grain-split exercise, not the forks; doesn't block the model, the document is just marked open in the grain table.
 
 ## Background research — completed
 
-- **`distillation/legal-context-research.md`** (launched and completed 2026-09-21) — covers Alberta child-welfare custody/case-worker terminology (grounds OQ-03), how referral client IDs actually work (grounds OQ-13/OQ-23), and the applicable privacy/health-information/Indigenous-data-sovereignty framework (PIPEDA, PIPA, the 2025 FOIP→ATIA/POPA split, HIA, OCAP). One correction propagated back into `glossary.md` and `open-questions.md`: the ministry is currently named **"Children and Family Services,"** not "Children's Services" (renamed 2023) — fixed everywhere that had the old name. Findings folded into OQ-03/13/15 as nuance and opened OQ-18 through OQ-23 above. Nothing in the research was treated as a client answer — every "needs confirmation" item became a register entry, not a silent decision.
+- **`distillation/research/legal-context-research.md`** (launched and completed 2026-09-21) — covers Alberta child-welfare custody/case-worker terminology (grounds OQ-03), how referral client IDs actually work (grounds OQ-13/OQ-23), and the applicable privacy/health-information/Indigenous-data-sovereignty framework (PIPEDA, PIPA, the 2025 FOIP→ATIA/POPA split, HIA, OCAP). One correction propagated back into `glossary.md` and `open-questions.md`: the ministry is currently named **"Children and Family Services,"** not "Children's Services" (renamed 2023) — fixed everywhere that had the old name. Findings folded into OQ-03/13/15 as nuance and opened OQ-18 through OQ-23 above. Nothing in the research was treated as a client answer — every "needs confirmation" item became a register entry, not a silent decision.
 
 ### Later still — block item 9 (IA/Sitemap) and item 11 (Dev Guides), content-completeness rather than shape
 

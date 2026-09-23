@@ -1,0 +1,209 @@
+# Entity Model (Conceptual)
+
+This is a conceptual model — what the real-world things are, what they're made of, and how they relate — not a database schema. No table names, no column types, no foreign keys. Ground truth is the discovery doc, scope memo, the 24 form audits, the glossary, and direct client answers recorded in `open-questions.md`; `../next_gen_services`'s Prisma schema was not consulted anywhere in building this.
+
+**Scope boundary (deliberate, per `CLAUDE.md`'s artifact dependency order):** this item defines *what a record is and what it points to* — entity shape, attributes, cardinality. It does **not** define *who may act on it and when* — that's item 7 (Cross-Cutting Concerns): unlock authority, alert trigger conditions and escalation chains, retention periods, disclosure consent/OCAP framework, Canadian data residency. Where a boundary line had to be drawn, it's called out explicitly below rather than silently absorbed into either item.
+
+**Evidence base:** synthesized from two provenance-tagged working files built specifically for this artifact — `distillation/research/entity-model-input-documents.md` (document inventory grounded in all 24 form audits) and `distillation/research/entity-model-input-discovery.md` (entity-bearing statements from the discovery doc and scope memo, tagged CONFIRMED/PROPOSED/CONTRADICTED/UNANSWERED). Both are kept as supporting evidence, not superseded by this file.
+
+**Reading the tags below:** most discovery-doc-derived statements are **PROPOSED** (vendor-voice "the system should..." language), not CONFIRMED — see the methodological caveat in `open-questions.md`: NextGen currently has zero active clients, so "current process" language in the discovery doc describes intended design, not tested practice. This model still uses PROPOSED statements to shape entity structure (that's what an unbuilt system's design intent is *for*), but does not treat them as settled fact the way a CONFIRMED client-call answer is treated.
+
+---
+
+## 1. Organizational structure
+
+### Program / Service
+The six confirmed offerings (RESOLVED, `glossary.md`): Respite Care, Transportation, Group Care Services, Family Reunification Support, Supported Independent Living (SIL), Training & Consultation Services. A Program is the top-level service category a Client is placed into.
+
+- **Program ↔ Site: many-to-many.** Discovery Q17 (PROPOSED): "each physical site may operate a single dedicated program, or multiple programs depending on the service model." Not one-Site-per-Program.
+- **Program → Program Manager: mostly one-to-one, incomplete.** Org chart (CONFIRMED, D Q1) names a Program Manager variant for 4 of the 6 Programs (Group Living, Family Living & Reunification, SIL, Respite Services). Transportation and Training & Consultation have no named Program Manager — open, **OQ-17**.
+
+### Subservice
+Each Program has its own fixed set of Subservices (RESOLVED, `glossary.md`, confirmed via the client-approved Client Intake Form §13), e.g. Respite Care → In-home / Out-of-home-Overnight / Emergency. A Placement's "service requested" resolves to one Program plus one or more Subservices under it (see Placement below) — Subservice attaches to the **Placement**, not directly to the Client, since it's a property of *this specific placement episode*, not a permanent Client attribute.
+
+### Site
+A physical location (house/service location) — RESOLVED as a new structural entity the portal introduces; not present as a concept in any of the original 19 forms. Confirmed examples under Group Care: Ravens Nest, Eagles Nest, Golden Bear, Whispering Harmony. Admin-created.
+
+- **Site ↔ Program: many-to-many** (see above).
+- Several document types (Shift Checklist, Sharp Count, Grocery List, Behaviour Tracker, MAR, Activity Calendar) currently only carry a Program field, predating Site as a concept — expected to move to a real Site reference in the redesign, not a new client-facing question.
+- **Open:** whether the Client Incident Report's "Facility Information" section describes a NextGen Site or an external caregiver's location — **OQ-31**.
+
+---
+
+## 2. Client and external parties
+
+### Client
+RESOLVED canonical term (`glossary.md`) for the person receiving services, regardless of program. Key attributes surfaced across the form set:
+- **External Referral ID** + **Referral Source** (RESOLVED, **OQ-13/OQ-23**) — an identifier already issued by the referring body (e.g. Children and Family Services), captured, not generated; one generic field pair, not per-agency fields. Likely optional (self-/family-referrals may have none).
+- **Funding Source** (RESOLVED, `glossary.md`) — PDD, FSCD, AISH, Jordan's Principle, Private Pay, Insurance, Other.
+- Internal system key — a separate, portal-generated identifier, unrelated to the External Referral ID.
+
+### Parent/Guardian and Case Worker
+Two distinct external-party relationship types a Client can have (RESOLVED, **OQ-03**), not one collapsed field — which one (or both, over the Client's history) applies depends on custody status:
+- **Case Worker** — canonical term for the Children and Family Services employee who acts in the parents' place when a court has removed the child from parental care.
+- **Parent/Guardian** — the parent/guardian, where guardianship has not been removed.
+- **Deliberately out of scope:** court-order-type granularity (Supervision / Temporary Guardianship / Permanent Guardianship / Custody Agreement) — RESOLVED **OQ-21**, client confirmed the simpler Parent/Guardian-vs-Case-Worker split is sufficient for now. The underlying research (`distillation/research/legal-context-research.md` §1) is preserved, not discarded, in case this needs revisiting — no `courtOrderType` placeholder is being modeled now.
+- **Open:** whether a foster/kinship caregiver counts as a Parent/Guardian (excluded from portal access) or a distinct external-user category (potentially granted staff-like scoped access) — genuine discovery-doc self-contradiction, **OQ-29**. Not resolved here; the model leaves "external party type" as a category that may need a third value pending that answer.
+
+---
+
+## 3. Placement and Excursion
+
+### Placement
+New term (`glossary.md`) naming the entity tying a Client to a Program + Site for a date range — the client's own material has no equivalent word, but every mention of "which program/site a client is in" describes this.
+
+- **Cardinality: single-active** (RESOLVED, **OQ-05**) — a Client has exactly one primary/main Placement at a time. Program transitions are handled as ending one Placement and starting another (discovery Q7, PROPOSED but consistent with the confirmed rule), not a concurrent second Placement.
+- **Attributes:** Program, one or more Subservices, Site, start date, end date (open-ended while active), a "reason for change" pointer to the transition/discharge event that ended it.
+- **Placement → episodic Document: one-to-many.** Only the episodic bucket of Document types (§5 below) is scoped to a Placement; standing Document types attach to the Client directly and survive Placement transitions — see the grain split in §5.
+- **Secondary/facilitating services** (RESOLVED, **OQ-05**) — other services that support the main Placement (e.g. Transportation to medical appointments under a Respite Care placement) are billed inclusively under the active Placement, not a second Placement. Modeled as an attribute list on the active Placement, not a new entity.
+- **Client Intake Form's "Internal Use Only" block** (Eligibility Determination / Assigned Program / Assigned Case Manager / Service Start Date) is, in substance, Placement-creation data bolted onto the intake document rather than intake data itself — modeled here as the data that creates a Client's first Placement, even though the client-facing form stays one physical document. Not a new open question, a synthesis call.
+- **Billing relevance** (PROPOSED, discovery Q25/memo): Placement + Shift + Document(Mileage Log) feed a billing/funder-reporting concept — service hours, program utilization, service delivery records, reimbursable expenses. Confirms the same shape as the secondary-services billing rule above; no new entity needed for item 4, a reporting view over existing entities.
+- **Individual Support Plan's Program field is multi-select** in its source form (form 23) — conflicts with the single-active-Placement rule. Treat the source form's multi-select as stale/unreconciled against the now-confirmed single-Placement model, not as evidence Placement should be multi-valued.
+
+### Excursion
+**New entity, not in `CLAUDE.md`'s original illustrative list — required by the evidence.** The Trip Risk Assessment & Excursion Plan (form 24) is the only document across all 24 audited whose natural subject is an event with **many Clients attached**, not a single Client or a single Site — it doesn't fit the per-Client or per-Site pattern every other document follows.
+
+- **Excursion ↔ Client: many-to-many** (a participants table lists multiple Clients).
+- **Excursion ↔ Staff: many, with named roles** — Trip Leader, plus per-role assignments (Driver, First Aid, Medication, Attendance, Emergency Contact). Each is a Staff Assignment scoped to this Excursion specifically, not to a Program/Site.
+- No Program field on the source form — an Excursion's Program/Site context, if any, is inherited from its participating Clients' active Placements, not stored on the Excursion itself.
+
+---
+
+## 4. Staff, Staff Assignment, and Shift
+
+### Staff
+A person employed by NextGen. **Role is modeled as a reference to an unresolved role list**, not invented here — OQ-01 (Team Lead vs. Supervisor), OQ-02 (Director of Operations naming), OQ-17 (Program Manager, narrowed but not closed), and OQ-30 (how much of the ~25-title org chart is in scope) all bear directly on what values that reference can take. This is deliberate: item 4 needs Staff to exist and be assignable; item 5 (Permission Matrix) is where the role axis itself gets built.
+
+- Confirmed operationally-relevant tiers appearing in actual workflow answers (not just the org chart): Front-Line/Support Worker, Team Lead/Supervisor, Program Manager, Director of Operations, Executive Director, Finance/Admin staff, System Administrator.
+- Roles referenced only in the org chart with no operational mention elsewhere (Clinical Services Manager, HR & Admin Manager, seven named Clinical Professional titles, Indigenous Cultural Coordinator, Practicum Students, Volunteers, etc.) are **CONFIRMED as named, UNANSWERED as to system role** — see OQ-30.
+
+### Staff Assignment
+Ties a Staff member to a Program and/or Site. **Not necessarily one-to-one** (PROPOSED, discovery Q17): staff "may be assigned to a specific site and program... scheduled across multiple sites or programs when required... assigned temporarily to provide coverage." Model as a Staff member having zero or more concurrent-or-temporary Program/Site assignments, not a single fixed pair.
+
+### Shift
+**A first-class, scheduled entity** — not merely a checkbox on the Daily Log. Discovery Q25 (PROPOSED, but specific enough to read as real design intent) describes a scheduling module tracking "which staff member was scheduled and assigned to each shift... the program/site where the shift occurred... the clients supported during the shift... required documentation associated with the shift... whether required shift documentation has been completed" — plus a GPS time-clock layer (clock-in/out, geofencing) and a payroll timesheet export (staff name, employee ID, position/role, program/site worked, client assignment where applicable, scheduled vs. actual times, regular/overtime hours, supervisor approvals).
+
+- **Shift → Staff: one** (who worked it).
+- **Shift → Program/Site: one** (where it occurred).
+- **Shift → Client: zero-to-many** ("where applicable" — per-Program/Site shifts exist alongside shifts tied to a specific Client roster; not every Shift has a Client list).
+- **Shift → expected Documents:** the scheduling module is described as tracking whether a shift's required documentation was completed — implying Shift knows which Document types it expects (e.g., a Daily Log per Client on roster, a Shift Checklist for the Site).
+- **Open, not decided here (`OQ-28`):** whether a Daily Log entry must reference an actual Shift record (making it dependent on a real clock-in), or whether the Daily Log's AM/PM/Overnight marker stays a free-standing, self-reported field independent of the scheduling system. The evidence leans toward Shift being real and documents referencing it, but the exact linkage mechanism isn't settled by any source document — flagged rather than assumed, given this is the same shape of question that cost three correction rounds on OQ-16.
+
+---
+
+## 5. Document, Version, and Lock
+
+### Document (abstract type)
+Every one of the 22 distinct document types found across the 24 source forms (full inventory: `distillation/research/entity-model-input-documents.md`) is an instance of this abstract type. A Document instance carries, at minimum:
+- a **Document Type** (one of the 22 canonical types, or a future new type)
+- a **scope/grain** — which other entity it's created against: per-Client, per-Site, per-Shift, per-Staff, per-Excursion, or org-level. This is the attribute the OQ-16 saga was ultimately about, and it's now explicit rather than assumed per type.
+- an authoring **Staff** reference (with two confirmed exceptions with no authorship field at all in their source form: Client Information and Grocery List — carry the gap forward, don't invent an author)
+- a **Lock** state (below)
+- a **Version** chain (below)
+
+**Document scope grain, by canonical type** (condensed from the full inventory). The per-Client bucket actually hides two different grains, distinguished by one test: **when a Client transitions to a new Placement, does this document start fresh, or carry across unchanged?** Carries across → **standing**, attached to the Client directly. Starts fresh → **episodic**, attached to the Placement during which it was written (and thus indirectly to the Client through it).
+
+| Grain | Document types |
+|---|---|
+| per-Client (standing — survives Placement transitions) | Client Information (Face Sheet), Intake Screening Tool |
+| per-Placement (episodic — scoped to the Placement during which written) | Individual Needs Assessment, Healing Plan, Case Note, Individual Contact Note, Noteworthy Update, Client Incident Report, Behaviour Tracker, MAR, Monthly Activity Report, Individual Safety Plan, Individual Support Plan |
+| per-Placement, per-Shift | Daily Log |
+| per-Client, but the intake→Placement relationship is inverted (see note) | Client Intake Form |
+| per-Client, standing vs. per-Placement — **open, OQ-32** | Client Service Agreement |
+| per-Site | Emergency Preparedness Plan |
+| per-Site, per-Shift | Shift Checklist |
+| per-Site, per-Month | Monthly Sharp Count Checklist |
+| per-Site, per-Week | Grocery List |
+| per-Staff, per-Pay-Period | Personal Mileage Form (containing many Personal Mileage Log entries) |
+| per-Excursion (many Clients) | Trip Risk Assessment & Excursion Plan |
+
+**Client Intake Form is not Placement-scoped like the rest of the episodic bucket — it's the reverse.** Its client-facing sections are a standing, one-time-per-intake-event Client record, but its "Internal Use Only" block *creates* the Client's first Placement (§3 above) — it can't simultaneously be a child of the Placement it creates. Modeled as a Client-level document whose data seeds a Placement, not as a document scoped to a Placement.
+
+**Client Service Agreement — open, not decided here (OQ-32):** does a Program/Placement change require a newly signed agreement (episodic), or does one agreement stand for the whole Client relationship regardless of Placement changes (standing)? Not derivable from the form audit — a client question, not a synthesis call.
+
+Two documents whose grain touches an entity boundary rather than sitting cleanly on it: the **Client Incident Report**'s Facility Information section (Site vs. external location, OQ-31) and the **Daily Log**'s Shift marker (free-text vs. real Shift reference, OQ-28).
+
+**Known-needed Document types with no source form yet** (tracked as missing material, not modeled with a grain until they exist):
+- **Discharge Form/Checklist** (OQ-09) — grain unknown; discovery Q5's discharge-trigger/approval-chain passage is effectively its design brief, not yet a form.
+- **Staff Incident Report** (OQ-08) — grain unknown; template "to be provided separately," not received. Possibly the same document as the "Staff-Related Incident Report" generated by sharp/medication discrepancy alerts (see Alert, below) — not resolved here.
+- **Behaviour Support Plan** (OQ-10) — grain unknown; referenced by the Trip Risk Assessment form but doesn't exist anywhere across all 24 audited files.
+
+**Two source-file dedups collapse into one Document type each**, not two: forms 18/19 (Monthly Activity Report — byte-identical files) and forms 12/13 (Medication Administration Record — two non-identical files, same name and field set, cosmetic/minor differences only; one authoritative layout still to be chosen is a later, non-structural decision).
+
+### Version
+An immutable predecessor of a Document, created when an already-locked Document is unlocked for correction or addendum (RESOLVED, `glossary.md`: unlock "never edits the original locked record — it creates a new version and preserves the original"). Item 4 owns this shape (a Document has a chain of Versions); **retention period for how long Versions must be kept is item 7, blocked on OQ-14.** Healing Plan additionally needs its own review-cadence metadata (version number, review date, next scheduled review, reason for revision) beyond the generic Version chain — PROPOSED, discovery's Open Issues list.
+
+### Lock
+A state on a Document (specifically, on its current version): a staff member marking their own documentation complete and no longer editable by them (RESOLVED, `glossary.md`; distinct from Approval). One structural nuance found: the **Shift Checklist locks per shift-section** (Morning/Afternoon/Night are three separate lockable sub-records), not once for the whole document instance — the only document type found with sub-document-level locking.
+
+- **Approval/co-sign** is a separate, later action on top of an already-locked Document, required only for five named categories (RESOLVED, this file's glossary update: Incident Reports; medication-related documentation; client assessments/planning documents; discharge documentation; and a fifth, separately-named "High-Risk Documentation" bucket — serious behavioural incidents, safety reports, missing-person/AWOL documentation, emergency response documentation).
+- **Who may unlock, and when** — item 7, not item 4. (Canonical default: System Administrator, delegable — see glossary.)
+
+---
+
+## 6. Alert
+
+A system-generated notice, distinct from Approval and distinct from Disclosure. Item 4 owns *what an Alert references and who it can target*; item 7 owns *trigger conditions and the escalation chain*.
+
+- **Alert → source Document: one** (the entry/record that triggered it) — except the 16-hour automated critical-event detection, whose Alert references **an expected-but-missing Document type**, not an existing one (it scans Daily Logs/Case Notes/Behaviour Trackers/Contact Notes for keyword indicators and alerts when no matching Incident Report or Noteworthy Update exists).
+- **Alert → Client:** most alert types are Client-scoped (medication, sharp/count discrepancy, critical-event detection); scheduling/attendance alerts (missed clock-in/out, unapproved timesheet changes) are Staff/Shift-scoped instead, not every Alert has a Client.
+- **Alert → target Staff (roles): many** — every alert type found targets a role-based list (Team Lead/Supervisor, Program Manager, Director of Operations, Executive Director), not individuals; item 5's resolved role list feeds this once available.
+- **Lifecycle, as far as source material defines it:** generated → sent to targets → reviewed. No source document defines an explicit status enum beyond "cannot be dismissed/overridden by staff" for some types — this is a genuine gap for item 7 to raise as its own question, not something item 4 should invent a resolution for.
+- **Data-breach alerts are a distinct concept from Disclosure** (below) — an alert about unauthorized/accidental exposure, not a record of an authorized release. Kept as two separate entities, not merged.
+
+---
+
+## 7. Disclosure
+
+A log record of an authorized release of Client information to an external recipient — distinct from a generic access/view audit trail (every Document already needs one of those; that's not Disclosure).
+
+- **Attributes** (PROPOSED, discovery Q20/Q22, consistent shape across both the Indigenous-body/consent-record description and the client/guardian records-request flow — modeled as one Disclosure entity type distinguished by a "recipient category" or "reason" attribute, not two separate entities): recipient (individual/organization), date, purpose, scope of information shared, consent/authorization reference, method of delivery, approving Staff member.
+- **Explicitly not Disclosure:** "file access logs, sign-out records" (Q22) — that's the generic per-Document audit trail (who viewed a record), a different entity serving a different purpose. Kept separate so the two don't get conflated.
+- **Consent model, OCAP/Métis governance framework, and who may approve a disclosure** — item 7, blocked on **OQ-15**.
+
+---
+
+## Cross-cutting relationship summary
+
+```
+Program            1 ── * Subservice
+Program            * ── * Site
+Site               1 ── * Placement
+Client             1 ── * Placement            (sequential, single active at a time)
+Client             1 ── * Document              (standing types only: Client Information, Intake Screening Tool)
+Placement          1 ── * Document              (episodic types only, see §5 grain split)
+Client             * ── * Excursion
+Excursion          * ── * Staff                 (named roles: Trip Leader, Driver, First Aid, Medication, Attendance, Emergency Contact)
+Staff              1 ── * Staff Assignment
+Staff Assignment   * ── 1 Program, * ── 0..1 Site   (Program required; Site optional — concurrent/temporary assignments allowed)
+Staff              1 ── * Shift
+Shift              * ── 1 Program/Site
+Shift              0..* ── * Client
+Shift              1 ── 0..* Document           (expected documentation per shift — whether the reference actually exists is OQ-28, not the cardinality)
+Document           1 ── * Version
+Document           1 ── 0..1 Lock               (a Document has at most one active Lock state)
+Alert              * ── 1 Document (source), or 0..1 (expected-but-missing type)
+Alert              0..1 ── 1 Client
+Alert              * ── * Staff role (target)
+Disclosure         * ── 1 Client
+```
+
+---
+
+## Open items this artifact surfaces or carries forward (not resolved here — register is `open-questions.md`)
+
+- **OQ-01, OQ-02, OQ-17, OQ-30** — Staff role axis (blocks item 5, not item 4; Staff/Staff Assignment above model role as an unresolved reference deliberately).
+- **OQ-05** — already resolved; Placement's single-active + secondary-services shape above depends on it.
+- **OQ-08** — Staff Incident Report template still missing; naming variant ("Staff-Related Incident Report") noted, not resolved.
+- **OQ-13, OQ-23** — already resolved; Client's External Referral ID + Referral Source shape above depends on them.
+- **OQ-14** — Version retention period; item 7.
+- **OQ-15** — Disclosure consent/OCAP framework; item 7.
+- **OQ-16** — already resolved; Daily Log shape above depends on it.
+- **OQ-21** — already resolved; deliberately excluded from the Parent/Guardian and Case Worker relationship shape above.
+- **OQ-27** — Daily Log's two free-text fields; doesn't block Document's shape, affects its eventual field list.
+- **OQ-28** — Document↔Shift linkage, new.
+- **OQ-29** — external-party categorization (foster/kinship caregivers), new.
+- **OQ-31** — Client Incident Report Facility Information vs. Site, new.
+- **OQ-32** — Client Service Agreement grain: standing (one per Client relationship) or episodic (re-signed per Placement change), new, surfaced by this artifact's grain-split exercise.
+
+No open item above blocks this artifact's structure — each is modeled with its uncertainty stated explicitly (a reference left open, a category flagged as possibly needing a third value, a linkage marked TBD) rather than guessed at, per this project's own methodology.
