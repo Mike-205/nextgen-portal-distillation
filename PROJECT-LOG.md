@@ -9,13 +9,13 @@ Living tracking doc for the distillation effort. Update this whenever an artifac
 - Original 19 forms audited → `distillation/forms/01–19.md` + `00-index.md`
 - Recently-sent 5 forms audited → `distillation/forms/20–24.md`
 - Glossary (canonical vocabulary) → `distillation/glossary.md`
-- Open Questions & Decisions Register started → `distillation/open-questions.md` (OQ-01–OQ-36 issued, 21 open, 13 resolved)
+- Open Questions & Decisions Register started → `distillation/open-questions.md` (OQ-01–OQ-37 issued, 21 open, 14 resolved)
 - **Entity model (item 4)** → `distillation/entity-model.md` (2026-09-23). Built from two provenance-tagged evidence files gathered via background forks: a document inventory grounded in all 24 form audits (`distillation/research/entity-model-input-documents.md`, 22 distinct documents) and an entity-bearing-statement extract from the discovery doc/scope memo (`distillation/research/entity-model-input-discovery.md`). Covers Program/Subservice, Site, Client, Parent/Guardian & Case Worker, Placement, a new **Excursion** entity (required by the Trip Risk Assessment form — many-Clients-per-record, not in `CLAUDE.md`'s original illustrative entity list), Staff/Staff Assignment/Shift, Document/Version/Lock, Alert, and Disclosure. Explicitly scoped as shape-only, deferring policy (who/when/retention/consent) to item 7. Five new open questions surfaced and registered (OQ-28–OQ-32 — including OQ-32, a per-Client-vs-per-Placement grain question for the Client Service Agreement found while splitting the Document grain table into standing vs. episodic buckets), three existing ones strengthened (OQ-01, OQ-08, OQ-17); none block the model's structure — each is modeled with its uncertainty stated explicitly rather than guessed. A methodological caveat was also added to the register: NextGen currently has **zero active clients** (Scope Memo §2), so the discovery doc's "current process" language describes intended/designed process, not tested practice.
 - Git repo initialized for this workspace (was untracked until now)
 
 ## Not started (per `CLAUDE.md` artifact set, in dependency order)
 
-5. Permission matrix — **next up**, blocked structurally only on **OQ-30** now (org-chart scope). OQ-36 (who covers Program-Manager-level authority for Transportation/Training & Consultation, which currently have no Program Manager assigned) feeds item 7's delegation work and the matrix needs to represent "no Program Manager assigned" as a real state, but doesn't block the matrix's structure otherwise. OQ-01/OQ-02/OQ-17/OQ-33/OQ-34/OQ-35 all resolved 2026-09-24, see Blockers below.
+5. Permission matrix — **next up, no longer structurally blocked.** OQ-30 (org-chart scope) resolved 2026-09-24: full org chart in scope as Staff.Title data, with a separate Category layer (candidate axes only, not yet confirmed — see OQ-37) driving the matrix itself. OQ-37 (the axis set, its values, and which title maps to which) and OQ-36 (who covers Program-Manager-level authority for Transportation/Training & Consultation, which currently have no Program Manager assigned) remain open — they block populated values and item 7's delegation work respectively, not the matrix's structure. OQ-01/OQ-02/OQ-17/OQ-33/OQ-34/OQ-35 all resolved 2026-09-24, see Blockers below.
 6. Client lifecycle state machine
 7. Cross-cutting concerns (locking/versioning, alerts, retention, Indigenous data governance, residency)
 9. Information architecture + sitemap
@@ -93,6 +93,12 @@ Client answered OQ-24 and OQ-25 directly: **there is one document, not two or th
 
 **Still blocking item 5:** OQ-30 (org-chart scope) only, structurally. OQ-36 remains open and feeds item 7's delegation work; it doesn't block the matrix's shape, but the matrix does need to represent "Program with no Program Manager assigned" as a real state. Full detail: `distillation/open-questions.md`.
 
+### Resolved 2026-09-24 (fourth batch, collaborator answered on the client's behalf, not yet relayed to the client) — item 5's scope question settled, axis set still open
+
+- ~~OQ-30~~ → **resolved: full ~25-title org chart is in scope**, as Staff.Title data (not a fixed enum, same pattern as Program Manager). The permission matrix doesn't key off Title directly — it keys off a separate **Category** layer. Collaborator's words: "the entity/permission model is going to build out the full org chart now then categorize them, such that we have operationally-referenced categories/tiers among others" — confirmed on follow-up ("several") that this means multiple category axes, not one. **Which axes, and what values each takes, is PROPOSED only** (glossary's "Staff Title vs. Category" entry has the candidate breakdown — Hierarchy Tier / Functional Group / Engagement Type — flagged there as unconfirmed). New item opened: **OQ-37** — the axis set itself, plus which specific title maps to which value on each axis; several placements (the five senior/functional managers, the seven Clinical Professional titles, the ungrouped Family Support Workers/CYCWs/Support Workers cluster, System Administrator having no org-chart title at all) are genuinely unclear from the source material and need either a client answer or a further internal call.
+
+**No longer blocking item 5 structurally — the scope question (full org chart in vs. out) is settled.** OQ-37 blocks the matrix's *axis definitions and populated values*, not the fact that Title and Category are separate concepts. The matrix can start on the confirmed Hierarchy Tier chain now; the other candidate axes need confirming before the matrix leans on them. OQ-36 still feeds item 7's delegation work as before.
+
 ### Later — block item 7 (Cross-Cutting Concerns), not yet urgent
 
 - **OQ-14** (actual required retention period, not the placeholder 7-year figure) — blocks the retention & legal-hold sub-section outright. Checked against research 2026-09-21, still genuinely unresolved — needs the client directly, not researchable from public sources.
@@ -114,9 +120,10 @@ Client answered OQ-24 and OQ-25 directly: **there is one document, not two or th
 
 - **OQ-28** (does a Daily Log reference a real scheduled/clocked Shift record, or stay a free-standing marker) — entity model will treat Shift as first-class and note the exact Document↔Shift link as open, per this OQ.
 - **OQ-29** (foster/kinship caregiver access — Parent/Guardian vs. distinct external-user category) — a genuine discovery-doc self-contradiction (Q1 vs. Q18/Q25). Affects the entity model's external-party categories and item 5's permission matrix.
-- **OQ-30** (is the full ~25-title org chart in scope now, or just the ~7 operationally-referenced tiers) — affects the Staff entity's role reference and item 5 directly.
+- ~~OQ-30~~ (is the full ~25-title org chart in scope now, or just the ~7 operationally-referenced tiers) — **resolved 2026-09-24, see below.**
 - **OQ-31** (Client Incident Report's "Facility Information" — a NextGen Site, or an external caregiver's location) — affects how that one document's Site-like field gets modeled.
 - **OQ-32** (Client Service Agreement — standing per-Client document, or episodic per-Placement) — surfaced by the entity model's own grain-split exercise, not the forks; doesn't block the model, the document is just marked open in the grain table.
+- **OQ-37** (the Category axis set OQ-30 calls for — candidate: Hierarchy Tier / Functional Group / Engagement Type, unconfirmed — plus which of the ~25 org-chart titles maps to which value) — opened by OQ-30's resolution below; blocks item 5's populated permission-matrix values, not its structure.
 
 ## Background research — completed
 
