@@ -9,13 +9,13 @@ Living tracking doc for the distillation effort. Update this whenever an artifac
 - Original 19 forms audited → `distillation/forms/01–19.md` + `00-index.md`
 - Recently-sent 5 forms audited → `distillation/forms/20–24.md`
 - Glossary (canonical vocabulary) → `distillation/glossary.md`
-- Open Questions & Decisions Register started → `distillation/open-questions.md` (OQ-01–OQ-32 issued, 23 open, 7 resolved)
+- Open Questions & Decisions Register started → `distillation/open-questions.md` (OQ-01–OQ-36 issued, 21 open, 13 resolved)
 - **Entity model (item 4)** → `distillation/entity-model.md` (2026-09-23). Built from two provenance-tagged evidence files gathered via background forks: a document inventory grounded in all 24 form audits (`distillation/research/entity-model-input-documents.md`, 22 distinct documents) and an entity-bearing-statement extract from the discovery doc/scope memo (`distillation/research/entity-model-input-discovery.md`). Covers Program/Subservice, Site, Client, Parent/Guardian & Case Worker, Placement, a new **Excursion** entity (required by the Trip Risk Assessment form — many-Clients-per-record, not in `CLAUDE.md`'s original illustrative entity list), Staff/Staff Assignment/Shift, Document/Version/Lock, Alert, and Disclosure. Explicitly scoped as shape-only, deferring policy (who/when/retention/consent) to item 7. Five new open questions surfaced and registered (OQ-28–OQ-32 — including OQ-32, a per-Client-vs-per-Placement grain question for the Client Service Agreement found while splitting the Document grain table into standing vs. episodic buckets), three existing ones strengthened (OQ-01, OQ-08, OQ-17); none block the model's structure — each is modeled with its uncertainty stated explicitly rather than guessed. A methodological caveat was also added to the register: NextGen currently has **zero active clients** (Scope Memo §2), so the discovery doc's "current process" language describes intended/designed process, not tested practice.
 - Git repo initialized for this workspace (was untracked until now)
 
 ## Not started (per `CLAUDE.md` artifact set, in dependency order)
 
-5. Permission matrix — **next up**, blocked on OQ-01/OQ-02/OQ-17/OQ-30 (Staff role axis)
+5. Permission matrix — **next up**, blocked structurally only on **OQ-30** now (org-chart scope). OQ-36 (who covers Program-Manager-level authority for Transportation/Training & Consultation, which currently have no Program Manager assigned) feeds item 7's delegation work and the matrix needs to represent "no Program Manager assigned" as a real state, but doesn't block the matrix's structure otherwise. OQ-01/OQ-02/OQ-17/OQ-33/OQ-34/OQ-35 all resolved 2026-09-24, see Blockers below.
 6. Client lifecycle state machine
 7. Cross-cutting concerns (locking/versioning, alerts, retention, Indigenous data governance, residency)
 9. Information architecture + sitemap
@@ -75,11 +75,23 @@ Client answered OQ-24 and OQ-25 directly: **there is one document, not two or th
 
 - **OQ-17** ("Program Manager" title, not previously seen in the org chart) — added to Roles & Org Structure section, feeds the same permission-matrix gate as OQ-01/OQ-02 below.
 
-### Will become immediate soon — don't block item 4, but block item 5 (Permission Matrix), right after
+### Resolved 2026-09-24 (client call, relayed by collaborator, three batches) — role hierarchy fully settled, item 5 almost unblocked
 
-- **OQ-01** (Team Lead vs. Supervisor — one role or two tiers) — the matrix is role × document × action × scope; can't build the role axis with this unresolved.
-- **OQ-02** (Director of Operations / Program Director / Director of Programs & Operations — same position?) — same reason, at the top of the approval chain.
-- **OQ-17** (Program Manager, new) — same reason; now a third title needing reconciliation, not just two.
+**First batch:**
+- ~~OQ-01~~ (Team Lead vs. Supervisor) → two distinct tiers confirmed, Supervisor supervises Team Leads. New sub-question opened: **OQ-33** (scope unit — Programs or Sites?).
+- ~~OQ-02~~ (Director of Operations / Program Director / Director of Programs & Operations) → confirmed same single position ("Yes, same"). Canonical: Director of Operations.
+- ~~OQ-17~~ (Program Manager) → confirmed distinct tier, supervises Supervisors. Client said Transportation and Training & Consultation "report to the existing program managers" (no dedicated 5th/6th) — **later reconciled in the third batch below as intent language, not a current assignment.** New sub-questions opened: **OQ-34** (which specific one(s)), **OQ-35** (design provisioning for a not-yet-existing Program Manager, which the client also asked about unprompted).
+
+**Second batch, same conversation continued:**
+- ~~OQ-33~~ → **resolved: the scope unit is Site, not Program.** Client's words: "several sites," then clarified "Team lead is one site." Corrects OQ-01's original "program" wording to "Site." Full confirmed hierarchy: **Director of Operations > Program Manager > Supervisor > Team Lead > Front-Line/Support Staff**, with Team Lead = one Site, Supervisor = several Sites. One residual (Site↔Program is many-to-many, so a Supervisor's Sites could span two Programs) carried to item 7, not a new OQ number.
+- **OQ-34** → client had no answer as of this call. At the collaborator's request (per `CLAUDE.md`'s "distill and present options" working preference), four options (A/B/C/D) drafted in `distillation/open-questions.md`, tagged PROPOSED — **superseded in the third batch below.**
+- ~~OQ-35~~ → **resolved: client approved** ("cool") our design framing — Program Manager modeled as data assignable per Program, not a fixed four-seat enum — including the collaborator's own framing of what that makes possible: **"1 program will map to 1 program manager"** (one-to-one is the target, collaborator's exact words). The 0..1 half (a Program can have *none* assigned) comes from OQ-34's client fact, not from this exchange; the possibility of one PM temporarily holding more than one Program is our own PROPOSED design inference, not stated by either party — an earlier write-up conflated all three into one client-stated cardinality, caught on advisor review and corrected in `open-questions.md`, `glossary.md`, and `entity-model.md`. Client did independently add: "another program manager can be appointed to" — i.e. dedicated per-program PMs are the expected direction over time.
+
+**Third batch — collaborator asked OQ-34 directly:** "is there a specific existing Program Manager(s) Transportation and Training & Consultation report to, or is it any Program Manager with spare capacity?"
+- ~~OQ-34~~ → **resolved: client said "there's none currently."** No existing Program Manager is actually assigned to either program today — this reconciles OQ-17's original "report to the existing program managers" as intent, not current state (consistent with the register's zero-active-clients caveat). The second batch's four options assumed an existing assignment already existed; that premise was wrong, so they're superseded, kept for traceability, not presented to the client.
+- Collaborator then floated "so any of the program managers who has spare capacity" — client said **"kind of."** Recorded as a hedge (collaborator's proposed mechanism, only partially agreed), not a confirmed policy. New item opened: **OQ-36** — who exercises Program-Manager-level authority for the two programs in the meantime, and what actually decides the eventual assignment. This is the one still worth relaying to the client.
+
+**Still blocking item 5:** OQ-30 (org-chart scope) only, structurally. OQ-36 remains open and feeds item 7's delegation work; it doesn't block the matrix's shape, but the matrix does need to represent "Program with no Program Manager assigned" as a real state. Full detail: `distillation/open-questions.md`.
 
 ### Later — block item 7 (Cross-Cutting Concerns), not yet urgent
 
