@@ -46,4 +46,4 @@ The open-questions file is the best up-to-date source for exactly what's settled
 
 ## Questions
 
-If anything here is unclear, or you'd like more context on any of this, please reach out to your NextGen project contact on our side rather than editing files directly in this repository.
+If anything here is unclear, or you'd like more context on any of this, please reach out to your project contact on our side rather than editing files directly in this repository.
