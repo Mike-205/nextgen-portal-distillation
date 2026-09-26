@@ -176,7 +176,7 @@ An immutable predecessor of a Document, created when an already-locked Document 
 A state on a Document (specifically, on its current version): a staff member marking their own documentation complete and no longer editable by them (RESOLVED, `glossary.md`; distinct from Approval). One structural nuance found: the **Shift Checklist locks per shift-section** (Morning/Afternoon/Night are three separate lockable sub-records), not once for the whole document instance — the only document type found with sub-document-level locking.
 
 - **Approval/co-sign** is a separate, later action on top of an already-locked Document, required only for five named categories (RESOLVED, this file's glossary update: Incident Reports; medication-related documentation; client assessments/planning documents; discharge documentation; and a fifth, separately-named "High-Risk Documentation" bucket — serious behavioural incidents, safety reports, missing-person/AWOL documentation, emergency response documentation).
-- **Who may unlock, and when** — item 7, not item 4. (Canonical default: System Administrator, delegable — see glossary.)
+- **Who may unlock, and when** — item 5 (`permission-matrix.md` §9), not item 4. (Canonical default: System Administrator, delegable — see glossary.)
 
 ---
 

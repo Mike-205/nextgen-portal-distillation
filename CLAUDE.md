@@ -32,11 +32,13 @@ nexgen-portal/
     ├── glossary.md                      canonical vocabulary — every other artifact uses ONLY these terms
     ├── open-questions.md                client-facing register of unresolved questions, living document
     ├── entity-model.md                  conceptual entity model (item 4)
+    ├── permission-matrix.md             role × document × action × scope (item 5)
     ├── forms/                           one factual spec-sheet per source form + 00-index.md
     └── research/                        background research + scratch evidence files feeding a deliverable above — not themselves numbered artifacts, kept for traceability
         ├── legal-context-research.md    Alberta child-welfare/privacy-law research (feeds OQ-03/13/14/15/18–23)
         ├── entity-model-input-documents.md   document inventory used to build entity-model.md
-        └── entity-model-input-discovery.md   discovery-doc/memo entity-bearing statements used to build entity-model.md
+        ├── entity-model-input-discovery.md   discovery-doc/memo entity-bearing statements used to build entity-model.md
+        └── permission-matrix-input-discovery.md   discovery-doc/forms permission statements, tagged, used to build permission-matrix.md
 ```
 
 This is now a git repo (initialized 2026-09-21). Check `PROJECT-LOG.md` at the start of every session alongside this file — it tracks what's actually done, what's blocking what, and where real work diverged from this file's plan.
@@ -55,7 +57,7 @@ Client sends forms as `.docx`. Convert to `.txt` immediately (zipfile + regex on
 
 **Per-form audits are purely factual** — field inventory, structural issues (duplicates, empty presets, incomplete sections, misplaced fields), and claim-verification against anything the discovery doc/memo said about that specific form. No fixes, no resolutions, no design opinions get written into a form's spec sheet — every ambiguity found goes to the open-questions register instead.
 
-**Heavy-reading audit tasks run as background subagents (forks)** that write their findings directly to files in `distillation/`, then report back a short summary — this keeps raw form/document text out of the main conversation while the actual output (the files) persists. Pattern used three times already (original 19 forms, the 5 recently-sent forms, and gathering entity-model evidence into `distillation/research/`) — reuse it for future large-batch reading tasks in this project. When a fork's output is supporting evidence for a later synthesis step rather than a client-facing deliverable itself, write it to `distillation/research/`, not `distillation/` directly.
+**Heavy-reading audit tasks run as background subagents (forks)** that write their findings directly to files in `distillation/`, then report back a short summary — this keeps raw form/document text out of the main conversation while the actual output (the files) persists. Pattern used four times already (original 19 forms, the 5 recently-sent forms, gathering entity-model evidence, and gathering permission-matrix evidence — the last of these needed a retry after the first attempt terminated after a single tool call with no output file) — reuse it for future large-batch reading tasks in this project. When a fork's output is supporting evidence for a later synthesis step rather than a client-facing deliverable itself, write it to `distillation/research/`, not `distillation/` directly.
 
 ## Artifact set (dependency order) — status
 
@@ -63,10 +65,10 @@ Client sends forms as `.docx`. Convert to `.txt` immediately (zipfile + regex on
 2. [x] **Recently-sent 5 forms audit** → `distillation/forms/20–24.md` (appended to `00-index.md`)
 3. [x] **Glossary** → `distillation/glossary.md`
 4. [x] **Entity model** (conceptual, not a schema) → `distillation/entity-model.md` — Program, Subservice, Site, Client, Parent/Guardian, Case Worker, Placement, Excursion (new), Staff, Staff Assignment, Shift, Document, Version, Lock, Alert, Disclosure
-5. [ ] **Permission matrix** — role × document × action × scope, collapsed from the discovery doc's several inconsistent versions of this
+5. [x] **Permission matrix** → `distillation/permission-matrix.md` — role × document × action × scope, collapsed from the discovery doc's several inconsistent versions of this (evidence in `distillation/research/permission-matrix-input-discovery.md`)
 6. [ ] **Client lifecycle state machine** — referral → screening → eligibility → accepted/declined → active placement → transition → discharge → archived
 7. [ ] **Cross-cutting concerns** — locking/versioning/unlock-with-audit-trail, alert & escalation matrix, retention & legal hold, Indigenous data governance (OCAP, consent, disclosure log), Canadian data residency
-8. [~] **Open questions & decisions register** → `distillation/open-questions.md` — living document (OQ-01–OQ-38 issued, 19 open, 17 resolved, as of last update), append as later artifacts surface more; every entry tagged per the provenance system above
+8. [~] **Open questions & decisions register** → `distillation/open-questions.md` — living document (OQ-01–OQ-48 issued, 29 open, 17 resolved, as of last update), append as later artifacts surface more; every entry tagged per the provenance system above
 9. [ ] **Information architecture + sitemap** — derived last; every node must trace back to something in 4–7, nothing invented
 10. [ ] **UX/UI guides**
 11. [ ] **Dev guides** — illustrative snippets only, never real implementation code
@@ -74,7 +76,7 @@ Client sends forms as `.docx`. Convert to `.txt` immediately (zipfile + regex on
 
 ## Known open tensions
 
-Full list with context and citations lives in `distillation/open-questions.md` (OQ-01–OQ-38 issued, 19 open, 17 resolved, as of last update, living document). Do not duplicate that list here — check that file directly.
+Full list with context and citations lives in `distillation/open-questions.md` (OQ-01–OQ-48 issued, 29 open, 17 resolved, as of last update, living document). Do not duplicate that list here — check that file directly.
 
 ## Working preferences
 
