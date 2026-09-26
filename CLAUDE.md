@@ -66,7 +66,7 @@ Client sends forms as `.docx`. Convert to `.txt` immediately (zipfile + regex on
 5. [ ] **Permission matrix** — role × document × action × scope, collapsed from the discovery doc's several inconsistent versions of this
 6. [ ] **Client lifecycle state machine** — referral → screening → eligibility → accepted/declined → active placement → transition → discharge → archived
 7. [ ] **Cross-cutting concerns** — locking/versioning/unlock-with-audit-trail, alert & escalation matrix, retention & legal hold, Indigenous data governance (OCAP, consent, disclosure log), Canadian data residency
-8. [~] **Open questions & decisions register** → `distillation/open-questions.md` — living document (OQ-01–OQ-37 issued, 20 open, 15 resolved, as of last update), append as later artifacts surface more; every entry tagged per the provenance system above
+8. [~] **Open questions & decisions register** → `distillation/open-questions.md` — living document (OQ-01–OQ-37 issued, 19 open, 16 resolved, as of last update), append as later artifacts surface more; every entry tagged per the provenance system above
 9. [ ] **Information architecture + sitemap** — derived last; every node must trace back to something in 4–7, nothing invented
 10. [ ] **UX/UI guides**
 11. [ ] **Dev guides** — illustrative snippets only, never real implementation code
@@ -74,7 +74,7 @@ Client sends forms as `.docx`. Convert to `.txt` immediately (zipfile + regex on
 
 ## Known open tensions
 
-Full list with context and citations lives in `distillation/open-questions.md` (OQ-01–OQ-37 issued, 20 open, 15 resolved, as of last update, living document). Do not duplicate that list here — check that file directly.
+Full list with context and citations lives in `distillation/open-questions.md` (OQ-01–OQ-37 issued, 19 open, 16 resolved, as of last update, living document). Do not duplicate that list here — check that file directly.
 
 ## Working preferences
 
