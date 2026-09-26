@@ -28,13 +28,14 @@ The reason we work this way: digitizing a paper form without first understanding
 
 ## A note on how we handle uncertainty
 
-Some of the material we've been given describes what's actually happening today, and some of it describes what NextGen would *like* the new system to do — those aren't always the same thing, and it isn't always obvious which is which from the wording alone. Some material occasionally states two different things about the same question. Rather than paper over that, we tag each significant claim we work with — roughly, as something confirmed, something proposed but not yet confirmed, or something contradictory — so it's always clear how solid a given piece of information is.
+Some of the material we've been given describes what's actually happening today, and some of it describes what NextGen would _like_ the new system to do — those aren't always the same thing, and it isn't always obvious which is which from the wording alone. Some material occasionally states two different things about the same question. Rather than paper over that, we tag each significant claim we work with — roughly, as something confirmed, something proposed but not yet confirmed, or something contradictory — so it's always clear how solid a given piece of information is.
 
 If you see a note flagging an inconsistency in something your own team sent us, that's a completely normal and expected part of this process, not a criticism — forms and answers written by different people at different times almost always end up with small mismatches, and catching them now is much cheaper than catching them after the software is built.
 
 ## Where things stand right now
 
 Work completed so far:
+
 - Full factual review of both batches of forms (24 forms in total)
 - A shared glossary of terms
 - A conceptual model of the system's core information (clients, staff, programs, documents, and so on)
@@ -46,4 +47,4 @@ The open-questions file is the best up-to-date source for exactly what's settled
 
 ## Questions
 
-If anything here is unclear, or you'd like more context on any of this, please reach out to your project contact on our side rather than editing files directly in this repository.
+If anything here is unclear, or you'd like more context on any of this, please reach out on our side rather than editing files directly in this repository.
