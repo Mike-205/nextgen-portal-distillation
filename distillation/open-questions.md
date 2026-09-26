@@ -101,7 +101,7 @@ Three client answers, three different occasions, none reconciling cleanly:
 - **Reporting line: Community Partnerships & Outreach Manager** — kept from the second answer, which at least specifically addressed "what department is this role under" even though it used reporting-line language.
 - The third ("Compliance") answer is **recorded but not applied** — noted here for the provenance trail, not treated as authoritative.
 
-**Not relayed to the client as a correction** — same status as the five senior managers' Functional Group reassignment: a collaborator judgment call made because repeated client answers weren't converging, not something formally sent back for sign-off. Both are residual, non-blocking for item 5.
+**Not relayed to the client as a correction** — unlike the five senior managers' Functional Group reassignment (which *was* relayed and client-confirmed, see the residual note below), this one stays a collaborator judgment call made because repeated client answers weren't converging, not something formally sent back for sign-off. Non-blocking for item 5 either way.
 
 Full detail also carried in `entity-model.md`'s per-title table (Indigenous Cultural Coordinator row).
 
@@ -124,7 +124,15 @@ Full detail also carried in `entity-model.md`'s per-title table (Indigenous Cult
 > *(For 1–4, just say "correct" or name the one that's wrong — no need to address each name individually.)*
 
 Once answered: resolves whether clinicians need a second, program-side reporting line for timesheet/note-review purposes (item 5); fills in Intake & Admissions Coordinator's and System Administrator's reporting lines (items 6–7). Does not touch the Functional Group/Hierarchy Tier labels for items 1–4, which stay our own design framework regardless of the answer. Indigenous Cultural Coordinator no longer appears here — resolved above by collaborator decision (OQ-38), not by a further client question.
-**Residual, not reopening this OQ:** the five senior managers' Functional Group reassignment (Executive/Corporate → the department each heads) is a collaborator decision that overrides the client's 2026-09-25 "everything is correctly listed" answer — item 5 (Permission Matrix) can proceed with it now, but it should be relayed to the client for awareness/confirmation at a convenient point, since it's a real correction to something they explicitly confirmed, not just a gap-fill.
+**RESOLVED (2026-09-26, client confirmed).** The five senior managers' Functional Group reassignment (Executive/Corporate → the department each heads) was a collaborator decision that overrode the client's 2026-09-25 "everything is correctly listed" answer. Relayed as an explicit correction (message below) — **client confirmed it.** All five managers' Functional Group cells in `entity-model.md`'s per-title table are now **CLIENT-confirmed**, not just collaborator-decided.
+
+> **One correction to flag from the department groupings you confirmed earlier** *(sent 2026-09-26, confirmed same day)*
+>
+> When you told us "everything is correctly listed" for department groupings, we had the five managers (Clinical Services, HR & Administration, Finance & Corporate Services, Quality Improvement & Compliance, Community Partnerships & Outreach) grouped together under a general "Executive/Corporate" bucket, separate from the teams they actually run.
+>
+> On review, we think each manager should instead be grouped under the department they head — e.g. the Clinical Services Manager under Clinical, not Executive/Corporate — since this grouping is what determines which documents a manager can see and sign off on for their own team. Program Manager already works this way (grouped under the program they manage), so this brings the five managers in line with that.
+>
+> Just flagging this as a correction to what you confirmed earlier — let us know if that doesn't match how you'd want it to work.
 
 **OQ-31 — Does the Client Incident Report's "Facility Information" section (Section 2) describe a NextGen Site, or an external caregiver's/placement's location?**
 Tag: UNANSWERED (new, 2026-09-23, from entity-model evidence gathering). The section's field set (Foster Care/Kinship Care/etc. facility types, License #/Caregiver ID, facility address) reads like a government-template concept describing wherever the child is currently placed — which may be an external caregiver's home, not necessarily a NextGen-operated Site. **Ask:** should this section be modeled as a reference to the Client's NextGen Site (when the incident happens at one), a free-standing external-location record, or both depending on context? Affects whether the entity model can treat this field as "the Site" for Incident Reports or needs a separate concept.
